@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xbus.xius.com/services/billing/debitorcredit" xmlns:comm="http://xbus.xius.com/messages/common" xmlns:msgs="http://xbus.xius.com/messages/billing/debitorcredit" xmlns:err="http://xbus.xius.com/messages/common/errordetails" targetNamespace="http://xbus.xius.com/services/billing/debitorcredit">
+	<wsdl:types>
+		<xsi:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<xsi:import namespace="http://xbus.xius.com/messages/billing/debitorcredit" schemaLocation="DebitOrCreditServices.xsd"/>
+			<xsi:import namespace="http://xbus.xius.com/messages/common/errordetails" schemaLocation="../../common/ErrorDetails.xsd"/>
+		</xsi:schema>
+	</wsdl:types>
+	<wsdl:message name="FaultData">
+		<wsdl:part name="faultData" element="err:errorDetailItem"/>
+	</wsdl:message>
+	<wsdl:message name="GetPrepaidAccBalanceRequest">
+		<wsdl:part name="request" element="msgs:getPrepaidAccBalanceRequest"/>
+	</wsdl:message>
+	<wsdl:message name="GetPrepaidAccBalanceResponse">
+		<wsdl:part name="response" element="msgs:getPrepaidAccBalanceResponse"/>
+	</wsdl:message>
+	<wsdl:message name="SpecialTopUpRequest">
+		<wsdl:part name="request" element="msgs:specialTopUpRequest"/>
+	</wsdl:message>
+	<wsdl:message name="SpecialTopUpResponse">
+		<wsdl:part name="response" element="msgs:specialTopUpResponse"/>
+	</wsdl:message>
+	<wsdl:message name="VoucherTopUpRequest">
+		<wsdl:part name="request" element="msgs:voucherTopUpRequest"/>
+	</wsdl:message>
+	<wsdl:message name="VoucherTopUpResponse">
+		<wsdl:part name="response" element="msgs:voucherTopUpResponse"/>
+	</wsdl:message>
+	<wsdl:message name="WaiversOrDebitPreInfoRequest">
+		<wsdl:part name="request" element="msgs:getTariffAndBalanceRequest"/>
+	</wsdl:message>
+	<wsdl:message name="WaiversOrDebitPreInfoResponse">
+		<wsdl:part name="response" element="msgs:getTariffAndBalanceResponse"/>
+	</wsdl:message>
+	<wsdl:message name="DebitSpecialRequest">
+		<wsdl:part name="request" element="msgs:debitSpecialRequest"/>
+	</wsdl:message>
+	<wsdl:message name="DebitSpecialResponse">
+		<wsdl:part name="response" element="msgs:debitSpecialResponse"/>
+	</wsdl:message>
+	<wsdl:message name="GetCreditLimitInfoRequest">
+		<wsdl:part name="request" element="msgs:getCreditLimitInfoRequest"/>
+	</wsdl:message>
+	<wsdl:message name="GetCreditLimitInfoResponse">
+		<wsdl:part name="response" element="msgs:getCreditLimitInfoResponse"/>
+	</wsdl:message>
+	<wsdl:message name="UpdateCreditLimitRequest">
+		<wsdl:part name="request" element="msgs:updateCreditLimitRequest"/>
+	</wsdl:message>
+	<wsdl:message name="UpdateCreditLimitResponse">
+		<wsdl:part name="response" element="msgs:updateCreditLimitResponse"/>
+	</wsdl:message>
+	<wsdl:message name="DeleteCreditLimitRequest">
+		<wsdl:part name="request" element="msgs:deleteCreditLimitRequest"/>
+	</wsdl:message>
+	<wsdl:message name="DeleteCreditLimitResponse">
+		<wsdl:part name="response" element="msgs:deleteCreditLimitResponse"/>
+	</wsdl:message>
+	<wsdl:message name="AdjustBalanceRequest">
+		<wsdl:part name="request" element="msgs:adjustBalanceRequest"/>
+	</wsdl:message>
+	<wsdl:message name="AdjustBalanceResponse">
+		<wsdl:part name="response" element="msgs:adjustBalanceResponse"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveVoucherRequest">
+		<wsdl:part name="request" element="msgs:retrieveVoucherRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveVoucherResponse">
+		<wsdl:part name="response" element="msgs:retrieveVoucherResponse"/>
+	</wsdl:message>
+	<wsdl:message name="BulkTopUpRequest">
+		<wsdl:part name="request" element="msgs:bulkTopUpRequest"/>
+	</wsdl:message>
+	<wsdl:message name="BulkTopUpResponse">
+		<wsdl:part name="response" element="msgs:bulkTopUpResponse"/>
+	</wsdl:message>
+	
+        <wsdl:message name="UpdateBalanceRequest">
+		<wsdl:part name="request" element="msgs:updateBalanceRequest"/>
+	</wsdl:message>
+	<wsdl:message name="UpdateBalanceResponse">
+		<wsdl:part name="response" element="msgs:updateBalanceResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="ActivateRcProductRequest">
+		<wsdl:part name="request" element="msgs:activateRcProductRequest"/>
+	</wsdl:message>
+	<wsdl:message name="ActivateRcProductResponse">
+		<wsdl:part name="response" element="msgs:activateRcProductResponse"/>
+	</wsdl:message>
+	
+	<wsdl:message name="PurchaseRcProductRequest">
+		<wsdl:part name="request" element="msgs:purchaseRcProductRequest"/>
+	</wsdl:message>
+	<wsdl:message name="PurchaseRcProductResponse">
+		<wsdl:part name="response" element="msgs:purchaseRcProductResponse"/>
+	</wsdl:message>
+	
+	<wsdl:message name="RechargeWithCcRequest">
+		<wsdl:part name="request" element="msgs:rechargeWithCcRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RechargeWithCcResponse">
+		<wsdl:part name="response" element="msgs:rechargeWithCcResponse"/>
+	</wsdl:message>
+	
+	
+	<wsdl:portType name="DebitOrCreditPortType">
+		<wsdl:operation name="getPrepaidAccBalance">
+			<wsdl:documentation>
+				This operation is used to get details accountStatus, currentBalance and validityDates of an account
+			</wsdl:documentation>
+			<wsdl:input message="tns:GetPrepaidAccBalanceRequest"/>
+			<wsdl:output message="tns:GetPrepaidAccBalanceResponse"/>
+			<wsdl:fault name="FaultData" message="tns:FaultData"/>
+		</wsdl:operation>
+		<wsdl:operation name="specialTopUp">
+			<wsdl:documentation>
+				This operation is used to TopUp the balance with creditcard, cash etc..
+			</wsdl:documentation>
+			<wsdl:input message="tns:SpecialTopUpRequest"/>
+			<wsdl:output message="tns:SpecialTopUpResponse"/>
+			<wsdl:fault name="FaultData" message="tns:FaultData"/>
+		</wsdl:operation>
+		<wsdl:operation name="voucherTopUp">
+			<wsdl:documentation>
+				This operation is used to TopUp the balance with voucher and returns the voucher details and resulting balance details.
+			</wsdl:documentation>
+			<wsdl:input message="tns:VoucherTopUpRequest"/>
+			<wsdl:output message="tns:VoucherTopUpResponse"/>
+			<wsdl:fault name="FaultData" message="tns:FaultData"/>
+		</wsdl:operation>
+		<wsdl:operation name="getTariffAndBalance">
+			<wsdl:documentation>
+				This operation is used to get the tariff plan and balance details.
+			</wsdl:documentation>
+			<wsdl:input message="tns:WaiversOrDebitPreInfoRequest"/>
+			<wsdl:output message="tns:WaiversOrDebitPreInfoResponse"/>
+			<wsdl:fault name="FaultData" message="tns:FaultData"/>
+		</wsdl:operation>
+		<wsdl:operation name="debitSpecial">
+			<wsdl:documentation>
+				This operation is used to do the special debit.
+			</wsdl:documentation>
+			<wsdl:input message="tns:DebitSpecialRequest"/>
+			<wsdl:output message="tns:DebitSpecialResponse"/>
+			<wsdl:fault name="FaultData" message="tns:FaultData"/>
+		</wsdl:operation>
+		<wsdl:operation name="getCreditLimitInfo">
+			<wsdl:documentation>
+				This operation is used to get the Credit Limit of an Account.
+			</wsdl:documentation>
+			<wsdl:input message="tns:GetCreditLimitInfoRequest"/>
+			<wsdl:output message="tns:GetCreditLimitInfoResponse"/>
+			<wsdl:fault name="FaultData" message="tns:FaultData"/>
+		</wsdl:operation>
+		<wsdl:operation name="updateCreditLimit">
+			<wsdl:documentation>
+				This operation is used to INSERT or MOPDIFY the Credit Limit of an Account.
+			</wsdl:documentation>
+			<wsdl:input message="tns:UpdateCreditLimitRequest"/>
+			<wsdl:output message="tns:UpdateCreditLimitResponse"/>
+			<wsdl:fault name="FaultData" message="tns:FaultData"/>
+		</wsdl:operation>
+		<wsdl:operation name="deleteCreditLimit">
+			<wsdl:documentation>
+				This operation is used to DELETE the Credit Limit of an Account.
+			</wsdl:documentation>
+			<wsdl:input message="tns:DeleteCreditLimitRequest"/>
+			<wsdl:output message="tns:DeleteCreditLimitResponse"/>
+			<wsdl:fault name="FaultData" message="tns:FaultData"/>
+		</wsdl:operation>
+		<wsdl:operation name="adjustBalance">
+			<wsdl:documentation>
+				This operation is used to Debit or Credit from/to an Account.
+			</wsdl:documentation>
+			<wsdl:input message="tns:AdjustBalanceRequest"/>
+			<wsdl:output message="tns:AdjustBalanceResponse"/>
+			<wsdl:fault name="FaultData" message="tns:FaultData"/>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveVoucher">
+			<wsdl:documentation>
+				This operation is used to Debit or Credit from/to an Account.
+			</wsdl:documentation>
+			<wsdl:input message="tns:RetrieveVoucherRequest"/>
+			<wsdl:output message="tns:RetrieveVoucherResponse"/>
+			<wsdl:fault name="FaultData" message="tns:FaultData"/>
+		</wsdl:operation>
+		<wsdl:operation name="BulkTopUp">
+			<wsdl:documentation>
+				Which is used to do the Topup for the given bunch of MSISDNs for the corresponding amount which comes under the same Office [code]
+			</wsdl:documentation>
+			<wsdl:input message="tns:BulkTopUpRequest"/>
+			<wsdl:output message="tns:BulkTopUpResponse"/>
+			<wsdl:fault name="FaultData" message="tns:FaultData"/>
+		</wsdl:operation>
+              
+        <wsdl:operation name="updateBalance">
+			<wsdl:documentation>
+				This operation is used to Debit
+			</wsdl:documentation>
+			<wsdl:input message="tns:UpdateBalanceRequest"/>
+			<wsdl:output message="tns:UpdateBalanceResponse"/>
+			<wsdl:fault name="FaultData" message="tns:FaultData"/>
+		</wsdl:operation>
+		
+		 <wsdl:operation name="activateRcProduct">
+			<wsdl:documentation>
+				This operation is used to RC Product activate without debit
+			</wsdl:documentation>
+			<wsdl:input message="tns:ActivateRcProductRequest"/>
+			<wsdl:output message="tns:ActivateRcProductResponse"/>
+			<wsdl:fault name="FaultData" message="tns:FaultData"/>
+		</wsdl:operation>
+		
+		<wsdl:operation name="purchaseRcProduct">
+			<wsdl:documentation>
+				This operation is used to RC Product activate with debit
+			</wsdl:documentation>
+			<wsdl:input message="tns:PurchaseRcProductRequest"/>
+			<wsdl:output message="tns:PurchaseRcProductResponse"/>
+			<wsdl:fault name="FaultData" message="tns:FaultData"/>
+		</wsdl:operation>
+		
+		<wsdl:operation name="rechargeWithCc">
+			<wsdl:documentation>
+				This operation is used to RC Product activate with credit card
+			</wsdl:documentation>
+			<wsdl:input message="tns:RechargeWithCcRequest"/>
+			<wsdl:output message="tns:RechargeWithCcResponse"/>
+			<wsdl:fault name="FaultData" message="tns:FaultData"/>
+		</wsdl:operation>
+		
+	</wsdl:portType>
+
+	<wsdl:binding name="DebitOrCreditBinding" type="tns:DebitOrCreditPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="getPrepaidAccBalance">
+			<soap:operation soapAction="getPrepaidAccBalance"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultData">
+				<soap:fault name="FaultData" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="specialTopUp">
+			<soap:operation soapAction="SpecialTopUp"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultData">
+				<soap:fault name="FaultData" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="voucherTopUp">
+			<soap:operation soapAction="voucherTopUp"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultData">
+				<soap:fault name="FaultData" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getTariffAndBalance">
+			<soap:operation soapAction="getTariffAndBalance"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultData">
+				<soap:fault name="FaultData" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="debitSpecial">
+			<soap:operation soapAction="DebitSpecial"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultData">
+				<soap:fault name="FaultData" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getCreditLimitInfo">
+			<soap:operation soapAction="GetCreditLimitInfo"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultData">
+				<soap:fault name="FaultData" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateCreditLimit">
+			<soap:operation soapAction="UpdateCreditLimit"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultData">
+				<soap:fault name="FaultData" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="deleteCreditLimit">
+			<soap:operation soapAction="DeleteCreditLimit"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultData">
+				<soap:fault name="FaultData" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="adjustBalance">
+			<soap:operation soapAction="adjustBalance"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultData">
+				<soap:fault name="FaultData" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveVoucher">
+			<soap:operation soapAction="retrieveVoucher"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultData">
+				<soap:fault name="FaultData" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="BulkTopUp">
+			<soap:operation soapAction="BulkTopUp"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultData">
+				<soap:fault name="FaultData" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+
+         <wsdl:operation name="updateBalance">
+			<soap:operation soapAction="updateBalance"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultData">
+				<soap:fault name="FaultData" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		 <wsdl:operation name="activateRcProduct">
+			<soap:operation soapAction="activateRcProduct"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultData">
+				<soap:fault name="FaultData" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		 <wsdl:operation name="purchaseRcProduct">
+			<soap:operation soapAction="purchaseRcProduct"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultData">
+				<soap:fault name="FaultData" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="rechargeWithCc">
+			<soap:operation soapAction="rechargeWithCc"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultData">
+				<soap:fault name="FaultData" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+	</wsdl:binding>
+	<wsdl:service name="DebitOrCreditService">
+		<wsdl:port name="DebitOrCreditPort" binding="tns:DebitOrCreditBinding">
+			<soap:address location="http://10.10.21.52:8192/mspapi/billing/DebitOrCreditServices/v1"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

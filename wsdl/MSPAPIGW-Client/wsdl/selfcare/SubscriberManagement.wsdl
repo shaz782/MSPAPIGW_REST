@@ -1,0 +1,659 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://scare.xbus.xiusbcgi.com/SubscriberManagement.wsdl" xmlns:envelope="http://scare.xbus.xiusbcgi.com/SubscriberManagement.xsd" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wshdr="http://scare.xbus.xiusbcgi.com/common/header/HeaderDetails.xsd" xmlns:err="http://scare.xbus.xiusbcgi.com/common/error/ErrorDetails.xsd" targetNamespace="http://scare.xbus.xiusbcgi.com/SubscriberManagement.wsdl">
+	<wsdl:types>
+		<xs:schema xmlns:tns="http://scare.xbus.xiusbcgi.com/SubscriberManagement.wsdl" targetNamespace="http://scare.xbus.xiusbcgi.com/SubscriberManagement.wsdl">
+			<xs:import namespace="http://scare.xbus.xiusbcgi.com/SubscriberManagement.xsd" schemaLocation="SubscriberManagement.xsd"/>
+			<xs:import namespace="http://scare.xbus.xiusbcgi.com/common/header/HeaderDetails.xsd" schemaLocation="HeaderDetails.xsd"/>
+			<xs:import namespace="http://scare.xbus.xiusbcgi.com/common/error/ErrorDetails.xsd" schemaLocation="ErrorDetails.xsd"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="getIDvalueBylastDigitsRequest">
+		<wsdl:part name="body" element="envelope:getIDvalueBylastDigitsRequest"/>
+	</wsdl:message>	
+	<wsdl:message name="getIDvalueBylastDigitsResponse">
+		<wsdl:part name="body" element="envelope:getIDvalueBylastDigitsResponse"/>
+	</wsdl:message>	
+	<wsdl:message name="getSubDetailsRequest">
+		<wsdl:part name="body" element="envelope:getSubDetailsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getSubDetailsResponse">
+		<wsdl:part name="body" element="envelope:getSubDetailsResponse"/>
+	</wsdl:message>
+	<wsdl:message name="updateSubDetailsRequest">
+		<wsdl:part name="body" element="envelope:updateSubDetailsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="updateSubDetailsResponse">
+		<wsdl:part name="body" element="envelope:updateSubDetailsResponse"/>
+	</wsdl:message>
+	<wsdl:message name="updateSubscriberStatusRequest">
+		<wsdl:part name="body" element="envelope:updateSubscriberStatusRequest"/>
+	</wsdl:message>
+	<wsdl:message name="updateSubscriberStatusResponse">
+		<wsdl:part name="body" element="envelope:updateSubscriberStatusResponse"/>
+	</wsdl:message>
+	<wsdl:message name="getEmailIdRequest">
+		<wsdl:part name="body" element="envelope:getEmailIdRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getEmailIdResponse">
+		<wsdl:part name="body" element="envelope:getEmailIdResponse"/>
+	</wsdl:message>	
+	
+	<!-- 
+		REQ/CH 		 : REQ#763
+		Description: : Incorporate the  the last 4 digits number selection 
+					   format introduced in Self Care to Dealer Portal. 
+		Done By		 : Phani.Chavala
+		Date		 : 14/12/2010
+	 -->
+	
+	<wsdl:message name="getDesiredMSISDNRequest">
+		<wsdl:part name="body" element="envelope:getDesiredMSISDNRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getDesiredMSISDNResponse">
+		<wsdl:part name="body" element="envelope:getDesiredMSISDNResponse"/>
+	</wsdl:message>	
+	
+	<!-- 
+		REQ		     : REQ#881
+		Description  : In order to get subscriber id which has given at the time of SIM-Registration,
+					   SelfCareAgent is enhancing its API base to Accommodate this REQ
+					   with a new API "getSubscriberID". 
+		Done By		 : Phani.Chavala
+		Date		 : 18/05/2011
+	 -->
+	
+	<wsdl:message name="getSubscriberIDRequest">
+		<wsdl:part name="body" element="envelope:getSubscriberIDRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getSubscriberIDResponse">
+		<wsdl:part name="body" element="envelope:getSubscriberIDResponse"/>
+	</wsdl:message>	
+	<!-- 
+		REQ		     : REQ#881
+		Description  : In order to get subscriber id which has given at the time of SIM-Registration,
+					   SelfCareAgent is enhancing its API base to Accommodate this REQ
+					   with a new API "getSubscriberProfileInfo". 
+		Done By		 : Janaki.Sontiyala
+		Date		 : 25/05/2011
+	 -->
+	 <wsdl:message name="getSubscriberProfileInfoRequest">
+		<wsdl:part name="body" element="envelope:getSubscriberProfileInfoRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getSubscriberProfileInfoResponse">
+		<wsdl:part name="body" element="envelope:getSubscriberProfileInfoResponse"/>
+	</wsdl:message>	
+	
+		<!-- 
+		REQ		     : For Corporate Self Care 1046
+		Description  : In order to get subscriber Details by Office Code,
+		Done By		 : Ravi.Shaganti
+		Date		 : 23/01/2012
+	 -->
+	<wsdl:message name="getSubDetailsByOfficeRequest">
+		<wsdl:part name="body" element="envelope:getSubDetailsByOfficeRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getSubDetailsByOfficeResponse">
+		<wsdl:part name="body" element="envelope:getSubDetailsByOfficeResponse"/>
+	</wsdl:message>
+
+		<!-- 
+		REQ		     : For Subscriber Bulk Upload 1029
+		Description  : Subscriber Bulk Upload
+		Done By		 : Ravi.Shaganti
+		Date		 : 26/02/2012
+	 -->
+	<wsdl:message name="uploadSubTransDetailsRequest">
+		<wsdl:part name="body" element="envelope:uploadSubTransDetailsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="uploadSubTransDetailsResponse">
+		<wsdl:part name="body" element="envelope:uploadSubTransDetailsResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="updateSubTransDetailsRequest">
+		<wsdl:part name="body" element="envelope:updateSubTransDetailsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="updateSubTransDetailsResponse">
+		<wsdl:part name="body" element="envelope:updateSubTransDetailsResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="updateDemographicDetailsRequest">
+		<wsdl:part name="body" element="envelope:updateDemographicDetailsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="updateDemographicDetailsResponse">
+		<wsdl:part name="body" element="envelope:updateDemographicDetailsResponse"/>
+	</wsdl:message>
+	
+	<!-- 
+		REQ		     : For MSP 4.0
+		Description  : In order to get subscriber id which has given at the time of Find Account,
+					   SelfCareAgent is enhancing its API base to Accommodate this REQ
+					   with a new API "getSubByNameID". 
+		Done By		 : Janaki.Sontiyala
+		Date		 : 15/07/2011
+	 -->
+	 <wsdl:message name="getSubByNameIDRequest">
+		<wsdl:part name="body" element="envelope:getSubByNameIDRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getSubByNameIDResponse">
+		<wsdl:part name="body" element="envelope:getSubByNameIDResponse"/>
+	</wsdl:message>	
+
+	 <wsdl:message name="getSubBulkNamesRequest">
+		<wsdl:part name="body" element="envelope:getSubBulkNamesRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getSubBulkNamesResponse">
+		<wsdl:part name="body" element="envelope:getSubBulkNamesResponse"/>
+	</wsdl:message>	
+	 
+	
+	<wsdl:message name="getSubLanguageRequest">
+		<wsdl:part name="body" element="envelope:getSubLanguageRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getSubLanguageResponse">
+		<wsdl:part name="body" element="envelope:getSubLanguageResponse"/>
+	</wsdl:message>	
+	
+	<wsdl:message name="setSubLanguageRequest">
+		<wsdl:part name="body" element="envelope:setSubLanguageRequest"/>
+	</wsdl:message>
+	<wsdl:message name="setSubLanguageResponse">
+		<wsdl:part name="body" element="envelope:setSubLanguageResponse"/>
+	</wsdl:message>
+	<!-- ************************* Yokko Activation flow changes  ************************************ -->
+		
+	<wsdl:message name="updateSubIDValueRequest">
+		<wsdl:part name="body" element="envelope:updateSubIDValueRequest"/>
+	</wsdl:message>
+	<wsdl:message name="updateSubIDValueResponse">
+		<wsdl:part name="body" element="envelope:updateSubIDValueResponse"/>
+	</wsdl:message>
+	 
+	 
+	 <!-- *************************API to get IDType and IDValue based on TaxID************************************ -->
+		
+	<wsdl:message name="getTaxIDBasedSubIDValueRequest">
+		<wsdl:part name="body" element="envelope:getTaxIDBasedSubIDValueRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getTaxIDBasedSubIDValueResponse">
+		<wsdl:part name="body" element="envelope:getTaxIDBasedSubIDValueResponse"/>
+	</wsdl:message>
+	 
+	 
+	 
+	<wsdl:message name="WsMessageHeader">
+		<wsdl:part name="head" element="wshdr:messageHeader"/>
+	</wsdl:message>
+	<wsdl:message name="faultmessage">
+		<wsdl:part name="body" element="err:errorDetailItem"/>
+	</wsdl:message>
+	<wsdl:portType name="SubscriberManagementPortType">
+	
+	<wsdl:operation name="getIDvalueBylastDigits">
+			<wsdl:input message="tns:getIDvalueBylastDigitsRequest"/>
+			<wsdl:output message="tns:getIDvalueBylastDigitsResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+		
+		<wsdl:operation name="getSubDetails">
+			<wsdl:input message="tns:getSubDetailsRequest"/>
+			<wsdl:output message="tns:getSubDetailsResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubDetails">
+			<wsdl:input message="tns:updateSubDetailsRequest"/>
+			<wsdl:output message="tns:updateSubDetailsResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriberStatus">
+			<wsdl:input message="tns:updateSubscriberStatusRequest"/>
+			<wsdl:output message="tns:updateSubscriberStatusResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="getEmailId">
+			<wsdl:input message="tns:getEmailIdRequest"/>
+			<wsdl:output message="tns:getEmailIdResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>	
+		<!-- 
+			REQ/CH 		 : REQ#763
+			Description: : Incorporate the  the last 4 digits number selection 
+					   	   format introduced in Self Care to Dealer Portal. 
+			Done By		 : Phani.Chavala
+			Date		 : 14/12/2010
+	 	-->
+		<wsdl:operation name="getDesiredMSISDN">
+			<wsdl:input message="tns:getDesiredMSISDNRequest"/>
+			<wsdl:output message="tns:getDesiredMSISDNResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>	
+		
+		<!-- 
+			REQ		     : REQ#881
+			Description  : In order to get subscriber id which has given at the time of SIM-Registration,
+					   SelfCareAgent is enhancing its API base to Accommodate this REQ
+					   with a new API "getSubscriberID". 
+			Done By		 : Phani.Chavala
+			Date		 : 18/05/2011
+	    -->
+	    <wsdl:operation name="getSubscriberID">
+			<wsdl:input message="tns:getSubscriberIDRequest"/>
+			<wsdl:output message="tns:getSubscriberIDResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+	 	<!-- 
+		REQ		     : REQ#881
+		Description  : In order to get subscriber id which has given at the time of SIM-Registration,
+					   SelfCareAgent is enhancing its API base to Accommodate this REQ
+					   with a new API "getSubscriberProfileInfo". 
+		Done By		 : Janaki.Sontiyala
+		Date		 : 25/05/2011
+	 	-->
+	 <wsdl:operation name="getSubscriberProfileInfo">
+			<wsdl:input message="tns:getSubscriberProfileInfoRequest"/>
+			<wsdl:output message="tns:getSubscriberProfileInfoResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+	</wsdl:operation>
+	
+	<!-- 
+		REQ		     : For Corporate Self Care 1046
+		Description  : In order to get subscriber Details by Office Code,
+		Done By		 : Ravi.Shaganti
+		Date		 : 23/01/2012
+	 -->
+	 <wsdl:operation name="getSubDetailsByOffice">
+			<wsdl:input message="tns:getSubDetailsByOfficeRequest"/>
+			<wsdl:output message="tns:getSubDetailsByOfficeResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+	</wsdl:operation>
+	<!-- 
+		REQ		     : For Subscriber Bulk Upload 1029
+		Description  : Subscriber Bulk Upload
+		Done By		 : Ravi.Shaganti
+		Date		 : 26/02/2012
+	 -->
+	 <wsdl:operation name="uploadSubTransDetails">
+			<wsdl:input message="tns:uploadSubTransDetailsRequest"/>
+			<wsdl:output message="tns:uploadSubTransDetailsResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+	</wsdl:operation>
+	 <wsdl:operation name="updateSubTransDetails">
+			<wsdl:input message="tns:updateSubTransDetailsRequest"/>
+			<wsdl:output message="tns:updateSubTransDetailsResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+	</wsdl:operation>
+	 <wsdl:operation name="updateDemographicDetails">
+			<wsdl:input message="tns:updateDemographicDetailsRequest"/>
+			<wsdl:output message="tns:updateDemographicDetailsResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+	</wsdl:operation>
+	
+	<!-- 
+		REQ		     : For MSP 4.0
+		Description  : In order to get subscriber id which has given at the time of Find Account,
+					   SelfCareAgent is enhancing its API base to Accommodate this REQ
+					   with a new API "getSubByNameID". 
+		Done By		 : Janaki.Sontiyala
+		Date		 : 15/07/2011
+	 -->
+	 <wsdl:operation name="getSubByNameID">
+			<wsdl:input message="tns:getSubByNameIDRequest"/>
+			<wsdl:output message="tns:getSubByNameIDResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+	</wsdl:operation>
+	 <wsdl:operation name="getSubBulkNames">
+			<wsdl:input message="tns:getSubBulkNamesRequest"/>
+			<wsdl:output message="tns:getSubBulkNamesResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+	</wsdl:operation>
+
+	<!-- Added for REQ 1407 to set and get Language from Subcriber Profile   ramsundar.balagoni -->
+	 <wsdl:operation name="setSubLanguage">
+			<wsdl:input message="tns:setSubLanguageRequest"/>
+			<wsdl:output message="tns:setSubLanguageResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+	</wsdl:operation>
+	
+	 <wsdl:operation name="getSubLanguage">
+			<wsdl:input message="tns:getSubLanguageRequest"/>
+			<wsdl:output message="tns:getSubLanguageResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+	</wsdl:operation>
+	
+	 <wsdl:operation name="updateSubIDValue">
+			<wsdl:input message="tns:updateSubIDValueRequest"/>
+			<wsdl:output message="tns:updateSubIDValueResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+	</wsdl:operation>		
+	
+
+     <wsdl:operation name="getTaxIDBasedSubIDValue">
+			<wsdl:input message="tns:getTaxIDBasedSubIDValueRequest"/>
+			<wsdl:output message="tns:getTaxIDBasedSubIDValueResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+	</wsdl:operation>		
+	
+
+
+
+	</wsdl:portType>
+	<wsdl:binding name="SubscriberManagementServicesBinding" type="tns:SubscriberManagementPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		
+		
+		<wsdl:operation name="getIDvalueBylastDigits">
+			<soap:operation soapAction="getIDvalueBylastDigits"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="getSubDetails">
+			<soap:operation soapAction="login"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubDetails">
+			<soap:operation soapAction="login"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSubscriberStatus">
+			<soap:operation soapAction="updateSubscriberStatus"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getEmailId">
+			<soap:operation soapAction="getEmailId"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>	
+		<!-- 
+			REQ/CH 		 : REQ#763
+			Description: : Incorporate the  the last 4 digits number selection 
+					   	   format introduced in Self Care to Dealer Portal. 
+			Done By		 : Phani.Chavala
+			Date		 : 14/12/2010
+	 	-->	
+	 	<wsdl:operation name="getDesiredMSISDN">
+			<soap:operation soapAction="getDesiredMSISDN"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>	
+		
+		<!-- 
+			REQ		     : REQ#881
+			Description  : In order to get subscriber id which has given at the time of SIM-Registration,
+					   SelfCareAgent is enhancing its API base to Accommodate this REQ
+					   with a new API "getSubscriberID". 
+			Done By		 : Phani.Chavala
+			Date		 : 18/05/2011
+	    -->
+	    <wsdl:operation name="getSubscriberID">
+			<soap:operation soapAction="getSubscriberID"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<!-- 
+		REQ		     : REQ#881
+		Description  : In order to get subscriber id which has given at the time of SIM-Registration,
+					   SelfCareAgent is enhancing its API base to Accommodate this REQ
+					   with a new API "getSubscriberProfileInfo". 
+		Done By		 : Janaki.Sontiyala
+		Date		 : 25/05/2011
+	 	-->
+	 	<wsdl:operation name="getSubscriberProfileInfo">
+			<soap:operation soapAction="getSubscriberProfileInfo"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<!-- 
+		REQ		     : For Corporate Self Care 1046
+		Description  : In order to get subscriber Details by Office Code,
+		Done By		 : Ravi.Shaganti
+		Date		 : 23/01/2012
+	 -->
+	 <wsdl:operation name="getSubDetailsByOffice">
+			<soap:operation soapAction="getSubDetailsByOffice"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- 
+		REQ		     : For Subscriber Bulk Upload 1029
+		Description  : Subscriber Bulk Upload,
+		Done By		 : Ravi.Shaganti
+		Date		 : 26/02/2012
+	 -->
+	 <wsdl:operation name="uploadSubTransDetails">
+			<soap:operation soapAction="uploadSubTransDetails"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	 <wsdl:operation name="updateSubTransDetails">
+			<soap:operation soapAction="updateSubTransDetails"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	 <wsdl:operation name="updateDemographicDetails">
+			<soap:operation soapAction="updateDemographicDetails"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+	 <!-- 
+		REQ		     : For MSP 4.0
+		Description  : In order to get subscriber id which has given at the time of Find Account,
+					   SelfCareAgent is enhancing its API base to Accommodate this REQ
+					   with a new API "getSubByNameID". 
+		Done By		 : Janaki.Sontiyala
+		Date		 : 15/07/2011
+	 -->
+	 <wsdl:operation name="getSubByNameID">
+			<soap:operation soapAction="getSubByNameID"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	 <wsdl:operation name="getSubBulkNames">
+			<soap:operation soapAction="getSubBulkNames"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		 <!-- Added for REQ 1407 to set and get Language from Subcriber Profile   ramsundar.balagoni -->
+		 
+		 
+		 <wsdl:operation name="setSubLanguage">
+			<soap:operation soapAction="setSubLanguage"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		 
+		 <wsdl:operation name="getSubLanguage">
+			<soap:operation soapAction="getSubLanguage"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="updateSubIDValue">
+			<soap:operation soapAction="updateSubIDValue"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		
+		<wsdl:operation name="getTaxIDBasedSubIDValue">
+			<soap:operation soapAction="getTaxIDBasedSubIDValue"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		
+	</wsdl:binding>
+	<wsdl:service name="SubscriberManagementServices">
+		<wsdl:port name="SubscriberManagementServicesPort" binding="tns:SubscriberManagementServicesBinding">
+			<soap:address location="http://localhost:8080/axis/SubscriberManagementServices/v1"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

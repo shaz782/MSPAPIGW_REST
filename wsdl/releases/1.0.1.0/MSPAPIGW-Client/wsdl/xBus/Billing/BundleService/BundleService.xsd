@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://xbus.xius.com/messages/billing/bundle" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:comm="http://xbus.xius.com/messages/common" targetNamespace="http://xbus.xius.com/messages/billing/bundle" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://xbus.xius.com/messages/common" schemaLocation="../../common/CommonData.xsd"/>
+	<xs:complexType name="Bundle">
+		<xs:annotation>
+			<xs:documentation>Bundle</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="bundleId" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="bundleName" type="xs:string" nillable="true" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="manageBundleRequest">
+		<xs:annotation>
+			<xs:documentation>manageBundleRequest</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSRequest">
+					<xs:sequence>
+						<xs:element name="bundleList" type="tns:BundleList" nillable="true" minOccurs="0"/>
+						<xs:element name="msisdnList" type="tns:MSISDNList" nillable="false"/>
+						<xs:element name="manageBundleOpType" type="tns:BundleOpType" nillable="false"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="BundleList">
+		<xs:annotation>
+			<xs:documentation>BundleList</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="bundleList" type="tns:Bundle" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MSISDNList">
+		<xs:annotation>
+			<xs:documentation>MSISDNList</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="msisdnList" type="comm:MsisdnType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="manageBundleResponse">
+		<xs:annotation>
+			<xs:documentation>manageBundleResponse</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSResponse">
+					<xs:sequence>
+						<xs:element name="successMSISDNList" type="tns:MSISDNList" nillable="true" minOccurs="0"/>
+						<xs:element name="failureMSISDNList" type="tns:MSISDNList" nillable="true" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getBundlesRequest">
+		<xs:annotation>
+			<xs:documentation>getBundlesRequest</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSRequest">
+					<xs:sequence>
+						<xs:element name="account" type="comm:AccountType" nillable="false" minOccurs="1"/>
+						<xs:element name="channalType" type="xs:string" nillable="false" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getBundlesResponse">
+		<xs:annotation>
+			<xs:documentation>getBundlesResponse</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSResponse">
+					<xs:sequence>
+						<xs:element name="unAssignedBundles"  minOccurs="0" type="tns:bundleDataType" />
+						<xs:element name="assignedBundles"  minOccurs="0" type="tns:bundleDataType" />
+						<xs:element name="immAvbleBundlesList" minOccurs="0" type="tns:bundleDataType" />
+						<xs:element name="immAsgndBundlesList" minOccurs="0" type="tns:bundleDataType" />
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getBucketsRequest">
+		<xs:annotation>
+			<xs:documentation>getBucketsRequest</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSRequest">
+					<xs:sequence>
+						<xs:element name="account" type="comm:AccountType" nillable="false" minOccurs="1"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getBucketsResponse">
+		<xs:annotation>
+			<xs:documentation>getBucketsResponse</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSResponse">
+					<xs:sequence>
+					<!--  	<xs:element name="unAssignedBuckets"  minOccurs="0" type="tns:bucketDataType" />-->
+						<xs:element name="assignedBuckets"  minOccurs="0" type="tns:bucketDataType" />
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="getBundleDtlRequest">
+		<xs:annotation>
+			<xs:documentation>getBundleDtlRequest</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSRequest">
+					<xs:sequence>
+						<xs:element name="bundleId" type="xs:long" nillable="false" minOccurs="1"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getBundleDtlResponse">
+		<xs:annotation>
+			<xs:documentation>getBundleDtlResponse</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSResponse">
+					<xs:sequence>
+						<xs:element name="bucketDtls"  minOccurs="0" type="tns:bucketDataType" />
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	<xs:complexType name="bucketDataType">
+		<xs:sequence>
+			<xs:element name="bucket" type="tns:bucketType" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="bucketType">
+		<xs:sequence>
+			<xs:element name="bucketId" type="xs:string" minOccurs="0" />
+			<xs:element name="bucketName" type="xs:string" minOccurs="0" />
+			<xs:element name="buckettype" type="xs:string" minOccurs="0" />
+			<xs:element name="currentbalance" type="xs:decimal" minOccurs="0" />
+			<xs:element name="expirationdate" type="xs:string" minOccurs="0" />
+			<xs:element name="assignedDate" type="xs:string" minOccurs="0" />
+			<xs:element name="balancecategory" type="xs:string" minOccurs="0" />
+			<xs:element name="duration" type="xs:long" minOccurs="0" />
+	        <xs:element name="validityDays" type="xs:string" minOccurs="0" />
+			<xs:element name="iterativeFlag" type="xs:string" minOccurs="0" />
+			<xs:element name="iterativeCount" type="xs:string" minOccurs="0" />
+			<xs:element name="rollOverFlag" type="xs:string" minOccurs="0" />
+			<xs:element name="extendValidityFlag" type="xs:string" minOccurs="0" />
+			<!-- added for ADR -->
+			<xs:element name="deviceGroupId" type="xs:long" minOccurs="0" />
+			<xs:element name="deviceGroupName" type="xs:string" minOccurs="0" />
+			<xs:element name="dataZoneGroupId" type="xs:long" minOccurs="0" />
+ 			<xs:element name="dataZoneGroupName" type="xs:string" minOccurs="0" />
+ 			<xs:element name="unlimitedYN" type="xs:string" minOccurs="0" />
+ 			<xs:element name="accumulatorName" type="xs:string" minOccurs="0" />
+ 			
+ 			<xs:element name="priority" type="xs:string" minOccurs="0" />
+ 			<xs:element name="isPromo" type="xs:string" minOccurs="0" />
+			
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="bundleDataType">
+		<xs:sequence>
+			<xs:element name="bundle" type="tns:bundleType" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="bundleType">
+		<xs:sequence>
+			<xs:element name="bundleId" type="xs:integer" minOccurs="0" />
+			<xs:element name="bundleName" type="xs:string" minOccurs="0" />			
+			<xs:element name="currentbalance" type="xs:decimal" minOccurs="0" />
+			<xs:element name="expirationdate" type="xs:string" minOccurs="0" />
+			<xs:element name="assignedDate" type="xs:string" minOccurs="0" />
+			<xs:element name="balancecategory" type="xs:string" minOccurs="0" />
+			<!-- added for Mobily IVR enhancements 12th March 2014 -->
+			<xs:element name="bundleCategoryId" type="xs:string" minOccurs="0"/>
+			<xs:element name="bundleCategoryName" type="xs:string" minOccurs="0" />
+			<xs:element name="bundleCharge" type="xs:decimal" minOccurs="0" />
+			<xs:element name="activationFee" type="xs:decimal" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+		<xs:element name="giftBundlesRequest">
+		<xs:annotation>
+			<xs:documentation>giftBundlesRequest</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSRequest">
+					<xs:sequence>
+						<xs:element name="srcAccount" type="comm:AccountType" nillable="false" minOccurs="1"/>
+						<xs:element name="destAccount" type="comm:AccountType" nillable="false" minOccurs="1"/>
+						<xs:element name="bundleList" type="tns:BundleList" nillable="false" minOccurs="1"/>
+						<xs:element name="transactionId" type="xs:string"  minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="giftBundlesResponse">
+		<xs:annotation>
+			<xs:documentation>manageBundleResponse</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSResponse">
+					<xs:sequence>
+						<xs:element name="message" type="xs:string" nillable="true" minOccurs="0"/>
+						<xs:element name="transactionRefId" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+	</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="BundleOpType">
+		<xs:annotation>
+			<xs:documentation>BundleOpType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="INSERT"/>
+			<xs:enumeration value="MODIFY"/>
+			<xs:enumeration value="DELETE"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

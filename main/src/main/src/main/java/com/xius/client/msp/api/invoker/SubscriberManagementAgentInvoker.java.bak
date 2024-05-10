@@ -1,0 +1,78 @@
+package com.xius.client.msp.api.invoker;
+
+import java.net.URL;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.xius.msp.billing.client.SubscriberManagement.SubscriberManagementBindingStub;
+import com.xius.msp.billing.client.SubscriberManagement.SubscriberServiceLocator;
+import com.xius.msp.billing.messages.SubscriberManagement.GetSubDataRequest;
+import com.xius.msp.billing.messages.SubscriberManagement.GetSubDataResponse;
+import com.xius.msp.billing.messages.common.ErrorDetailsType;
+import com.xius.rmsp.exceptions.MSPAPIGWExceptions;
+import com.xius.rmsp.messages.CommonHeaders;
+import com.xius.rmsp.utilities.MSPAPIGWConstants;
+import com.xius.rmsp.utilities.Utility;
+
+/**
+ * 
+ * @author shashidhar.p
+ * @since 7th Aug,2019 Description : From Here we will invoke the InfinetBilling
+ *        Services.
+ */
+@Component
+public class SubscriberManagementAgentInvoker {
+	
+	private static final Logger LOGGER = LogManager.getLogger(SubscriberManagementAgentInvoker.class);
+
+	@Autowired(required = true)
+	public Utility utility;
+
+	public GetSubDataResponse getSubData(GetSubDataRequest agentRequest, CommonHeaders headers)
+			throws MSPAPIGWExceptions  {
+
+		if (LOGGER.isInfoEnabled()) {
+			LOGGER.info("BillingSubMgmtInvoker - getSubData called");
+		}
+		GetSubDataResponse agentResponse = null;
+		SubscriberManagementBindingStub bindingStub = null;
+
+		try {
+			bindingStub = new SubscriberManagementBindingStub(new URL(getSubMgmtURL()),
+					new SubscriberServiceLocator());
+			bindingStub.setHeader(utility.getIBAHeader(headers));
+			bindingStub.setTimeout(Integer.parseInt(utility.getIBATimeOut()));
+			agentResponse = bindingStub.getSubData(agentRequest);
+
+		}catch (ErrorDetailsType e) {
+			if (LOGGER.isErrorEnabled())
+				LOGGER.error("BillingSubMgmtInvoker-getSubData-ErrorDetailsType" + e);
+			throw new MSPAPIGWExceptions(e.getErrorCode(),
+					e.getErrorMessage());
+		} catch (Exception e) {
+			if (LOGGER.isErrorEnabled())
+				LOGGER.error("BillingSubMgmtInvoker-getSubData-Exception" + e);
+			throw new MSPAPIGWExceptions(MSPAPIGWConstants.INTERNAL_SERVER_ERROR,
+					MSPAPIGWConstants.CONNECTION_TIME_OUT_MSG);
+		}
+
+		return agentResponse;
+	}
+ 
+	private String getSubMgmtURL() {
+
+		String url = utility.getProperty("iba.subscriberManagement");
+		if (url == null || url.equals("")) {
+			if (LOGGER.isErrorEnabled())
+				LOGGER.error("BillingSubMgmtInvoker-iba.subscriberManagement-URL is Null");
+		} else {
+			if (LOGGER.isDebugEnabled())
+				LOGGER.info("iba.subscriberManagement-URL ::" + url);
+		}
+		return url;
+	}
+
+}

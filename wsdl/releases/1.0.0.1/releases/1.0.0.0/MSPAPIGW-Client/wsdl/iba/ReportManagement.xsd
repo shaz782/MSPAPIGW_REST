@@ -1,0 +1,1576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns="http://billing.xius.com/ReportManagement.xsd"	 
+	targetNamespace="http://billing.xius.com/ReportManagement.xsd"
+	elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+
+
+	<!-- ActivatedMSISDNs report -->
+	<xs:element name="actvdMSISDNsReportRequest" type="ActvdMSISDNsReportRequest" />
+	<xs:element name="actvdMSISDNsReportResponse" type="ActvdMSISDNsReportResponse" />
+	<!-- End of ActivatedMSISDNs report  -->
+
+	<!-- TopUp report -->
+	<xs:element name="specialTopUpReportRequest" type="SpecialTopUpReportRequest" />
+	<xs:element name="specialTopUpReportResponse" type="SpecialTopUpReportResponse" />
+	<!-- End of TopUp report  -->
+
+	<!-- Voucher PIN Status report -->
+	<xs:element name="vchrPINStatusReportRequest" type="VchrPINStatusReportRequest" />
+	<xs:element name="vchrPINStatusReportResponse" type="VchrPINStatusReportResponse" />
+	<!-- End of Voucher PIN Status report  -->
+
+
+	<!-- Excess Data usage report -->
+	<xs:element name="excessUsageReportRequest" type="ExcessUsageReportRequest" />
+	<xs:element name="excessUsageReportResponse" type="ExcessUsageReportResponse" />
+	<!-- End of Excess Data usage report  -->
+
+	
+	<!-- Voucher Deactivateion report -->
+	<xs:element name="voucherDeactReportRequest" type="VoucherDeactReportRequest" />
+	<xs:element name="voucherDeactReportResponse" type="VoucherDeactReportResponse" />
+	<!-- End of Voucher Deactivateion report  -->
+	
+	
+	<xs:element name="getCallHistoryRequest" type="GetCallHistoryRequest" />
+	<xs:element name="getCallHistoryResponse" type="GetCallHistoryResponse" />
+
+	<!-- Recharge History -->
+	<xs:element name="rechargeHistoryRequest" type="RechargeHistoryRequest" />
+	<xs:element name="rechargeHistoryResponse" type="RechargeHistoryResponse" />
+	<!-- End of Recharge History  -->
+	
+	<!-- View Account Usage Report -->
+	<xs:element name="getActUsageReportRequest" type="GetActUsageReportRequest" />
+	<xs:element name="getActUsageReportResponse" type="GetActUsageReportResponse" />
+	<!-- End of View Account Usage Report  -->
+	
+	<!-- TariffPlanChangeHistory -->
+ 	<xs:element name="tariffPlanHistoryRequest" type="TariffPlanHistoryRequest" />
+ 	<xs:element name="tariffPlanHistoryResponse" type="TariffPlanHistoryResponse" />
+ 	<!-- End of Re charge History  -->
+ 	
+ 	<!-- GetSMSHistory -->
+ 	<xs:element name="getSMSHistoryRequest" type="GetSMSHistoryRequest" />
+ 	<xs:element name="getSMSHistoryResponse" type="GetSMSHistoryResponse" />
+ 	<!-- End of GetSMSHistory  -->
+ 	
+ 	<!-- ChangeIMSIReport -->
+ 	<xs:element name="changeIMSIReportRequest" type="ChangeIMSIReportRequest" />
+ 	<xs:element name="changeIMSIReportResponse" type="ChangeIMSIReportResponse" />
+ 	<!-- End of ChangeIMSIReport  -->
+ 	
+ 	<!-- ChangeMSISDNReport -->
+ 	<xs:element name="changeMSISDNReportRequest" type="ChangeMSISDNReportRequest" />
+ 	<xs:element name="changeMSISDNReportResponse" type="ChangeMSISDNReportResponse" />
+ 	<!-- End of ChangeMSISDNReport  -->
+ 	
+ 	<!-- SimSwapReport -->
+ 	<xs:element name="simSwapReportRequest" type="SimSwapReportRequest" />
+ 	<xs:element name="simSwapReportResponse" type="SimSwapReportResponse" />
+ 	<!-- End of SimSwapReport  -->
+ 	
+ 	<!-- DebitReport -->
+ 	<xs:element name="debitReportRequest" type="DebitReportRequest" />
+ 	<xs:element name="debitReportResponse" type="DebitReportResponse" />
+ 	<!-- End of DebitReport  -->
+ 	
+ 	<!-- specialDebitReport -->
+ 	<xs:element name="specialDebitReportRequest" type="SpecialDebitReportRequest" />
+ 	<xs:element name="specialDebitReportResponse" type="SpecialDebitReportResponse" />
+ 	<!-- End of specialDebitReport  -->
+ 	
+ 	<!-- creditReport -->
+ 	<xs:element name="creditReportRequest" type="CreditReportRequest" />
+ 	<xs:element name="creditReportResponse" type="CreditReportResponse" />
+ 	<!-- End of creditReport  -->
+ 	
+ 		<!-- transactionReport -->
+ 	<xs:element name="accountReportRequest" type="AccountReportRequest" />
+ 	<xs:element name="accountReportResponse" type="AccountReportResponse" />
+ 	<!-- End of transactionReport  -->
+        
+        <!-- creditInfoInvoice Report -->
+ 	<xs:element name="creditInfoInvoiceRequest" type="CreditInfoInvoiceRequest" />
+ 	<xs:element name="creditInfoInvoiceResponse" type="CreditInfoInvoiceResponse" />
+ 	<!-- End of creditInfoInvoice Report  --> 	
+	<!-- attachDettachBndltReport -->
+ 	<xs:element name="attachDettachBndlReportRequest" type="AttachDettachBndlReportRequest" />
+ 	<xs:element name="attachDettachBndlReportResponse" type="AttachDettachBndlReportResponse" />
+ 	<!-- End of attachDettachBndlReport  --> 	
+ 	
+ 	<!--paymentReport -->
+ 	<xs:element name="paymentReportRequest" type="PaymentReportRequest" />
+ 	<xs:element name="paymentReportResponse" type="PaymentReportResponse" />
+ 	<!-- End of paymentReport--> 	
+ 	
+ 	
+ 	<!--crossPromoTransReport -->
+ 	<xs:element name="crossPromoTransReportRequest" type="CrossPromoTransReportRequest" />
+ 	<xs:element name="crossPromoTransReportResponse" type="CrossPromoTransReportResponse" />
+ 	<!-- End of crossPromoTransReport--> 	
+ 	
+ 	<xs:element name="usageReportRequest" type="usageReportRequest" />
+ 	<xs:element name="usageReportResponse" type="usageReportResponse" />
+ 	
+ 	
+    <xs:element name="getDeactiveReasonsRequest" type="getDeactiveReasonsRequest" />
+ 	<xs:element name="getDeactiveReasonsResponse" type="getDeactiveReasonsResponse" />
+     	
+ 	<xs:element name="rcTransactionReportRequest" type="rcTransactionReportRequest" />
+ 	<xs:element name="rcTransactionReportResponse" type="rcTransactionReportResponse" />
+ 	
+ 	 	<!-- added by jhansi for corp sim status report -->
+ 	<xs:element name="getCorpSimStatusReportRequest" type="getCorpSimStatusReportRequest" />
+ 	<xs:element name="getCorpSimStatusReportResponse" type="getCorpSimStatusReportResponse" />
+ 	
+ 	
+ 	
+ 	<xs:element name="getCorpSimVoucherActRequest" type="getCorpSimVoucherActRequest" />
+ 	<xs:element name="getCorpSimVoucherActResponse" type="getCorpSimVoucherActResponse" />
+ 	
+ 	<xs:element name="getOCMPCallsRequest" type="getOCMPCallsRequest" />
+ 	<xs:element name="getOCMPCallsResponse" type="getOCMPCallsResponse" />
+ 	
+ 	<xs:complexType name="getOCMPCallsRequest">
+ 		<xs:sequence>
+ 		     <xs:element name="accountId" type="xs:long" minOccurs="0"/>
+ 			<xs:element name="startDate" type="xs:string" minOccurs="0"/>
+ 			<xs:element name="endDate" type="xs:string" minOccurs="0"/> 
+ 			<xs:element name="reportType" type="xs:string" minOccurs="0"/> 
+ 						
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	
+ 	
+ 	<xs:complexType name="getOCMPCallsResponse">
+     <xs:sequence>
+    	<xs:element name="maxCount" type="xs:string" minOccurs="0"/>
+        <xs:element name="IVRReportDtls" type="IVRReportDtlsType" minOccurs="0" maxOccurs="unbounded"/> 
+     </xs:sequence>
+     </xs:complexType>
+ 	
+ 		<xs:complexType name="IVRReportDtlsType">
+     <xs:sequence>
+    	    <xs:element name="fileId" type="xs:long" minOccurs="0"/>
+    	    <xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+    	    <xs:element name="sessionId" type="xs:string" minOccurs="0"/>
+    	     <xs:element name="serviceId" type="xs:string" minOccurs="0"/>
+    	    <xs:element name="startTime" type="xs:string" minOccurs="0"/>
+    	    <xs:element name="stopTime" type="xs:string" minOccurs="0"/>
+    	    <xs:element name="insertedTime" type="xs:string" minOccurs="0"/>
+    	      <xs:element name="callDuration" type="xs:string" minOccurs="0"/>
+     </xs:sequence>
+     </xs:complexType>
+ 	
+ 	<xs:complexType name="getCorpSimVoucherActRequest">
+ 		<xs:sequence>
+ 			<xs:element name="officeCode" type="xs:string" minOccurs="0"/>
+ 			<xs:element name="fromDate" type="xs:string" minOccurs="0"/>
+ 			<xs:element name="toDate" type="xs:string" minOccurs="0"/>
+ 			<xs:element name="flag" type="xs:string" minOccurs="0"/><!-- SIM/VOUCHER -->
+ 			<!-- <xs:element name="maxRecords" type="xs:int" />
+ 			<xs:element name="nextRecordIndex" type="xs:int" /> -->
+ 			
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	
+ 	 <xs:complexType name="getCorpSimVoucherActResponse">
+     <xs:sequence>
+    	<xs:element name="message" type="xs:string" minOccurs="0"/>
+        <xs:element name="simVoucherDtls" type="simVoucherDtlsType" minOccurs="0" maxOccurs="unbounded"/> 
+     </xs:sequence>
+     </xs:complexType>
+ 	
+ 	 <xs:complexType name="simVoucherDtlsType">
+ 		<xs:sequence>
+ 			<xs:element name="sim" type="xs:string" minOccurs="0"/>
+ 			<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+ 		    <xs:element name="activationDate" type="xs:string" minOccurs="0"/> 
+ 		    <xs:element name="voucherProfileId" type="xs:string" minOccurs="0"/>
+ 		    <xs:element name="voucherProfileName" type="xs:string" minOccurs="0"/>
+ 		    <xs:element name="voucherNumber" type="xs:string" minOccurs="0"/>
+ 		    <xs:element name="voucherStatusDate" type="xs:string" minOccurs="0"/> 
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	
+     <xs:complexType name="getCorpSimStatusReportRequest">
+     <xs:sequence>
+     <xs:element name="officeCode" type="xs:long" minOccurs="0"/>
+     <xs:element name="parentOfficeCode" type="xs:long" minOccurs="0"/>
+     </xs:sequence>
+     </xs:complexType>
+     <xs:complexType name="getCorpSimStatusReportResponse">
+     <xs:sequence>
+     <xs:element name="errorCode" type="xs:long" minOccurs="0"/>
+     <xs:element name="errorDesc" type="xs:string" minOccurs="0"/>
+        <xs:element name="simStockDtls" type="SimStockDtls" minOccurs="0" maxOccurs="unbounded"/> 
+     </xs:sequence>
+     </xs:complexType>
+     
+     <xs:complexType name="SimStockDtls">
+ 		<xs:sequence>
+ 			<xs:element name="officeName" type="xs:string" minOccurs="0"/>
+ 			<xs:element name="active" type="xs:long" minOccurs="0"/>
+ 		    <xs:element name="inactive" type="xs:long" minOccurs="0"/> 
+ 		    <xs:element name="unregistered" type="xs:long" minOccurs="0"/> 
+ 		</xs:sequence>
+ 	</xs:complexType>
+     
+    <xs:complexType name="rcTransactionReportRequest">
+ 		<xs:sequence>
+ 			<xs:element name="MSISDN" type="xs:string" minOccurs="0"/>
+ 			<xs:element name="accountId" type="xs:long" minOccurs="0"/>
+ 			<xs:element name="fromDate" type="xs:string" minOccurs="0"/>
+ 			<xs:element name="toDate" type="xs:string" minOccurs="0"/>
+ 			<xs:element name="maxRecords" type="xs:int" />
+ 			<xs:element name="nextRecordIndex" type="xs:int" />
+ 		</xs:sequence>
+ 	</xs:complexType>	
+ 	
+ 	<xs:complexType name="rcTransactionReportResponse">
+ 		<xs:sequence>
+ 			<xs:element name="totalRecords" type="xs:long" minOccurs="0"/>
+ 		    <xs:element name="rcTransDetails" type="RCTransDetails" minOccurs="0" maxOccurs="unbounded"/> 
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	
+ 	<xs:complexType name="RCTransDetails">
+ 		<xs:sequence>
+ 			<xs:element name="rcCode" type="xs:string" minOccurs="0"/>
+ 			<xs:element name="mrp" type="xs:string" minOccurs="0"/>
+ 		    <xs:element name="rcDesc" type="xs:string" minOccurs="0"/> 
+ 		    <xs:element name="transactionDate" type="xs:string" minOccurs="0"/> 
+ 		    <xs:element name="status" type="xs:string" minOccurs="0"/>
+ 		    <xs:element name="channel" type="xs:string" minOccurs="0"/>
+ 		    <xs:element name="rowNum" type="xs:long" minOccurs="0"/>
+ 		    <xs:element name="userDefined1" type="xs:string" minOccurs="0"/>
+ 		    <xs:element name="userDefined2" type="xs:string" minOccurs="0"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	
+ 	<xs:complexType name="getDeactiveReasonsRequest">
+ 		<xs:sequence>
+ 			<xs:element name="reasonCategory" type="xs:string" />
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	
+ 	<xs:complexType name="getDeactiveReasonsResponse">
+ 		<xs:sequence>
+ 			<xs:element name="reasons" type="reasonDtls" minOccurs="0" />
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	
+ 	<xs:complexType name="reasonDtls">
+ 		<xs:sequence>
+ 			<xs:element name="reason" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+ 	</xs:sequence>
+ 	</xs:complexType>
+ 	
+ 	
+    <!--CrossPromoTransReportRequest -->
+ 	<xs:complexType name="CrossPromoTransReportRequest">
+ 		<xs:sequence>
+ 			<xs:element name="accountId" type="xs:long" minOccurs="0"/>
+ 			<xs:element name="balanceCategory" type="xs:string" minOccurs="0"/>
+ 			<xs:element name="fromDate" type="DateTypeMMDD" minOccurs="0"/>
+ 			<xs:element name="toDate" type="DateTypeMMDD" minOccurs="0"/>
+ 			<xs:element name="maxRecords" type="xs:int" minOccurs="0"/>
+ 			<xs:element name="nextRecordIndex" type="xs:int" minOccurs="0"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	 <xs:complexType name="CrossPromoTransReportResponse">
+ 		<xs:sequence>
+ 			<xs:element name="totalRecords" type="xs:long" minOccurs="0"/>
+ 		    <xs:element name="crossPromoTransDtls" type="CrossPromoTransDtls" minOccurs="0" maxOccurs="unbounded"/> 
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<xs:complexType name="CrossPromoTransDtls">
+ 		<xs:sequence>
+ 			<xs:element name="accountId" type="xs:long" minOccurs="0"/>
+ 		    <xs:element name="oldBAl" type="xs:string" minOccurs="0"/> 
+ 		    <xs:element name="newBAl" type="xs:string" minOccurs="0"/> 
+ 		    <xs:element name="activityDate" type="xs:string" minOccurs="0"/>
+ 		    <xs:element name="activityTime" type="xs:string" minOccurs="0"/>
+ 		    <xs:element name="userId" type="xs:string" minOccurs="0"/>
+ 		    <xs:element name="bucketUnitType" type="xs:string" minOccurs="0"/>
+ 		    <xs:element name="loginId" type="xs:string" minOccurs="0"/> 
+ 		    <xs:element name="MSISDN" type="xs:long" minOccurs="0"/>
+ 		    <xs:element name="oldValidityDate" type="xs:string" minOccurs="0"/>
+ 		    <xs:element name="newValidityDate" type="xs:string" minOccurs="0"/>
+ 		    <xs:element name="rowCount" type="xs:long" minOccurs="0"/>
+ 		    <xs:element name="balanceCategoryType" type="xs:string" minOccurs="0"/>
+ 		    <xs:element name="remarks" type="xs:string" minOccurs="0"/>
+ 		     <xs:element name="userDefined1" type="xs:string" minOccurs="0"/>
+ 		      <xs:element name="userDefined2" type="xs:string" minOccurs="0"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	
+ 	
+ 	<!-- End of CrossPromoTransReportRequest Request --> 
+     
+     <!--PaymentReportRequest -->
+ 	<xs:complexType name="PaymentReportRequest">
+ 		<xs:sequence>
+ 			<xs:element name="accountId" type="xs:long" minOccurs="0"/>
+ 			<xs:element name="fromDate" type="DateTypeMMDD" minOccurs="0"/>
+ 			<xs:element name="toDate" type="DateTypeMMDD" minOccurs="0"/>
+ 			<xs:element name="maxRecords" type="xs:int" minOccurs="0"/>
+ 			<xs:element name="nextRecordIndex" type="xs:int" minOccurs="0"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+     <xs:complexType name="PaymentReportResponse">
+ 		<xs:sequence>
+ 			<xs:element name="totalRecords" type="xs:long" minOccurs="0"/>
+ 		    <xs:element name="paymentDtls" type="PaymentDtls" minOccurs="0" maxOccurs="unbounded"/> 
+ 		</xs:sequence>
+ 	</xs:complexType> 
+     <xs:complexType name="PaymentDtls">
+ 		<xs:sequence>
+ 			<xs:element name="accountId" type="xs:long" minOccurs="0"/>
+ 			<xs:element name="referenceTransId" type="xs:string" minOccurs="0"/>
+ 		    <xs:element name="creditCardToken" type="xs:string" minOccurs="0" />
+ 		    <xs:element name="amount" type="xs:decimal" minOccurs="0"/>
+ 		    <xs:element name="replyCode" type="xs:string" minOccurs="0" />
+            <xs:element name="numberofAuthorization" type="xs:string" minOccurs="0" />
+            <xs:element name="msisdn" type="xs:long" minOccurs="0"/>
+            <xs:element name="transactionDate" type="xs:string" minOccurs="0"/>
+            <xs:element name="tariffPackNextRentDate" type="xs:string" minOccurs="0"/>
+            <xs:element name="tariffPackName" type="xs:string" minOccurs="0"/> 
+             <xs:element name="renewalMode" type="xs:string" minOccurs="0"/>
+            <xs:element name="rowCount" type="xs:long" minOccurs="0"/>	
+             	     
+ 		</xs:sequence>
+ 	</xs:complexType>  
+            
+
+
+ 	
+ 	
+ 	
+ 	<!-- attachDettachBndlReport Request -->
+ 	<xs:complexType name="AttachDettachBndlReportRequest">
+ 		<xs:sequence>
+ 			<xs:element name="fromDate" type="DateTypeMMDD" minOccurs="0"/>
+ 			<xs:element name="toDate" type="DateTypeMMDD" minOccurs="0"/>
+ 			<xs:element name="maxRecords" type="xs:int" minOccurs="0"/>
+ 			<xs:element name="rowCount" type="xs:int" minOccurs="0"/>
+ 			<xs:element name="accountId" type="xs:long" minOccurs="0"/>
+ 			<xs:element name="msisdn" type="xs:long" minOccurs="0"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<!-- End of attachDettachBndlReport Request -->
+ 	<!-- attachDettachBndlReport Response -->
+ 	<xs:complexType name="AttachDettachBndlReportResponse">
+ 		<xs:sequence>
+ 			<xs:element name="message" type="xs:string" minOccurs="0" />
+ 			<xs:element name="report"  type="BndlRprtListType" minOccurs="0"/>
+ 			<xs:element name="totalRecords"  type="xs:long" minOccurs="0"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<xs:complexType name="BndlRprtListType">
+ 		<xs:sequence>
+ 			<xs:element name="bndlInfo"  type="BndlRprtType" maxOccurs="unbounded"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<xs:complexType name="BndlRprtType">
+ 		<xs:sequence> 			
+ 			<xs:element name="acctId"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="msisdn"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="bndlId"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="bndlName"  type="xs:string" minOccurs="0"/> 			
+ 			<xs:element name="actDeactFlag"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="actDeactCharge"  type="xs:decimal" minOccurs="0"/>
+ 			<xs:element name="userId"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="date"  type="xs:string" minOccurs="0"/> 			
+ 			<xs:element name="time"  type="xs:string" minOccurs="0"/> 	
+ 			<!-- Added by samba for Taxes -->
+			 <xs:element name="taxType" type="taxType" minOccurs="0" />		
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<!-- End of attachDettachBndlReport Response -->
+ 	<!-- creditReport Request -->
+ 	<xs:complexType name="CreditReportRequest">
+ 		<xs:sequence>
+ 			<xs:element name="fromDate" type="DateTypeMMDD" />
+ 			<xs:element name="toDate" type="DateTypeMMDD" />
+ 			<xs:element name="maxRecords" type="xs:int"/>
+ 			<xs:element name="rowCount" type="xs:int"/>
+ 			<xs:element name="MSISDN"  type="xs:long" minOccurs="0"/>
+ 			<xs:element name="acctId"  type="xs:long" minOccurs="0"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<!-- End of creditReport Request -->
+ 	
+ 	<!-- creditReport Response -->
+ 	<xs:complexType name="CreditReportResponse">
+ 		<xs:sequence>
+ 			<xs:element name="message" type="xs:string" minOccurs="0" />
+ 			<xs:element name="report"  type="CrdtRprtListType" minOccurs="0"/>
+ 			<xs:element name="totalRecords"  type="xs:long" minOccurs="0"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<!-- End of creditReport Response -->
+ 	
+ 	<xs:complexType name="CrdtRprtListType">
+ 		<xs:sequence>
+ 			<xs:element name="creditInfo"  type="CrdtRprtType" maxOccurs="unbounded"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	
+ 	<xs:complexType name="CrdtRprtType">
+ 		<xs:sequence> 			
+ 			<xs:element name="MSISDN"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="acctId"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="oldBal"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="newBal"  type="xs:string" minOccurs="0"/> 			
+ 			<xs:element name="date"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="time"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="remarks"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="userId"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="networkId"  type="xs:long" minOccurs="0"/>
+ 			<xs:element name="amount"  type="xs:decimal" minOccurs="0"/>  			
+ 			<xs:element name="firstName"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="loginId"  type="xs:string" minOccurs="0"/>
+ 			<!-- Added by samba for Taxes -->
+			 <xs:element name="taxType" type="taxType" minOccurs="0" />
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<!-- specialDebitReport Request -->
+ 	<xs:complexType name="SpecialDebitReportRequest">
+ 		<xs:sequence>
+ 			<xs:element name="fromDate" type="DateTypeMMDD" />
+ 			<xs:element name="toDate" type="DateTypeMMDD" />
+ 			<xs:element name="maxRecords" type="xs:int"/>
+ 			<xs:element name="rowCount" type="xs:int"/>
+ 			<xs:element name="MSISDN"  type="xs:long" minOccurs="0"/>
+ 			<xs:element name="acctId"  type="xs:long" minOccurs="0"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<!-- End of specialDebitReport Request -->
+	
+	<!-- specialDebitReport Response -->
+ 	<xs:complexType name="SpecialDebitReportResponse">
+ 		<xs:sequence>
+ 			<xs:element name="message" type="xs:string" minOccurs="0" />
+ 			<xs:element name="report"  type="SpclDebitRprtListType" minOccurs="0"/>
+ 			<xs:element name="totalRecords"  type="xs:long" minOccurs="0"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<!-- End of specialDebitReport Response -->
+ 	
+ 	<xs:complexType name="SpclDebitRprtListType">
+ 		<xs:sequence>
+ 			<xs:element name="spclDebitInfo"  type="SpclDebitRprtType" maxOccurs="unbounded"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	
+ 	<xs:complexType name="SpclDebitRprtType">
+ 		<xs:sequence> 			
+ 			<xs:element name="date"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="time"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="firstName"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="loginId"  type="xs:string" minOccurs="0"/> 			
+ 			<xs:element name="MSISDN"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="oldData"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="newData"  type="xs:string" minOccurs="0"/> 			
+ 			<xs:element name="amount"  type="xs:decimal" minOccurs="0"/> 				
+			<xs:element name="remarks"  type="xs:string" minOccurs="0"/>
+			<!-- Added by samba for Taxes -->
+			 <xs:element name="taxType" type="taxType" minOccurs="0" />					
+ 		</xs:sequence>
+ 	</xs:complexType>	
+ 	
+ 	<!-- DebitReport Request -->
+ 	<xs:complexType name="DebitReportRequest">
+ 		<xs:sequence>
+ 			<xs:element name="fromDate" type="DateTypeMMDD" />
+ 			<xs:element name="toDate" type="DateTypeMMDD" />
+ 			<xs:element name="maxRecords" type="xs:int"/>
+ 			<xs:element name="rowCount" type="xs:int"/>
+ 			<xs:element name="MSISDN"  type="xs:long" minOccurs="0"/>
+ 			<xs:element name="acctId"  type="xs:long" minOccurs="0"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<!-- End of DebitReport Request -->
+	
+	<!-- DebitReport Response -->
+ 	<xs:complexType name="DebitReportResponse">
+ 		<xs:sequence>
+ 			<xs:element name="message" type="xs:string" minOccurs="0" />
+ 			<xs:element name="report"  type="DebitRprtListType" minOccurs="0"/>
+ 			<xs:element name="totalRecords"  type="xs:long" minOccurs="0"/> 			
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<!-- End of DebitReport Response -->
+ 	
+ 	<xs:complexType name="DebitRprtListType">
+ 		<xs:sequence>
+ 			<xs:element name="debitInfo"  type="DebitRprtType" maxOccurs="unbounded"/> 			
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	
+ 	<xs:complexType name="DebitRprtType">
+ 		<xs:sequence> 	
+ 			<xs:element name="MSISDN"  type="xs:long" minOccurs="0"/>
+ 			<xs:element name="date"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="oldBalance"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="newBalance"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="acctId"  type="xs:string" minOccurs="0"/> 			
+			<xs:element name="status"  type="xs:string" minOccurs="0"/>			
+			<xs:element name="oldData"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="newData"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="loginId"  type="xs:string" minOccurs="0"/>
+ 			<!-- Chnages merging from OCS,ADR and Service Management -->
+ 			<xs:element name="amount"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="remarks"  type="xs:string" minOccurs="0"/>
+ 			<!-- End of Merging -->	
+ 			
+ 			<!-- Added by samba for Taxes -->
+			 <xs:element name="taxType" type="taxType" minOccurs="0" />
+ 		</xs:sequence>
+ 	</xs:complexType>
+	
+	<!-- Get SimSwapReport Request -->
+ 	<xs:complexType name="SimSwapReportRequest">
+ 		<xs:sequence>
+ 			<xs:element name="fromDate" type="DateTypeMMDD" />
+ 			<xs:element name="toDate" type="DateTypeMMDD" />
+ 			<xs:element name="maxRecords" type="xs:int"/>
+ 			<xs:element name="rowCount" type="xs:int"/>
+ 			<xs:element name="MSISDN"  type="xs:long" minOccurs="0"/>
+ 			<xs:element name="acctId"  type="xs:long" minOccurs="0"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<!-- End of SimSwapReport Request -->
+	
+	<!-- SimSwapReport Response -->
+ 	<xs:complexType name="SimSwapReportResponse">
+ 		<xs:sequence>
+ 			<xs:element name="message" type="xs:string" minOccurs="0" />
+ 			<xs:element name="report"  type="SimSwapRprtListType" minOccurs="0"/>
+ 			<xs:element name="totalRecords"  type="xs:long" minOccurs="0"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<!-- End of SimSwapReport Response -->
+ 	
+ 	<xs:complexType name="SimSwapRprtListType">
+ 		<xs:sequence>
+ 			<xs:element name="simSwapInfo"  type="SimSwapRprtType" maxOccurs="unbounded"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	
+ 	<xs:complexType name="SimSwapRprtType">
+ 		<xs:sequence>
+			<xs:element name="loginId"  type="xs:string" minOccurs="0"/> 
+			
+ 			<xs:element name="oldMSISDNBal"  type="xs:decimal" minOccurs="0"/>
+ 			<xs:element name="newMSISDNBal"  type="xs:decimal" minOccurs="0"/>
+			<xs:element name="finalBal"  type="xs:decimal" minOccurs="0"/>
+			
+			<xs:element name="oldMSISDN"  type="xs:long" minOccurs="0"/>
+ 			<xs:element name="newMSISDN"  type="xs:long" minOccurs="0"/>
+			
+			<xs:element name="oldSim"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="newSim"  type="xs:string" minOccurs="0"/>
+			
+			<xs:element name="oldIMSI"  type="xs:long" minOccurs="0"/>
+ 			<xs:element name="newIMSI"  type="xs:long" minOccurs="0"/>
+			
+			<xs:element name="oldAcctId"  type="xs:long" minOccurs="0"/>
+			<xs:element name="newAcctId"  type="xs:long" minOccurs="0"/>
+			
+ 			<xs:element name="date"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="time"  type="xs:string" minOccurs="0"/>
+			<xs:element name="userId"  type="xs:string" minOccurs="0"/>			
+			<xs:element name="charge"  type="xs:int" minOccurs="0"/>	
+			<!-- Added by samba for Taxes -->
+			 <xs:element name="taxType" type="taxType" minOccurs="0" />		
+ 			
+ 		</xs:sequence>
+ 	</xs:complexType>
+	
+ 	
+	<!-- ChangeMSISDNReport Request -->
+ 	<xs:complexType name="ChangeMSISDNReportRequest">
+ 		<xs:sequence>
+ 			<xs:element name="fromDate" type="DateTypeMMDD" />
+ 			<xs:element name="toDate" type="DateTypeMMDD" />
+ 			<xs:element name="maxRecords" type="xs:int"/>
+ 			<xs:element name="rowCount" type="xs:int"/>
+ 			<xs:element name="MSISDN"  type="xs:long" minOccurs="0"/>
+ 			<xs:element name="acctId"  type="xs:long" minOccurs="0"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<!-- End of ChangeMSISDNReport Request -->
+	
+	<!-- ChangeMSISDNReport Response -->
+ 	<xs:complexType name="ChangeMSISDNReportResponse">
+ 		<xs:sequence>
+ 			<xs:element name="message" type="xs:string" minOccurs="0" />
+ 			<xs:element name="report"  type="ChngMSISDNRprtListType" minOccurs="0"/>
+ 			<xs:element name="totalRecords"  type="xs:long" minOccurs="0"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<!-- End of ChangeMSISDNReport Response -->
+ 	
+ 	<xs:complexType name="ChngMSISDNRprtListType">
+ 		<xs:sequence>
+ 			<xs:element name="msisdnInfo"  type="ChngMSISDNRprtType" maxOccurs="unbounded"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	
+ 	<xs:complexType name="ChngMSISDNRprtType">
+ 		<xs:sequence>
+ 			<xs:element name="acctId"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="MSISDN"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="oldMSISDN"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="newMSISDN"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="date"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="time"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="remarks"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="userId"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="networkId"  type="xs:long" minOccurs="0"/>
+ 			<xs:element name="amount"  type="xs:decimal" minOccurs="0"/>
+ 			<xs:element name="firstName"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="loginId"  type="xs:string" minOccurs="0"/>
+ 			<!-- Added by samba for Taxes -->
+			 <xs:element name="taxType" type="taxType" minOccurs="0" />
+ 		</xs:sequence>
+ 	</xs:complexType>	
+ 	
+ 	<!-- ChangeIMSIReport Request -->
+ 	<xs:complexType name="ChangeIMSIReportRequest">
+ 		<xs:sequence>
+ 			<xs:element name="fromDate" type="DateTypeMMDD" />
+ 			<xs:element name="toDate" type="DateTypeMMDD" />
+ 			<xs:element name="maxRecords" type="xs:int"/>
+ 			<xs:element name="rowCount" type="xs:int"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<!-- End of ChangeIMSIReport Request -->
+ 	
+ 	<!-- ChangeIMSIReport Response -->
+ 	<xs:complexType name="ChangeIMSIReportResponse">
+ 		<xs:sequence>
+ 			<xs:element name="message" type="xs:string" minOccurs="0" />
+ 			<xs:element name="report"  type="ChngIMSIRprtListType" minOccurs="0"/>
+ 			<xs:element name="totalRecords"  type="xs:long" minOccurs="0"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<!-- End of ChangeIMSIReport Response -->
+ 	
+ 	<xs:complexType name="ChngIMSIRprtListType">
+ 		<xs:sequence>
+ 			<xs:element name="imsiInfo"  type="ChngIMSIRprtType" maxOccurs="unbounded"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	
+ 	<xs:complexType name="ChngIMSIRprtType">
+ 		<xs:sequence>
+ 			<xs:element name="msisdn"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="acctId"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="oldIMSI"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="newIMSI"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="date"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="time"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="remarks"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="userId"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="networkId"  type="xs:long" minOccurs="0"/>
+ 			<xs:element name="amount"  type="xs:decimal" minOccurs="0"/>
+ 			<xs:element name="firstName"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="loginId"  type="xs:string" minOccurs="0"/>
+ 			<!-- Added by samba for Taxes -->
+			 <xs:element name="taxType" type="taxType" minOccurs="0" />
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	
+ 	<!-- Get SMS History Response -->
+ 	<xs:complexType name="GetSMSHistoryResponse">
+ 		<xs:sequence>
+ 			<xs:element name="history"  type="SMSHistoryListType" minOccurs="0"/>
+ 			<xs:element name="totalRecords"  type="xs:long" minOccurs="0"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<!-- End of Get SMS History Response -->
+ 	
+ 	<!-- Get SMS History Request -->
+ 	<xs:complexType name="GetSMSHistoryRequest">
+ 		<xs:sequence>
+ 			<xs:element name="account" type="AccountType1" />
+ 			<xs:element name="fromDate" type="DateTypeMMDD" />
+ 			<xs:element name="toDate" type="DateTypeMMDD" />
+ 			<xs:element name="maxRecords" type="xs:int" />
+ 			<xs:element name="serviceType" type="xs:string" />
+ 			<xs:element name="rowCount" type="xs:int" />
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<!-- End of Get SMS History Request -->
+ 	
+ 	<xs:complexType name="SMSHistoryListType">
+ 		<xs:sequence>
+ 			<xs:element name="smsData"  type="SMSHistoryType" maxOccurs="unbounded"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	
+ 	<xs:complexType name="SMSHistoryType">
+ 		<xs:sequence>
+ 			<xs:element name="msisdn"  type="xs:long" minOccurs="0"/>
+ 			<xs:element name="dateOfChange"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="charge"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="oldNmbr"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="newNmbr"  type="xs:string" minOccurs="0"/>
+ 			<xs:element name="action"  type="xs:string" minOccurs="0"/>
+ 			<!-- Added by samba for Taxes -->
+			 <xs:element name="taxType" type="taxType" minOccurs="0" />
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	
+	
+	<!-- Tariff Plan History Request -->
+ 	<xs:complexType name="TariffPlanHistoryRequest">
+ 		<xs:sequence>
+ 			<xs:element name="account" type="AccountType" />
+ 			<xs:element name="fromDate" type="xs:string" />
+ 			<xs:element name="toDate" type="xs:string" />
+ 			<!-- Chnages merging from OCS,ADR and Service Management -->
+ 			<!-- start-Added for Tariff Plan History pagination by kiranmai -->
+			<xs:element name="maxRecords" type="xs:int" />
+ 			<xs:element name="rowCount" type="xs:int"/>
+ 			<!-- Added to get TariffPack reports and ALCO reports also -->
+ 			<xs:element name="reportFlag" type="xs:string" />
+ 			<!-- End-Added for Tariff Plan History pagination -->
+ 			<!-- End of Merging -->
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<!-- End of Tariff Plan History Request -->
+ 	
+ 	<!-- Tariff Plan History Response -->
+ 	<xs:complexType name="TariffPlanHistoryResponse">
+ 		<xs:sequence>
+ 			<xs:element name="tariffPlanHistoryList"  type="TariffPlanHistoryListType" minOccurs="0"/>
+ 			<xs:element name="message"  type="MessageType" maxOccurs="1"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<xs:complexType name="TariffPlanHistoryListType">
+ 		<xs:sequence>
+ 			<xs:element name="tariffPlanHistory"  type="TariffPlanHistoryType" minOccurs="0" maxOccurs="unbounded"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	
+ 	<xs:complexType name="TariffPlanHistoryType">
+ 		<xs:sequence>
+ 				<xs:element name="date" type="xs:string" minOccurs="0"/>
+ 				<xs:element name="oldTariffPlan" type="xs:string" minOccurs="0"/>
+ 				<!-- Chnages merging from OCS,ADR and Service Management -->
+ 				<xs:element name="newTariffPlan" type="xs:string" minOccurs="0"/>
+ 				<xs:element name="byWhom" type="xs:string" minOccurs="0"/>
+ 				<!-- End of Merging -->
+ 				
+ 				<!-- Added by samba for Taxes -->
+			 <xs:element name="taxType" type="taxType" minOccurs="0" />
+ 		</xs:sequence>
+ 	</xs:complexType>
+	
+	<!-- Recharge History Request -->
+	<xs:complexType name="RechargeHistoryRequest">
+		<xs:sequence>
+			<xs:element name="account" type="AccountType" />
+			<xs:element name="duration" type="DurationType" minOccurs="0"/>
+			<xs:element name="maxRecords" type="xs:int" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- End of Recharge History Request -->
+	<xs:complexType name="DurationType">
+		<xs:sequence>
+			<xs:element name="fromDate" type="DateTypeMMDD" />
+			<xs:element name="toDate" type="DateTypeMMDD" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<!-- Recharge History Response -->
+	<xs:complexType name="RechargeHistoryResponse">
+		<xs:sequence>
+			<xs:element name="rechargeHistoryRecord"  type="RechargeHistoryRecord" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="message"  type="MessageType" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RechargeHistoryRecord">
+		<xs:sequence>
+				<xs:element name="topUpTimeStamp" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="voucherNumber" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="voucherAmount" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="rechargeAmount" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="adminAmount" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="rentalAmount" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="serviceTaxAmount" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="creditAmount" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="previousTariffId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="previousBalance" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="creditPromoAmountSeconds" type="xs:string" minOccurs="0" maxOccurs="1"/>
+    			<xs:element name="promoType" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="oldPromoAmountSeconds" type="xs:string" minOccurs="0" maxOccurs="1"/>
+   				<xs:element name="oldPromoValidityDate" type="xs:string" minOccurs="0" maxOccurs="1"/>
+   				<xs:element name="userId" type="xs:string" minOccurs="0" maxOccurs="1"/>	
+   				<!-- Added by samba for Taxes -->
+			 <xs:element name="taxType" type="taxType" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- End of Recharge History Response -->
+	
+	
+	<!-- View Account Usage Report Request -->
+	<xs:complexType name="GetActUsageReportRequest">
+		<xs:sequence>
+			<xs:element name="account" type="AccountType" />
+			<xs:element name="noOfCalls" type="xs:int" minOccurs="0"/>
+			<xs:element name="duration" type="DurationType" minOccurs="0"/>
+			<xs:element name="reportFlag" type="ReportFlagType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- End of View Account Usage Report Request -->
+	
+	<!-- View Account Usage Report Response -->
+	<xs:complexType name="GetActUsageReportResponse">
+		<xs:sequence>
+			<xs:element name="callDetails" type="CallDetailsListType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="message" type="MessageType" minOccurs="0"/>
+			<!-- <xs:element name="PUK2" type="PUKType" /> -->
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="CallDetailsListType">
+		<xs:sequence>
+			<xs:element name="MSISDN" type="MSISDNType" minOccurs="0" />
+			<xs:element name="CDRId" type="xs:string" minOccurs="0" />
+			<xs:element name="callDate" type="xs:string" minOccurs="0" />
+			<xs:element name="callDuration" type="xs:string" minOccurs="0" />
+			<xs:element name="airTimeAmount" type="xs:string" minOccurs="0" />
+			<xs:element name="pstnAmount" type="xs:string" minOccurs="0" />
+			<xs:element name="APartyNo" type="xs:string" minOccurs="0" />
+			<xs:element name="BPartyNo" type="xs:string" minOccurs="0" />
+			<xs:element name="callTerminating" type="xs:string" minOccurs="0" />
+			<xs:element name="DATA" type="xs:string" minOccurs="0" />
+			<xs:element name="roaming" type="xs:string" minOccurs="0" />
+			<xs:element name="connectCharge" type="xs:string" minOccurs="0" /><!-- 5,2 -->
+			<xs:element name="smsCharge" type="xs:string" minOccurs="0" />
+			<xs:element name="APartyCellId" type="xs:string" minOccurs="0" />
+			<xs:element name="visitNetworkName" type="xs:string" minOccurs="0" />
+			<xs:element name="locationName" type="xs:string" minOccurs="0" />
+			<xs:element name="promoAirtimeCharge" type="xs:string" minOccurs="0" />
+			<xs:element name="promoPSTNCharge" type="xs:string" minOccurs="0" />
+			<xs:element name="promoTotalDuration" type="xs:string" minOccurs="0" />
+			<xs:element name="promoVolume" type="xs:string" minOccurs="0" />
+			<xs:element name="rentalDate" type="xs:string" minOccurs="0" />
+			<xs:element name="rentalPeriod" type="xs:string" minOccurs="0" />
+			<xs:element name="rentalAmount" type="xs:string" minOccurs="0" />
+			<xs:element name="slabName" type="xs:string" minOccurs="0" />
+			<xs:element name="pulseSecs" type="xs:string" minOccurs="0" />
+			<xs:element name="pulseAmount" type="xs:string" minOccurs="0" />
+			<xs:element name="airtimeBTU" type="xs:string" minOccurs="0" />
+			<xs:element name="PSTNBTU" type="xs:string" minOccurs="0" />
+			<xs:element name="CBSFlag" type="xs:string" minOccurs="0" />
+			<xs:element name="serviceName" type="xs:string" minOccurs="0" />
+			<xs:element name="serviceTax" type="xs:string" minOccurs="0" />
+			<xs:element name="bucketName" type="xs:string" minOccurs="0" />
+			<xs:element name="bucketId" type="xs:string" minOccurs="0" />
+			<xs:element name="bucketType" type="xs:string" minOccurs="0" />
+			<xs:element name="bucketUnitValue" type="xs:string" minOccurs="0" />
+			<xs:element name="homeZoneLocation" type="xs:string" minOccurs="0" />
+			<xs:element name="fnf" type="xs:string" minOccurs="0" />
+			
+			<!-- Added by samba for Taxes -->
+			 <xs:element name="taxType" type="taxType" minOccurs="0" />
+			
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- End of View Account Usage Report Response -->
+	
+	<xs:complexType name="GetCallHistoryRequest">
+		<xs:sequence>
+			<xs:element name="userType" type="UserType" minOccurs="0"/>
+			<xs:element name="serviceType" type="ServiceType"/>
+			<xs:element name="dateFrom" type="xs:string"/>
+			<xs:element name="dateTo" type="xs:string"/>
+			<xs:element name="lastMaxCalls" type="NumberType"/>
+			<xs:element name="accountID" type="NumberType" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="GetCallHistoryResponse">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string" minOccurs="0" />
+			<xs:element name="callDetailsList" type="CallDetailListType" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<!--GSTCredit InvoiceReport -->
+	<xs:complexType name="CreditInfoInvoiceRequest">
+		<xs:sequence>
+			<xs:element name="msisdn" type="xs:string" minOccurs="0" />
+			<xs:element name="accountId" type="xs:long" minOccurs="0" />
+			<xs:element name="month" type="xs:string" minOccurs="0" />
+			<xs:element name="maxRecords" type="xs:int" minOccurs="0"/>
+ 			<xs:element name="rowCount" type="xs:int" minOccurs="0"/>
+ 			<xs:element name="charityActivityId" type="xs:string" minOccurs="0"/>
+ 			<xs:element name="roamingActivityId" type="xs:string" minOccurs="0"/>
+ 			<xs:element name="airtimeActivityId" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreditInfoInvoiceResponse">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string" minOccurs="0" />
+			<xs:element name="invoiceCursor" type="InvoiceType" minOccurs="0" />
+			<xs:element name="charityInvoiceCursor" type="InvoiceType" minOccurs="0" />
+			<xs:element name="roamingInvoiceCursor" type="InvoiceType" minOccurs="0" />
+			<xs:element name="airtimeTrsfrInvoiceCursor" type="InvoiceType" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InvoiceType">
+		<xs:sequence>
+			<xs:element name="invoice" type="Invoice" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Invoice">
+		<xs:sequence>
+			<xs:element name="item" type="xs:long" minOccurs="0" />
+			<xs:element name="product" type="xs:string" minOccurs="0" />
+			<xs:element name="quantity" type="xs:long" minOccurs="0" />
+			<xs:element name="totval" type="xs:decimal" minOccurs="0" />
+			<xs:element name="gstval" type="xs:decimal" minOccurs="0" />
+			<xs:element name="totpaidval" type="xs:decimal" minOccurs="0" />
+			<xs:element name="invoiceId" type="xs:string" minOccurs="0" />
+			<xs:element name="invoiceDate" type="xs:string" minOccurs="0" />
+			<!-- Added by samba for Taxes -->
+			 <xs:element name="taxType" type="taxType" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+        <!-- GSTCredit InvoiceReport-->
+	<xs:complexType name="CallDetailListType">
+		<xs:sequence>
+			<xs:element name="callDetails" type="CallDetailsType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="CallDetailsType">
+		<xs:sequence>
+			<xs:element name="calledCountry" type="xs:string" minOccurs="0" />
+			<xs:element name="numberOrAPN" type="xs:string" minOccurs="0" />
+			<xs:element name="category" type="xs:string" minOccurs="0" />
+			<xs:element name="trafficDirection" type="xs:string" minOccurs="0" />
+			<xs:element name="date" type="xs:string" minOccurs="0" />
+			<xs:element name="time" type="xs:string" minOccurs="0" />
+			<xs:element name="consumption" type="xs:string" minOccurs="0" />
+			<xs:element name="cost" type="xs:string" minOccurs="0" />
+			
+			<!-- if category=VOICE with addition to above -->
+			<xs:element name="cbsFlag" type="xs:string" minOccurs="0" />
+			
+			<!-- IF category = TUNEBUDDIES -->
+			<xs:element name="msisdn" type="xs:string" minOccurs="0" />
+			<xs:element name="dateofchange" type="xs:string" minOccurs="0" />
+			<xs:element name="newfnfnumber" type="xs:string" minOccurs="0" />
+			<xs:element name="oldfnfnumber" type="xs:string" minOccurs="0" />
+			<xs:element name="charge" type="xs:string" minOccurs="0" />
+			<xs:element name="action" type="xs:string" minOccurs="0" />
+			
+			<!--  Added for REQ #1031  -->
+			<xs:element name="bucketId" type="xs:string" minOccurs="0" />
+			<xs:element name="bucketType" type="xs:string" minOccurs="0" />
+			<xs:element name="bucketUnitValue" type="xs:string" minOccurs="0" />
+			<!-- Chnages merging from OCS,ADR and Service Management -->
+			<!-- Start-Added for FNF History pagination by kiranmai-->
+			<xs:element name="rowNum"  type="xs:int" minOccurs="0" />
+			<!-- End-Added for FNF History pagination -->
+				<!-- Start Added by sampath for ADR changes for 2.1.0.0 for getCAReports-->
+				
+			<xs:element name="callDate" type="xs:string" minOccurs="0"/>
+   			<xs:element name="usageType" type="xs:string" minOccurs="0"/>
+   			<xs:element name="locationName" type="xs:string" minOccurs="0"/>
+   			<xs:element name="phoneNumber" type="xs:string" minOccurs="0"/>
+   			<xs:element name="callDuration" type="xs:string" minOccurs="0"/>
+   			<xs:element name="AirtimeAMNT" type="xs:long" minOccurs="0"/>
+   			<xs:element name="PSTNAMNT" type="xs:long" minOccurs="0"/>
+   			<xs:element name="totalCharges" type="xs:long" minOccurs="0"/>
+   			<xs:element name="caUnitType" type="xs:string" minOccurs="0"/>
+   			<xs:element name="caUnitValue" type="xs:string" minOccurs="0"/>   	
+   			<xs:element name="caChannelType" type="xs:string" minOccurs="0"/>
+   			<xs:element name="airtimeBtu" type="xs:long" minOccurs="0"/>
+   			<xs:element name="pstnBtu" type="xs:long" minOccurs="0"/>
+   			<xs:element name="debitCreditFlag" type="xs:string" minOccurs="0"/>
+   			<xs:element name="callType" type="xs:string" minOccurs="0"/>
+   			<xs:element name="callCategory" type="xs:string" minOccurs="0"/> 
+   			<xs:element name="currentBalance" type="xs:string" minOccurs="0"/>
+   			<xs:element name="previousBalance" type="xs:string" minOccurs="0"/>
+   			<xs:element name="parentUnitType" type="xs:string" minOccurs="0"/>
+   			<xs:element name="parentUnitValue" type="xs:string" minOccurs="0"/>
+   			
+   			<!-- End Added by sampath for ADR changes for 2.1.0.0 for getCAReports-->
+			<!-- End of Merging -->
+			
+			
+			<!-- Added by samba for Taxes -->
+			 <xs:element name="taxType" type="taxType" minOccurs="0" />
+			
+			
+			
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="NumberListType">
+		<xs:sequence>
+			<xs:element name="Number" type="MSISDNType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="AccountType1">
+		<xs:choice>
+			<xs:element name="accountId" type="AccountIdType" />
+			<xs:element name="MSISDN" type="MSISDNLongType" />
+	    </xs:choice>
+	 </xs:complexType>
+	
+	<xs:complexType name="AccountType">
+		<xs:choice>
+			<xs:element name="accountId" type="AccountIdType" />
+			<xs:element name="MSISDN" type="MSISDNType" />
+	    </xs:choice>
+	 </xs:complexType>
+	
+	<!-- Activated MSISDNs report -->	
+	<xs:complexType name="ActvdMSISDNsReportRequest">
+		<xs:sequence>
+			<xs:element name="fromDate" type="DateTypeMMDD"/>
+			<xs:element name="toDate" type="DateTypeMMDD"/>
+			<xs:element name="maxRecords" type="xs:int"/>
+ 			<xs:element name="rowCount" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ActvdMSISDNsReportResponse">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string" minOccurs="0" />
+			<xs:element name="actvdMSISDNsReportList" type="ActvdMSISDNsReportListType" minOccurs="0" />
+			<xs:element name="totalRecords"  type="xs:long" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ActvdMSISDNsReportListType">
+		<xs:sequence>
+			<xs:element name="actvdMSISDNsData" type="ActvdMSISDNsDataType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ActvdMSISDNsDataType">
+		<xs:sequence>
+			<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+			<xs:element name="activatedDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="loginId"  type="xs:string" minOccurs="0"/>
+			 <xs:element name="taxType" type="taxType" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+<!--End of Activated MSISDNs report -->
+	
+	<!-- SpecialTopUpReport -->	
+	<xs:complexType name="SpecialTopUpReportRequest">
+		<xs:sequence>
+			<xs:element name="fromDate" type="DateTypeMMDD" minOccurs="0"/>
+			<xs:element name="toDate" type="DateTypeMMDD" minOccurs="0"/>
+			<xs:element name="maxRecords" type="xs:int"/>
+ 			<xs:element name="rowCount" type="xs:int"/>
+ 			<xs:element name="MSISDN"  type="xs:long" minOccurs="0"/>
+ 			<xs:element name="acctId"  type="xs:long" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="SpecialTopUpReportResponse">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string" minOccurs="0" />
+			<xs:element name="spclTopUpList" type="SpclTopUpRprtListType" minOccurs="0" />
+			<xs:element name="totalRecords"  type="xs:long" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SpclTopUpRprtListType">
+		<xs:sequence>
+			<xs:element name="spclTopUpData" type="SpclTopUpType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SpclTopUpType">
+		<xs:sequence>
+			<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+			<xs:element name="accountId" type="xs:string" minOccurs="0"/>
+			<xs:element name="oldData" type="xs:string" minOccurs="0"/>
+			<xs:element name="newData" type="xs:string" minOccurs="0"/>
+			<xs:element name="activityDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="activityTime" type="xs:string" minOccurs="0"/>
+			<xs:element name="userId" type="xs:string" minOccurs="0"/>
+			<xs:element name="networkId" type="xs:string" minOccurs="0"/>
+			<xs:element name="activityId" type="xs:string" minOccurs="0"/>
+			<xs:element name="amount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="firstName" type="xs:string" minOccurs="0"/>
+			<xs:element name="remarks" type="xs:string" minOccurs="0"/>
+			<!-- Added by samba for Taxes -->
+			 <xs:element name="taxType" type="taxType" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+<!--End of topUp report -->
+	
+<!-- Voucher PIN Status report -->	
+	<xs:complexType name="VchrPINStatusReportRequest">
+		<xs:sequence>
+			<xs:element name="fromDate" type="DateTypeMMDD"/>
+			<xs:element name="toDate" type="DateTypeMMDD"/>
+			<xs:element name="maxRecords" type="xs:int"/>
+ 			<xs:element name="rowCount" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="VchrPINStatusReportResponse">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string" minOccurs="0" />
+			<xs:element name="vchrPINStatusList" type="VchrReportListType" minOccurs="0" />
+			<xs:element name="totalRecords"  type="xs:long" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+<!--End of Voucher PIN Status report -->	
+	
+<!-- Voucher deactivation report -->	
+	<xs:complexType name="VoucherDeactReportRequest">
+		<xs:sequence>
+			<xs:element name="fromDate" type="DateTypeMMDD"/>
+			<xs:element name="toDate" type="DateTypeMMDD"/>
+			<xs:element name="maxRecords" type="xs:int"/>
+ 			<xs:element name="rowCount" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="VoucherDeactReportResponse">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string" minOccurs="0" />
+			<xs:element name="vchrDeactRepList" type="VchrReportListType" minOccurs="0" />
+			<xs:element name="totalRecords"  type="xs:long" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VchrReportListType">
+		<xs:sequence>
+			<xs:element name="VoucherData" type="VoucherDataType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="VoucherDataType">
+		<xs:sequence>
+			<xs:element name="serialNo" type="xs:string" minOccurs="0"/>
+			<xs:element name="previousStatus" type="xs:string" minOccurs="0"/>
+			<xs:element name="newStatus" type="xs:string" minOccurs="0"/>
+			<xs:element name="activityDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="activityTime" type="xs:string" minOccurs="0"/>
+			<xs:element name="userId" type="xs:string" minOccurs="0"/>
+			<xs:element name="networkId" type="xs:string" minOccurs="0"/>
+			<xs:element name="activityId" type="xs:string" minOccurs="0"/>
+			<xs:element name="amount" type="xs:string" minOccurs="0"/>
+			<xs:element name="firstName" type="xs:string" minOccurs="0"/>
+			<xs:element name="remarks" type="xs:string" minOccurs="0"/>
+			<xs:element name="modifiedDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+			<!-- Added by samba for Taxes -->
+			 <xs:element name="taxType" type="taxType" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+<!--End of Voucher deactivation report -->
+	
+<!-- Excess Data Usage report -->	
+	<xs:complexType name="ExcessUsageReportRequest">
+		<xs:sequence>
+			<xs:element name="fromDate" type="DateTypeMMDD"/>
+			<xs:element name="toDate" type="DateTypeMMDD"/>
+			<xs:element name="maxRecords" type="xs:int"/>
+ 			<xs:element name="rowCount" type="xs:int"/>
+ 			<xs:element name="MSISDN"  type="xs:long" minOccurs="0"/>
+ 			<xs:element name="acctId"  type="xs:long" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ExcessUsageReportResponse">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string" minOccurs="0" />
+			<xs:element name="excesDataUsageList" type="ExcesDataUsageListType" minOccurs="0" />
+			<xs:element name="totalRecords"  type="xs:long" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ExcesDataUsageListType">
+		<xs:sequence>
+			<xs:element name="ExcessUsageData" type="ExcessUsageDataType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ExcessUsageDataType">
+		<xs:sequence>
+			<xs:element name="oldData" type="xs:string" minOccurs="0"/>
+			<xs:element name="newData" type="xs:string" minOccurs="0"/>
+			<xs:element name="userId" type="xs:string" minOccurs="0"/>
+			<xs:element name="amount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="creditAmount" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="remarks" type="xs:string" minOccurs="0"/>
+			<xs:element name="date" type="xs:string" minOccurs="0"/>
+			<xs:element name="time" type="xs:string" minOccurs="0"/>
+			<xs:element name="MSISDN" type="xs:long" minOccurs="0"/>
+			<!-- Added by samba for Taxes -->
+			 <xs:element name="taxType" type="taxType" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+<!--End of Excess Data Usage report -->	
+<!-- Chnages merging from OCS,ADR and Service Management -->
+<!--  getCAReports -->
+   <xs:element name="getCAReportsRequest" type="GetCAReportsRequest" />
+   <xs:element name="getCAReportsResponse" type="GetCAReportsResponse" />
+    <!--  End of get CA History  -->
+     <xs:complexType name="GetCAReportsRequest">
+   		<xs:sequence>
+    		<xs:element name="acctId" type="xs:long" />
+    		<xs:element name="startDate" type="xs:string" minOccurs="0" />
+    		<xs:element name="endDate" type="xs:string" minOccurs="0" />
+    		<xs:element name="maxRcrds" type="xs:int" />
+     		<!-- start-Added for CA Reports pagination by kiranmai -->
+     		<xs:element name="rowCount" type="xs:int" />
+    		<!-- End-Added for CA Reports pagination -->
+    		<!-- Start -Added by sampath for ADR changes 2.1.0.0 -->
+    		<xs:element name="noOfCalls" type="xs:long" minOccurs="0" />
+    		<xs:element name="reportFlag" type="xs:long" />
+    		<xs:element name="reportType" type="xs:long" />
+    		<xs:element name="childMsisdnArray" type="ChildMsisdnArray" minOccurs="0" />
+			<!-- End -Added by sampath for ADR changes 2.1.0.0 -->
+    	</xs:sequence>
+   </xs:complexType>
+    <xs:complexType name="ChildMsisdnArray">
+   		<xs:sequence>
+   			<xs:element name="childMsisdn" type="ChildMsisdn" minOccurs="0" maxOccurs="unbounded"/>
+    	</xs:sequence>
+   </xs:complexType>
+    <xs:complexType name="ChildMsisdn">
+   		<xs:sequence>
+   			<xs:element name="childMsisdn" type="xs:string"/>
+    	</xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="GetCAReportsResponse">
+   		<xs:sequence>
+   			<xs:element name="totalRcrds" type="xs:long" minOccurs="0"/>
+   			<xs:element name="historyInfo" type="CAHistoryType" minOccurs="0" maxOccurs="unbounded"/>
+   			<xs:element name="callDetails" type="CallDetailsType" minOccurs="0" maxOccurs="unbounded"/>
+    	</xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="CAHistoryType">
+   		<xs:sequence>
+   			<xs:element name="grpName" type="xs:string" minOccurs="0"/>
+   			<xs:element name="parntMsisdn" type="xs:long" minOccurs="0"/>
+   			<xs:element name="childMsisdn" type="xs:long" minOccurs="0"/>
+   			<xs:element name="srvcName" type="xs:string" minOccurs="0"/>
+   			<xs:element name="unitType" type="xs:string" minOccurs="0"/>
+   			<xs:element name="unitValue" type="xs:decimal" minOccurs="0"/>
+   			<xs:element name="trnsfrORRvrsl" type="xs:string" minOccurs="0"/>
+   			<xs:element name="txInitdFrom" type="xs:string" minOccurs="0"/>
+   			<xs:element name="remarks" type="xs:string" minOccurs="0"/>
+   			<xs:element name="date" type="xs:string" minOccurs="0"/>   			
+    	</xs:sequence>
+   </xs:complexType>
+   <!-- Transaction report -->	
+		<xs:complexType name="AccountReportRequest">
+			<xs:sequence>
+				<xs:element name="fromDate" type="DateTypeMMDD" minOccurs="0"/>
+				<xs:element name="toDate" type="DateTypeMMDD" minOccurs="0"/>
+				<xs:element name="maxRecords" type="xs:int" minOccurs="0"/>
+	 			<xs:element name="nxtRecIndex" type="xs:int" minOccurs="0"/>
+	 			<xs:element name="reportFlag"  type="xs:int" minOccurs="0"/>
+	 			<xs:element name="acctId"  type="xs:long" minOccurs="0"/>
+	 			<xs:element name="MSISDN" type="xs:long" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>	
+		<xs:complexType name="AccountReportResponse">
+			<xs:sequence>
+				<xs:element name="accountDetails" type="AccountDetails" minOccurs="0"/>
+				<xs:element name="dataPlanDetails" type="DataPlanRental" minOccurs="0"/>
+				<xs:element name="totalRecords" type="xs:long" minOccurs="0"/>
+				<xs:element name="message" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>	
+		<xs:complexType name="AccountDetails">
+			<xs:sequence>
+				<xs:element name="accountDetailsList" type="AccountDetailsType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:complexType name="DataPlanRental">
+			<xs:sequence>
+				<xs:element name="dataPlanDetailsList" type="DataPlanDetailsType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:complexType name="AccountDetailsType">
+			<xs:sequence>
+				<xs:element name="accountId" type="xs:long" minOccurs="0" />
+				<xs:element name="activityId" type="xs:long" minOccurs="0" />
+				<xs:element name="activityDate" type="xs:string" minOccurs="0" />
+				<xs:element name="amount" type="xs:string" minOccurs="0" />
+				<xs:element name="promoBalSeconds" type="xs:string" minOccurs="0" />
+				<xs:element name="promoType" type="xs:string" minOccurs="0" />
+				<xs:element name="tType" type="xs:string" minOccurs="0" />
+				<xs:element name="remarks" type="xs:string" minOccurs="0" />
+				<xs:element name="userId" type="xs:string" minOccurs="0" />
+				<!-- Added by samba for Taxes -->
+			 <xs:element name="taxType" type="taxType" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>	
+		<xs:complexType name="DataPlanDetailsType">
+			<xs:sequence>
+				<xs:element name="MSISDN" type="xs:long" minOccurs="0" />
+				<xs:element name="serviceName" type="xs:string" minOccurs="0" />
+				<xs:element name="subContentName" type="xs:string" minOccurs="0" />
+				<xs:element name="duration" type="xs:long" minOccurs="0" />
+				<xs:element name="dataVolume" type="xs:long" minOccurs="0" />
+				<xs:element name="transDate" type="xs:string" minOccurs="0" />
+				<xs:element name="totalCharge" type="xs:string" minOccurs="0" />
+				<xs:element name="promoVolume" type="xs:long" minOccurs="0" />
+				<!-- Added by samba for Taxes -->
+			 <xs:element name="taxType" type="taxType" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>	
+		
+		<xs:complexType name="usageReportRequest">
+ 		<xs:sequence>
+ 			<xs:element name="MSISDN" type="MSISDNType" />
+ 			<xs:element name="fromDate" type="DateTypeMMDD" minOccurs="0"/>
+ 			<xs:element name="toDate" type="DateTypeMMDD" minOccurs="0"/>
+ 			<xs:element name="usageType" type="xs:string" />
+ 	 		<xs:element name="userDefinedOne" type="xs:string" minOccurs="0"/>
+ 	 		<xs:element name="userDefinedTwo"  type="xs:string" minOccurs="0"/>
+ 		</xs:sequence>
+ 	</xs:complexType>	
+ 	
+ 	<xs:complexType name="usageReportResponse">
+ 		<xs:sequence>
+ 			<xs:element name="usageDetails" type="usageDetails" minOccurs="0"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<xs:complexType name="usageDetails">
+ 		<xs:sequence>
+ 			<xs:element name="usageDetailsList" type="usageDetailsType" minOccurs="0" maxOccurs="unbounded"/>
+ 		</xs:sequence>
+ 	</xs:complexType>
+ 	<xs:complexType name="usageDetailsType">
+ 		<xs:sequence>
+ 			<xs:element name="callDate" type="xs:string" minOccurs="0" />
+ 			<xs:element name="usageType" type="xs:string" minOccurs="0" />
+ 			<xs:element name="locationName" type="xs:string" minOccurs="0" />
+ 			<xs:element name="MSISDN" type="MSISDNType" minOccurs="0" />
+ 			<xs:element name="callDuration" type="xs:string" minOccurs="0" />
+ 			<xs:element name="airtimeAMNT" type="xs:string" minOccurs="0" />
+ 			<xs:element name="pstnAMNT" type="xs:string" minOccurs="0" />
+ 			<xs:element name="totalCharges" type="xs:string" minOccurs="0" />
+ 			<xs:element name="CAUnitType" type="xs:string" minOccurs="0" />
+ 			<xs:element name="CAUnitValue" type="xs:string" minOccurs="0" />
+ 			<xs:element name="CAChannelType" type="xs:string" minOccurs="0" />
+ 			<xs:element name="airtimeBTU" type="xs:string" minOccurs="0" />
+ 			<xs:element name="pstnBTU" type="xs:string" minOccurs="0" />
+ 			<xs:element name="cbsFlag" type="xs:string" minOccurs="0" />
+ 			<xs:element name="bucketUsage" type="xs:string" minOccurs="0" />
+ 			<xs:element name="debitCreditFlag" type="xs:string" minOccurs="0" />
+ 			<xs:element name="callType" type="xs:string" minOccurs="0" />
+ 			<xs:element name="payAsGoPlan" type="xs:string" minOccurs="0" />
+ 			<xs:element name="volumePlan" type="xs:string" minOccurs="0" />
+ 			<xs:element name="serviceChargeAMNT" type="xs:string" minOccurs="0" />
+ 			<xs:element name="tax2AMNT" type="xs:string" minOccurs="0" />
+ 		</xs:sequence>
+ 	</xs:complexType>	
+		
+		
+	<!--End ofTransaction report -->
+   <!-- End of Merging -->
+
+    <!--  Simple Types -->
+    <xs:simpleType name="AccountIdType">
+		<xs:restriction base="xs:long">
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="MSISDNLongType">	
+		<xs:restriction base="xs:long">
+			<xs:minInclusive value="9999999"/>
+			<xs:maxExclusive value="9223372036854775807"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="MSISDNType">	
+		<xs:restriction base="xs:string">
+			<xs:minLength value="7"/>
+			<xs:maxLength value="20"/>
+			<xs:pattern value="[0-9]{7,20}" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="taxType">
+		<xs:sequence>
+			<xs:element name="tax1" type="xs:string" minOccurs="0" />
+			<xs:element name="tax2" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+<xs:simpleType name="UserType">
+		<xs:restriction base="xs:integer">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation>Value "1" represents SelfCareUI User.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation>Value "2" represents DealerCare User.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation>Value "3" represents CorporateUI User.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ServiceType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="VOICE" />
+			<xs:enumeration value="SMS" />
+			<xs:enumeration value="DATA" />
+			<xs:enumeration value="TUNEBUDDIES" />
+			<xs:enumeration value="VIDEO" /> <!-- Added for REQ925:VIDEOCALL -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NumberType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="19" />
+			<xs:pattern value="[0-9]{1,19}" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MessageType">	
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="BalanceType">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="4"/>
+			<xs:totalDigits value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+		<xs:simpleType name="PUKType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8" />												 
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DateTypeMMDD">
+		<xs:restriction base="xs:string">
+			<!-- MM/DD/YYYY format -->
+			<xs:pattern value="([0][1-9]|[1][0-2])/([0][1-9]|[1-2][0-9]|[3][0-1])/([1-9][0-9][0-9][0-9])"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	
+ <xs:simpleType name="DDMMYYYYDate">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="([0][1-9]|[1-2][0-9]|[3][0-1])/([0][1-9]|[1][0-2])/([1-9][0-9][0-9][0-9])"/>
+  </xs:restriction>
+ </xs:simpleType>
+
+	<xs:simpleType name="ReportFlagType">
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="0">
+				<xs:annotation>
+					<xs:documentation>Value "0" represents HOME CALLS (NON ROAMING).</xs:documentation>
+				</xs:annotation>			
+			</xs:enumeration>
+			<xs:enumeration value="1" >
+				<xs:annotation>
+					<xs:documentation>Value "1" represents ROAMING CALLS (NON HOME CALLS).</xs:documentation>
+				</xs:annotation>			
+			</xs:enumeration>
+			<xs:enumeration value="2" >
+				<xs:annotation>
+					<xs:documentation>Value "2" represents FNF CALLS.</xs:documentation>
+				</xs:annotation>			
+			</xs:enumeration>
+			<xs:enumeration value="3" >
+				<xs:annotation>
+					<xs:documentation>Value "3" represents CUG CALLS.</xs:documentation>
+				</xs:annotation>			
+			</xs:enumeration>
+			<xs:enumeration value="4" >
+				<xs:annotation>
+					<xs:documentation>Value "4" represents HOME ZONE CALLS.</xs:documentation>
+				</xs:annotation>			
+			</xs:enumeration>
+			<xs:enumeration value="5" >
+				<xs:annotation>
+					<xs:documentation>Value "5" represents SMS DETAILS.</xs:documentation>
+				</xs:annotation>			
+			</xs:enumeration>
+			<xs:enumeration value="6" >
+				<xs:annotation>
+					<xs:documentation>Value "6" represents SERVICE RENTALS.</xs:documentation>
+				</xs:annotation>			
+			</xs:enumeration>
+			<xs:enumeration value="7" >
+				<xs:annotation>
+					<xs:documentation>Value "7" represents Promotional Calls.</xs:documentation>
+				</xs:annotation>			
+			</xs:enumeration>
+			<xs:enumeration value="8" >
+				<xs:annotation>
+					<xs:documentation>Value "8" represents Data Sessions.</xs:documentation>
+				</xs:annotation>			
+			</xs:enumeration>
+			<xs:enumeration value="9" >
+				<xs:annotation>
+					<xs:documentation>Value "9" represents IP MO Sessions.</xs:documentation>
+				</xs:annotation>			
+			</xs:enumeration>
+			<xs:enumeration value="10" >
+				<xs:annotation>
+					<xs:documentation>Value "10" represents IP MT Sessions.</xs:documentation>
+				</xs:annotation>			
+			</xs:enumeration>
+			<xs:enumeration value="11" >
+				<xs:annotation>
+					<xs:documentation>Value "11" represents MMSC MO Sessions.</xs:documentation>
+				</xs:annotation>			
+			</xs:enumeration>
+			<xs:enumeration value="12" >
+				<xs:annotation>
+					<xs:documentation>Value "12" represents MMSC MT Sessions.</xs:documentation>
+				</xs:annotation>			
+			</xs:enumeration>
+			<xs:enumeration value="13" >
+				<xs:annotation>
+					<xs:documentation>Value "13" represents Personal Emergency Call Details.</xs:documentation>
+				</xs:annotation>			
+			</xs:enumeration>
+			<xs:enumeration value="14" >
+				<xs:annotation>
+					<xs:documentation>Value "14" represents IP Events.</xs:documentation>
+				</xs:annotation>			
+			</xs:enumeration>
+			<xs:enumeration value="15" >
+				<xs:annotation>
+					<xs:documentation>Value "15" represents SIP Calls.</xs:documentation>
+				</xs:annotation>			
+			</xs:enumeration>
+			<xs:enumeration value="16" >
+				<xs:annotation>
+					<xs:documentation>Value "16" represents VIDEO  Calls.</xs:documentation>
+				</xs:annotation>			
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+    <!-- End of Simple Types -->
+</xs:schema>

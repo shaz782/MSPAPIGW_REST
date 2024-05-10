@@ -1,0 +1,160 @@
+<project default="buildjar" basedir="."  name="MSPAPIGW-Client" >
+	<property file="./project.properties" />
+	<path id="axis.classpath">
+		<fileset dir="${project.axis.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<path id="src.classpath">
+		<fileset dir="${project.class.dir}">
+			<include name="**/*.class" />
+		</fileset>
+		<path refid="axis.classpath"/>
+	</path>
+    <taskdef resource="axis-tasks.properties"	  classpathref="axis.classpath" />
+	
+<!-- Clean compiled code-->
+	<target name="clean">
+		<echo>Clean compiled code</echo>
+		<delete dir="${project.class.dir}" />
+		<delete dir="${src.dir}">
+			<exclude name="**/util/*Header.java" />
+		</delete>
+	</target>
+
+<!-- create folders-->
+	<target name="init" depends="clean" description="create dirs for build">
+		<tstamp/>
+		<mkdir dir="${project.class.dir}"/>
+		<mkdir dir="${project.distribution.dir}"/>	
+	</target>
+
+	<target name="axis-wsdl2j" depends="init" description="generate client stubs">
+		
+		<echo message="${wsdl.src.dir}/iba/SubscriberManagementV1.wsdl"></echo>		
+			<axis-wsdl2java output= "${src.dir}" deployScope="Application"	verbose= "true"	debug="true"
+				testcase="false" url="${wsdl.src.dir}/iba/SubscriberManagementV1.wsdl" serverSide= "false">
+					<mapping namespace="http://billing.xius.com/SubscriberManagementV1.xsd" package="com.xius.msp.billing.messages.SubscriberManagementV1" />
+					<mapping namespace="http://billing.xius.com/SubscriberManagementV1.wsdl" package="com.xius.msp.billing.client.SubscriberManagementV1" />
+					<mapping namespace="http://billing.xius.com/common/error/ErrorDetails.xsd" package="com.xius.msp.billing.messages.common" />
+					<mapping namespace="http://billing.xius.com/common/header/HeaderDetails.xsd" package="com.xius.msp.billing.messages.common" />
+					<classpath refid="axis.classpath"/>
+			</axis-wsdl2java>
+			
+		<echo message="${wsdl.src.dir}/iba/AccountManagement.wsdl"></echo>	
+			<axis-wsdl2java output= "${src.dir}" deployScope="Application"	verbose= "true"	debug="true"
+				testcase="false" url="${wsdl.src.dir}/iba/AccountManagement.wsdl" serverSide= "false">
+					<mapping namespace="http://billing.xius.com/AccountManagement.xsd" package="com.xius.msp.billing.messages.accountManagement" />
+					<mapping namespace="http://billing.xius.com/AccountManagement.wsdl" package="com.xius.msp.billing.client.accountManagement" />
+					<mapping namespace="http://billing.xius.com/common/error/ErrorDetails.xsd" package="com.xius.msp.billing.messages.common" />
+					<mapping namespace="http://billing.xius.com/common/header/HeaderDetails.xsd" package="com.xius.msp.billing.messages.common" />
+					<classpath refid="axis.classpath"/>
+			</axis-wsdl2java>
+		<echo message="${wsdl.src.dir}/iba/BalanceManagement.wsdl"></echo>	
+			<axis-wsdl2java output= "${src.dir}" deployScope="Application"	verbose= "true"	debug="true"
+				testcase="false" url="${wsdl.src.dir}/iba/BalanceManagement.wsdl" serverSide= "false">
+					<mapping namespace="http://billing.xius.com/BalanceManagement.xsd" package="com.xius.msp.billing.messages.balanceManagement" />
+					<mapping namespace="http://billing.xius.com/BalanceManagement.wsdl" package="com.xius.msp.billing.client.balanceManagement" />
+					<mapping namespace="http://billing.xius.com/common/error/ErrorDetails.xsd" package="com.xius.msp.billing.messages.common" />
+					<mapping namespace="http://billing.xius.com/common/header/HeaderDetails.xsd" package="com.xius.msp.billing.messages.common" />
+					<classpath refid="axis.classpath"/>
+			</axis-wsdl2java>
+		<echo message="${wsdl.src.dir}/selfcare/SubscriberManagementV1.wsdl"></echo>		
+			<axis-wsdl2java output= "${src.dir}" deployScope="Application"	verbose= "true"	debug="true"
+				testcase="false" url="${wsdl.src.dir}/selfcare/SubscriberManagementV1.wsdl" serverSide= "false">
+					<mapping namespace="http://scare.xbus.xiusbcgi.com/SubscriberManagementV1.xsd" package="com.xius.msp.selfcare.messages.SubscriberManagementV1" />
+					<mapping namespace="http://scare.xbus.xiusbcgi.com/SubscriberManagementV1.wsdl" package="com.xius.msp.selfcare.client.SubscriberManagementV1" />
+					<mapping namespace="http://scare.xbus.xiusbcgi.com/common/error/ErrorDetails.xsd" package="com.xius.msp.selfcare.messages.common" />
+					<mapping namespace="http://scare.xbus.xiusbcgi.com/common/header/HeaderDetails.xsd" package="com.xius.msp.selfcare.messages.common" />
+					<classpath refid="axis.classpath"/>
+			</axis-wsdl2java>
+		
+		<echo message="${wsdl.src.dir}/xBus/Billing/TariffService/TariffService.wsdl"/>		
+			<axis-wsdl2java output="${src.dir}" deployScope="Application" verbose="false" debug="false"
+				testcase="false" url="${wsdl.src.dir}/xBus/Billing/TariffService/TariffService.wsdl" serverSide= "false">
+				<classpath refid="axis.classpath"/>
+			</axis-wsdl2java>
+		
+		<echo message="${wsdl.src.dir}/xBus/Billing/DebitOrCredit/DebitOrCreditServices.wsdl"/>		
+			<axis-wsdl2java output="${src.dir}" deployScope="Application" verbose="false" debug="false"
+				testcase="false" url="${wsdl.src.dir}/xBus/Billing/DebitOrCredit/DebitOrCreditServices.wsdl" serverSide= "false">
+				<classpath refid="axis.classpath"/>
+			</axis-wsdl2java>
+		
+		<echo message="${wsdl.src.dir}/xBus/Billing/BundleService/BundleService.wsdl"/>		
+			<axis-wsdl2java output="${src.dir}" deployScope="Application" verbose="false" debug="false"
+				testcase="false" url="${wsdl.src.dir}/xBus/Billing/BundleService/BundleService.wsdl" serverSide= "false">
+				<classpath refid="axis.classpath"/>
+			</axis-wsdl2java>
+		
+		<echo message="${wsdl.src.dir}/Notifications/NotificationManagement.wsdl"></echo>		
+			<axis-wsdl2java output= "${src.dir}" deployScope="Application"	verbose= "true"	debug="true"
+				testcase="false" url="${wsdl.src.dir}/Notifications/NotificationManagement.wsdl" serverSide= "false">
+					<mapping namespace="http://ne.xius.com/NotificationManagement.xsd" package="com.xius.msp.mq.messages.notification" />
+					<mapping namespace="http://ne.xius.com/NotificationManagement.wsdl" package="com.xius.msp.mq.client.notification" />
+					<mapping namespace="http://ne.xius.com/common/error/ErrorDetails.xsd" package="com.xius.msp.mq.messages.common" />
+					<mapping namespace="http://ne.xius.com/common/header/HeaderDetails.xsd" package="com.xius.msp.mq.messages.common" />
+					<classpath refid="axis.classpath"/>
+			</axis-wsdl2java>
+		
+		<echo message="${wsdl.src.dir}/xBus/Provisioning/DeviceService/DeviceService.wsdl"/>		
+			<axis-wsdl2java output="${src.dir}" deployScope="Application" verbose="false" debug="false"
+				testcase="false" url="${wsdl.src.dir}/xBus/Provisioning/DeviceService/DeviceService.wsdl" serverSide= "false">
+					<classpath refid="axis.classpath"/>
+			</axis-wsdl2java>
+		
+		<echo message="${wsdl.src.dir}/iba/ReportManagement.wsdl"></echo>	
+					<axis-wsdl2java output= "${src.dir}" deployScope="Application"	verbose= "true"	debug="true"
+						testcase="false" url="${wsdl.src.dir}/iba/ReportManagement.wsdl" serverSide= "false">
+							<mapping namespace="http://billing.xius.com/ReportManagement.xsd" package="com.xius.msp.billing.messages.reportManagement" />
+							<mapping namespace="http://billing.xius.com/ReportManagement.wsdl" package="com.xius.msp.billing.client.reportManagement" />
+							<mapping namespace="http://billing.xius.com/common/error/ErrorDetails.xsd" package="com.xius.msp.billing.messages.common" />
+							<mapping namespace="http://billing.xius.com/common/header/HeaderDetails.xsd" package="com.xius.msp.billing.messages.common" />
+							<classpath refid="axis.classpath"/>
+					</axis-wsdl2java>
+	
+		<echo message="${wsdl.src.dir}/iba/LoginServices.wsdl"></echo>	
+					<axis-wsdl2java output= "${src.dir}" deployScope="Application"	verbose= "true"	debug="true"
+						testcase="false" url="${wsdl.src.dir}/iba/LoginServices.wsdl" serverSide= "false">
+						<mapping namespace="http://billing.xius.com/LoginServices.xsd" package="com.xius.msp.billing.messages.loginServices" />
+						<mapping namespace="http://billing.xius.com/LoginServices.wsdl" package="com.xius.msp.billing.client.loginServices" />
+						<mapping namespace="http://billing.xius.com/common/error/ErrorDetails.xsd" package="com.xius.msp.billing.messages.common" />
+						<mapping namespace="http://billing.xius.com/common/header/HeaderDetails.xsd" package="com.xius.msp.billing.messages.common" />
+													
+								<classpath refid="axis.classpath"/>
+					</axis-wsdl2java>
+		<echo message="${wsdl.src.dir}/smf/SMFManagement.wsdl"></echo>	
+					<axis-wsdl2java output= "${src.dir}" deployScope="Application"	verbose= "true"	debug="true"
+							testcase="false" url="${wsdl.src.dir}/smf/SMFManagement.wsdl" serverSide= "false">
+								<mapping namespace="http://smf.xius.com/SMFManagement.xsd" package="com.xius.msp.smf.messages.smfManagement" />
+								<mapping namespace="http://smf.xius.com/SMFManagement.wsdl" package="com.xius.msp.smf.client.smfManagement" />
+								<mapping namespace="http://smf.xius.com/common/error/ErrorDetails.xsd" package="com.xius.msp.smf.messages.common" />
+								<mapping namespace="http://smf.xius.com/common/header/HeaderDetails.xsd" package="com.xius.msp.smf.messages.common" />
+								<classpath refid="axis.classpath"/>
+					</axis-wsdl2java>
+	</target>
+	
+	<!-- target to compile stubs -->
+	<target name="compile" depends="axis-wsdl2j" description="compile the axis soap stubs">
+		<echo message="Compiling axis-generated transfer object stubs."/>
+		<javac debug="on"
+		       srcdir="${src.dir}"
+		       destdir="${project.class.dir}"
+		       fork="true"
+		       memoryMaximumSize="512m"
+		       classpathref="src.classpath" />
+	</target>
+	
+	<!-- compile and build jar for web services -->
+		<target name="buildjar" depends="compile">
+			<echo message="Create web services jar">
+			</echo>
+			<jar jarfile="${project.distribution.dir}/${services-jar}"  compress="true">
+				<!-- add classes -->
+				<fileset dir="${project.class.dir}">
+					<include name="**/*.*" />
+				</fileset>
+			</jar>
+		</target>
+</project>

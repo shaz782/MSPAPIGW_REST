@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://scare.xbus.xiusbcgi.com/SubscriberManagementV1.wsdl"
+	xmlns:envelope="http://scare.xbus.xiusbcgi.com/SubscriberManagementV1.xsd"
+	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:wshdr="http://scare.xbus.xiusbcgi.com/common/header/HeaderDetails.xsd"
+	xmlns:err="http://scare.xbus.xiusbcgi.com/common/error/ErrorDetails.xsd"
+	targetNamespace="http://scare.xbus.xiusbcgi.com/SubscriberManagementV1.wsdl">
+	<wsdl:types>
+		<xs:schema
+	xmlns:tns="http://scare.xbus.xiusbcgi.com/SubscriberManagementV1.wsdl"
+	targetNamespace="http://scare.xbus.xiusbcgi.com/SubscriberManagementV1.wsdl">
+			<xs:import namespace="http://scare.xbus.xiusbcgi.com/SubscriberManagementV1.xsd" schemaLocation="SubscriberManagementV1.xsd"/>
+			<xs:import namespace="http://scare.xbus.xiusbcgi.com/common/header/HeaderDetails.xsd" schemaLocation="HeaderDetails.xsd"/>
+			<xs:import namespace="http://scare.xbus.xiusbcgi.com/common/error/ErrorDetails.xsd" schemaLocation="ErrorDetails.xsd"/>
+		</xs:schema>
+	</wsdl:types>
+	
+	<wsdl:message name="getdemographicdtlsRequest">
+		<wsdl:part name="body" element="envelope:getdemographicdtlsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getdemographicdtlsResponse">
+		<wsdl:part name="body" element="envelope:getdemographicdtlsResponse"/>
+	</wsdl:message>
+ 	<wsdl:message name="WsMessageHeader">
+		<wsdl:part name="head" element="wshdr:messageHeader"/>
+	</wsdl:message>
+	<wsdl:message name="faultmessage">
+		<wsdl:part name="body" element="err:errorDetailItem"/>
+	</wsdl:message>
+	<wsdl:message name="updateDemographicDetailsRequest">
+		<wsdl:part name="body" element="envelope:updateDemographicDetailsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="updateDemographicDetailsResponse">
+		<wsdl:part name="body" element="envelope:updateDemographicDetailsResponse"/>
+	</wsdl:message>
+
+	<wsdl:portType name="SubscriberManagementPortTypeV1">	 
+	 <wsdl:operation name="getdemographicdtls">
+			<wsdl:input message="tns:getdemographicdtlsRequest"/>
+			<wsdl:output message="tns:getdemographicdtlsResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+	</wsdl:operation>
+	
+	 <wsdl:operation name="updateDemographicDetails">
+			<wsdl:input message="tns:updateDemographicDetailsRequest"/>
+			<wsdl:output message="tns:updateDemographicDetailsResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+	</wsdl:operation>	
+	</wsdl:portType>
+	
+	<wsdl:binding name="SubscriberManagementServicesBindingV1" type="tns:SubscriberManagementPortTypeV1">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+	 	
+		<wsdl:operation name="getdemographicdtls">
+			<soap:operation soapAction="getdemographicdtls"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="updateDemographicDetails">
+			<soap:operation soapAction="updateDemographicDetails"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		
+	</wsdl:binding>
+	<wsdl:service name="SubscriberManagementServicesV1">
+		<wsdl:port name="SubscriberManagementServicesPortV1" binding="tns:SubscriberManagementServicesBindingV1">
+			<soap:address location="http://localhost:8080/axis/SubscriberManagementServices/v1"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

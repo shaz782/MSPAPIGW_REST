@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Sealed: true
+Name: MSPAPIGW-Client
+Implementation-Title: MSPAPIGW-Client Component to interact with MSPAPIGW
+Implementation-Version: xx.xx.xx
+Implementation-Vendor: XIUS-bcgi

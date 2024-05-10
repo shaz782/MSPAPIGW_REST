@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://billing.xius.com/LoginServices.wsdl"
+	xmlns:lgns="http://billing.xius.com/LoginServices.xsd"
+	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:wshdr="http://billing.xius.com/common/header/HeaderDetails.xsd"
+	xmlns:err="http://billing.xius.com/common/error/ErrorDetails.xsd"	
+	targetNamespace="http://billing.xius.com/LoginServices.wsdl">
+	
+	<wsdl:types>
+		<xs:schema xmlns:tns="http://billing.xius.com/LoginServices.wsdl"
+			targetNamespace="http://billing.xius.com/LoginServices.wsdl">
+			<xs:import namespace="http://billing.xius.com/LoginServices.xsd"
+				schemaLocation="LoginServices.xsd" />
+			<xs:import namespace="http://billing.xius.com/common/header/HeaderDetails.xsd"
+				schemaLocation="HeaderDetails.xsd" />
+			<xs:import namespace="http://billing.xius.com/common/error/ErrorDetails.xsd"
+				schemaLocation="ErrorDetails.xsd" />			
+		</xs:schema>
+	</wsdl:types>
+  <!-- getCreditProfileDtls -->
+    <wsdl:message name="getCreditProfileDtlsRequest">
+		<wsdl:part name="body" element="lgns:getCreditProfileDtlsRequest" />
+	</wsdl:message>
+	<wsdl:message name="getCreditProfileDtlsResponse">
+		<wsdl:part name="body" element="lgns:getCreditProfileDtlsResponse" />
+	</wsdl:message>
+    
+    
+
+
+  <!-- GetPinCodeDetails-->
+	<wsdl:message name="getPinCodeDtlsRequest">
+		<wsdl:part name="body" element="lgns:getPinCodeDtlsRequest" />
+	</wsdl:message>
+	<wsdl:message name="getPinCodeDtlsResponse">
+		<wsdl:part name="body" element="lgns:getPinCodeDtlsResponse" />
+	</wsdl:message>
+
+
+
+	<!-- GetSubscriberCategoryRequest -->
+	<wsdl:message name="getSubscriberCategoryRequest">
+		<wsdl:part name="body" element="lgns:getSubscriberCategoryRequest" />
+	</wsdl:message>
+	<wsdl:message name="getSubscriberCategoryResponse">
+		<wsdl:part name="body" element="lgns:getSubscriberCategoryResponse" />
+	</wsdl:message>
+
+
+
+<!-- Get Denoms -->
+	<wsdl:message name="getDenomsRequest">
+		<wsdl:part name="body" element="lgns:getDenomsRequest" />
+	</wsdl:message>
+	<wsdl:message name="getDenomsResponse">
+		<wsdl:part name="body" element="lgns:getDenomsResponse" />
+	</wsdl:message>
+	<!-- End of Get Denoms  -->
+
+	<!-- Get NoteTypes -->
+	<wsdl:message name="getNoteTypesRequest">
+		<wsdl:part name="body" element="lgns:getNoteTypesRequest" />
+	</wsdl:message>
+	<wsdl:message name="getNoteTypesResponse">
+		<wsdl:part name="body" element="lgns:getNoteTypesResponse" />
+	</wsdl:message>
+	<!-- End of Get NoteTypes  -->
+
+
+	<!-- Get Login Network Details  -->
+	<wsdl:message name="getLoginNetworkDetailsRequest">
+		<wsdl:part name="body" element="lgns:getLoginNetworkDetailsRequest" />
+	</wsdl:message>
+	<wsdl:message name="getLoginNetworkDetailsResponse">
+		<wsdl:part name="body" element="lgns:getLoginNetworkDetailsResponse" />
+	</wsdl:message>
+	<!-- End of Get Login Network Details  -->
+	
+	<!-- Get Login roles -->
+	<wsdl:message name="getLoginRolesRequest">
+		<wsdl:part name="body" element="lgns:getLoginRolesRequest" />
+	</wsdl:message>
+	<wsdl:message name="getLoginRolesResponse">
+		<wsdl:part name="body" element="lgns:getLoginRolesResponse" />
+	</wsdl:message>
+	<!-- End of Get Login roles  -->
+	
+	<!-- Get Login Network Roles Request  -->
+	<wsdl:message name="getLoginNetworkRolesRequest">
+		<wsdl:part name="body" element="lgns:getLoginNetworkRolesRequest" />
+	</wsdl:message>
+	<wsdl:message name="getLoginNetworkRolesResponse">
+		<wsdl:part name="body" element="lgns:getLoginNetworkRolesResponse" />
+	</wsdl:message>
+	<!-- End of Get Login Network Roles Request  -->
+	
+	<!-- Get Login Privileges -->
+	<wsdl:message name="getLoginPrivilegesRequest">
+		<wsdl:part name="body" element="lgns:getLoginPrivilegesRequest" />
+	</wsdl:message>
+	<wsdl:message name="getLoginPrivilegesResponse">
+		<wsdl:part name="body" element="lgns:getLoginPrivilegesResponse" />
+	</wsdl:message>
+	<!-- End of Get Login Privileges -->
+	
+	<!-- Validate Admin Login -->
+	<wsdl:message name="validateAdminLoginRequest">
+		<wsdl:part name="body" element="lgns:validateAdminLoginRequest" />
+	</wsdl:message>
+	<wsdl:message name="validateAdminLoginResponse">
+		<wsdl:part name="body" element="lgns:validateAdminLoginResponse" />
+	</wsdl:message>
+	<!-- End of Validate Admin Login -->
+	
+	<!-- Insert Activity -->
+	<wsdl:message name="insertActivityRequest">
+		<wsdl:part name="body" element="lgns:insertActivityRequest" />
+	</wsdl:message>
+	<wsdl:message name="insertActivityResponse">
+		<wsdl:part name="body" element="lgns:insertActivityResponse" />
+	</wsdl:message>
+	<!-- End of Insert Activity -->
+	
+	<!-- Get Static Data  -->
+	<wsdl:message name="getStaticDataRequest">
+		<wsdl:part name="body" element="lgns:getStaticDataRequest" />
+	</wsdl:message>
+	<wsdl:message name="getStaticDataResponse">
+		<wsdl:part name="body" element="lgns:getStaticDataResponse" />
+	</wsdl:message>
+	<!-- End of Get Static Data  -->
+
+	<!-- Get Network Config Data  -->
+	<wsdl:message name="getNetworkConfigDataRequest">
+		<wsdl:part name="body" element="lgns:getNetworkConfigDataRequest" />
+	</wsdl:message>
+	<wsdl:message name="getNetworkConfigDataResponse">
+		<wsdl:part name="body" element="lgns:getNetworkConfigDataResponse" />
+	</wsdl:message>
+	<!-- End of Get Start Up Config Data  -->
+
+	<!-- authenticate -->
+	<wsdl:message name="authenticateRequest">
+		<wsdl:part name="body" element="lgns:authenticateRequest" />
+	</wsdl:message>
+	<wsdl:message name="authenticateResponse">
+		<wsdl:part name="body" element="lgns:authenticateResponse" />
+	</wsdl:message>
+	<!-- End of authenticate  -->
+	
+	<wsdl:message name="getBillCycleDatesRequest">
+		<wsdl:part name="body" element="lgns:getBillCycleDatesRequest" />
+	</wsdl:message>
+	<wsdl:message name="getBillCycleDatesResponse">
+		<wsdl:part name="body" element="lgns:getBillCycleDatesResponse" />
+	</wsdl:message>
+	
+	<wsdl:message name="getPasswordRulesRequest">
+		<wsdl:part name="body" element="lgns:getPasswordRulesRequest" />
+	</wsdl:message>
+	<wsdl:message name="getPasswordRulesResponse">
+		<wsdl:part name="body" element="lgns:getPasswordRulesResponse" />
+	</wsdl:message>
+	
+	<wsdl:message name="getIdTypesRequest">
+		<wsdl:part name="body" element="lgns:getIdTypesRequest" />
+	</wsdl:message>
+	<wsdl:message name="getIdTypesResponse">
+		<wsdl:part name="body" element="lgns:getIdTypesResponse" />
+	</wsdl:message>
+	
+
+   <wsdl:message name="getTotAccntCountRequest">
+		<wsdl:part name="body" element="lgns:getTotAccntCountRequest" />
+	</wsdl:message>
+	<wsdl:message name="getTotAccntCountResponse">
+		<wsdl:part name="body" element="lgns:getTotAccntCountResponse" />
+	</wsdl:message>
+	
+
+       <wsdl:message name="getMsidnToImeiRequest">
+		<wsdl:part name="body" element="lgns:getMsidnToImeiRequest" />
+	</wsdl:message>
+	<wsdl:message name="getMsidnToImeiResponse">
+		<wsdl:part name="body" element="lgns:getMsidnToImeiResponse" />
+	</wsdl:message>
+   
+
+
+
+
+	<wsdl:message name="WsMessageHeader">
+		<wsdl:part name="head" element="wshdr:messageHeader" />
+	</wsdl:message>
+	<wsdl:message name="faultmessage">
+		<wsdl:part name="body" element="err:errorDetailItem" />
+	</wsdl:message>
+	
+	<wsdl:message name="authenticateApiRequest">
+		<wsdl:part name="body" element="lgns:authenticateApiRequest" />
+	</wsdl:message>
+	<wsdl:message name="authenticateApiResponse">
+		<wsdl:part name="body" element="lgns:authenticateApiResponse" />
+	</wsdl:message>
+	<!-- End of all messages -->
+
+	<wsdl:portType name="LoginServicesPortType">
+         
+            <!-- getTotAccntCount  -->
+		<wsdl:operation name="getTotAccntCount">
+			<wsdl:input message="tns:getTotAccntCountRequest" />
+			<wsdl:output message="tns:getTotAccntCountResponse" />
+			<wsdl:fault name="fault" message="tns:faultmessage" />
+		</wsdl:operation>
+		<!-- End of getTotAccntCount -->
+         
+         
+
+
+
+      <!-- getCreditProfileDtls  -->
+		<wsdl:operation name="getCreditProfileDtls">
+			<wsdl:input message="tns:getCreditProfileDtlsRequest" />
+			<wsdl:output message="tns:getCreditProfileDtlsResponse" />
+			<wsdl:fault name="fault" message="tns:faultmessage" />
+		</wsdl:operation>
+		<!-- End of getCreditProfileDtls -->
+
+
+
+	<!-- GetPinCodeDtls  -->
+		<wsdl:operation name="getPinCodeDtls">
+			<wsdl:input message="tns:getPinCodeDtlsRequest" />
+			<wsdl:output message="tns:getPinCodeDtlsResponse" />
+			<wsdl:fault name="fault" message="tns:faultmessage" />
+		</wsdl:operation>
+		<!-- End of GetPinCodeDtlsDetails -->
+		
+		<!-- GetSubscriberCategory  -->
+		<wsdl:operation name="getSubscriberCategory">
+			<wsdl:input message="tns:getSubscriberCategoryRequest"/>
+			<wsdl:output message="tns:getSubscriberCategoryResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage" />
+		</wsdl:operation>
+
+		<!-- End of GetSubscriberCategory -->
+
+		
+
+
+		<!-- Get Denoms Details  -->
+		<wsdl:operation name="getDenoms">
+			<wsdl:input message="tns:getDenomsRequest" />
+			<wsdl:output message="tns:getDenomsResponse" />
+			<wsdl:fault name="fault" message="tns:faultmessage" />
+		</wsdl:operation>
+		<!-- End of Denoms -->
+
+
+		<!-- Get NoteTypes Details  -->
+		<wsdl:operation name="getNoteTypes">
+			<wsdl:input message="tns:getNoteTypesRequest" />
+			<wsdl:output message="tns:getNoteTypesResponse" />
+			<wsdl:fault name="fault" message="tns:faultmessage" />
+		</wsdl:operation>
+		<!-- End of etNoteTypes -->
+
+		<!-- Get Login Network Details  -->
+		<wsdl:operation name="getLoginNetworkDetails">
+			<wsdl:input message="tns:getLoginNetworkDetailsRequest" />
+			<wsdl:output message="tns:getLoginNetworkDetailsResponse" />
+			<wsdl:fault name="fault" message="tns:faultmessage" />
+		</wsdl:operation>
+		<!-- End of Get Login Network Details  -->
+		
+		<!-- Get Login roles -->
+		<wsdl:operation name="getLoginRoles">
+			<wsdl:input message="tns:getLoginRolesRequest" />
+			<wsdl:output message="tns:getLoginRolesResponse" />
+			<wsdl:fault name="fault" message="tns:faultmessage" />
+		</wsdl:operation>
+		<!-- End of Get Login roles -->
+		
+		<!-- Get Login Network Roles Request  -->
+		<wsdl:operation name="getLoginNetworkRoles">
+			<wsdl:input message="tns:getLoginNetworkRolesRequest" />
+			<wsdl:output message="tns:getLoginNetworkRolesResponse" />
+			<wsdl:fault name="fault" message="tns:faultmessage" />
+		</wsdl:operation>
+		<!-- End of Get Login Network Roles Request  -->
+		
+		<!-- Get Login Privileges -->
+		<wsdl:operation name="getLoginPrivileges">
+			<wsdl:input message="tns:getLoginPrivilegesRequest" />
+			<wsdl:output message="tns:getLoginPrivilegesResponse" />
+			<wsdl:fault name="fault" message="tns:faultmessage" />
+		</wsdl:operation>
+		<!-- End of Get Login Privileges -->
+		
+		<!-- Validate Admin Login -->
+		<wsdl:operation name="validateAdminLogin">
+			<wsdl:input message="tns:validateAdminLoginRequest" />
+			<wsdl:output message="tns:validateAdminLoginResponse" />
+			<wsdl:fault name="fault" message="tns:faultmessage" />
+		</wsdl:operation>
+		<!-- End of Validate Admin Login -->
+		
+		<!-- Insert Activity -->
+		<wsdl:operation name="insertActivity">
+			<wsdl:input message="tns:insertActivityRequest" />
+			<wsdl:output message="tns:insertActivityResponse" />
+			<wsdl:fault name="fault" message="tns:faultmessage" />
+		</wsdl:operation>
+		<!-- End of Insert Activity -->
+		
+		<!-- Get Static Data -->
+		<wsdl:operation name="getStaticData">
+			<wsdl:input message="tns:getStaticDataRequest" />
+			<wsdl:output message="tns:getStaticDataResponse" />
+			<wsdl:fault name="fault" message="tns:faultmessage" />
+		</wsdl:operation>
+		<!-- End of Get Static Data-->
+
+		<!-- Get Static Data -->
+		<wsdl:operation name="getNetworkConfigData">
+			<wsdl:input message="tns:getNetworkConfigDataRequest" />
+			<wsdl:output message="tns:getNetworkConfigDataResponse" />
+			<wsdl:fault name="fault" message="tns:faultmessage" />
+		</wsdl:operation>
+		<!-- End of Get Static Data-->
+		<!-- authenticate -->
+		<wsdl:operation name="authenticate">
+			<wsdl:input message="tns:authenticateRequest" />
+			<wsdl:output message="tns:authenticateResponse" />
+			<wsdl:fault name="fault" message="tns:faultmessage" />
+		</wsdl:operation>
+		<!-- End of authenticate-->
+
+		<wsdl:operation name="getBillCycleDates">
+			<wsdl:input message="tns:getBillCycleDatesRequest" />
+			<wsdl:output message="tns:getBillCycleDatesResponse" />
+			<wsdl:fault name="fault" message="tns:faultmessage" />
+		</wsdl:operation>
+		<wsdl:operation name="getPasswordRules">
+			<wsdl:input message="tns:getPasswordRulesRequest" />
+			<wsdl:output message="tns:getPasswordRulesResponse" />
+			<wsdl:fault name="fault" message="tns:faultmessage" />
+		</wsdl:operation>
+		<wsdl:operation name="getIdTypes">
+			<wsdl:input message="tns:getIdTypesRequest" />
+			<wsdl:output message="tns:getIdTypesResponse" />
+			<wsdl:fault name="fault" message="tns:faultmessage" />
+		</wsdl:operation>
+		
+		<wsdl:operation name="authenticateApi">
+			<wsdl:input message="tns:authenticateApiRequest" />
+			<wsdl:output message="tns:authenticateApiResponse" />
+			<wsdl:fault name="fault" message="tns:faultmessage" />
+		</wsdl:operation>
+		
+		
+		<wsdl:operation name="getMsidnToImei">
+			<wsdl:input message="tns:getMsidnToImeiRequest" />
+			<wsdl:output message="tns:getMsidnToImeiResponse" />
+			<wsdl:fault name="fault" message="tns:faultmessage" />
+		</wsdl:operation>
+		
+		
+	</wsdl:portType>
+	<!-- End of all operations -->
+
+
+	<wsdl:binding name="LoginServicesBinding" type="tns:LoginServicesPortType">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		
+				
+		<!-- getCreditProfileDtls  -->
+		<wsdl:operation name="getCreditProfileDtls">
+			<soap:operation soapAction="getCreditProfileDtls" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of getCreditProfileDtls  -->	
+		
+			
+		<!-- GetPinCodeDtls  -->
+		<wsdl:operation name="getPinCodeDtls">
+			<soap:operation soapAction="getPinCodeDtls" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of GetPinCodeDtls  -->	
+		
+		
+		
+		<!-- GetSubscriberCategory  -->
+		<wsdl:operation name="getSubscriberCategory">
+			<soap:operation soapAction="getSubscriberCategory" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of GetSubscriberCategory  -->	
+		
+		
+		
+		
+			
+			
+			
+		
+		<!-- Get Denominationss  -->
+		<wsdl:operation name="getDenoms">
+			<soap:operation soapAction="getDenoms" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of Get Denominations  -->
+
+		<!-- Get NoteTypes  -->
+		<wsdl:operation name="getNoteTypes">
+			<soap:operation soapAction="getNoteTypes" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of Get NoteTypes  -->
+
+		<!-- Get Login Network Details  -->
+		<wsdl:operation name="getLoginNetworkDetails">
+			<soap:operation soapAction="getLoginNetworkDetails" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of Get Login Network Details  -->
+		
+		<!-- Get Login roles -->
+		<wsdl:operation name="getLoginRoles">
+			<soap:operation soapAction="getLoginRoles" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of Get Login roles -->
+		
+		<!-- Get Login Network Roles Request  -->
+		<wsdl:operation name="getLoginNetworkRoles">
+			<soap:operation soapAction="getLoginRoles" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of Get Login Network Roles Request  -->
+		
+		<!-- Get Login Privileges -->
+		<wsdl:operation name="getLoginPrivileges">
+			<soap:operation soapAction="getLoginPrivileges" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of Get Login Privileges -->
+		
+		<!-- Validate Admin Login -->
+		<wsdl:operation name="validateAdminLogin">
+			<soap:operation soapAction="validateAdminLogin" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of Validate Admin Login -->
+		
+		<!-- Insert Activity -->
+		<wsdl:operation name="insertActivity">
+			<soap:operation soapAction="insertActivity" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of Insert Activity  -->
+		
+		<!-- Get Static Data  -->
+		<wsdl:operation name="getStaticData">
+			<soap:operation soapAction="getStaticData" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of Get Static Data -->
+		<!-- Get Static Data  -->
+		<wsdl:operation name="getNetworkConfigData">
+			<soap:operation soapAction="getNetworkConfigData" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of Get Static Data -->
+		<!-- authenticate  -->
+		<wsdl:operation name="authenticate">
+			<soap:operation soapAction="authenticate" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of Get Static Data -->
+		
+		
+		<wsdl:operation name="getBillCycleDates">
+			<soap:operation soapAction="getBillCycleDates" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="getPasswordRules">
+			<soap:operation soapAction="getPasswordRules" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="getIdTypes">
+			<soap:operation soapAction="getIdTypes" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		
+		<wsdl:operation name="authenticateApi">
+			<soap:operation soapAction="authenticateApi" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		
+		<wsdl:operation name="getTotAccntCount">
+			<soap:operation soapAction="getTotAccntCount" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		
+		
+		<wsdl:operation name="getMsidnToImei">
+			<soap:operation soapAction="getMsidnToImei" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:WsMessageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		
+		
+		
+
+	</wsdl:binding>
+
+	<wsdl:service name="LoginServices">
+		<wsdl:port name="LoginServicesPort" binding="tns:LoginServicesBinding">
+			<soap:address
+				location="http://localhost:8080/axis/SMSGProvisioningServices/v1" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

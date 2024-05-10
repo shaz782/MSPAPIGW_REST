@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://billing.xius.com/SubscriberManagementV1.wsdl"
+	xmlns:sub="http://billing.xius.com/SubscriberManagementV1.xsd"
+	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wshdr="http://billing.xius.com/common/header/HeaderDetails.xsd"
+	xmlns:err="http://billing.xius.com/common/error/ErrorDetails.xsd"
+	targetNamespace="http://billing.xius.com/SubscriberManagementV1.wsdl">
+	<wsdl:types>
+		<xs:schema xmlns:tns="http://billing.xius.com/SubscriberManagementV1.wsdl"
+			targetNamespace="http://billing.xius.com/SubscriberManagementV1.wsdl">
+			<xs:import namespace="http://billing.xius.com/SubscriberManagementV1.xsd"
+				schemaLocation="SubscriberManagementV1.xsd" />
+			<xs:import namespace="http://billing.xius.com/common/header/HeaderDetails.xsd"
+				schemaLocation="HeaderDetails.xsd" />
+			<xs:import namespace="http://billing.xius.com/common/error/ErrorDetails.xsd"
+				schemaLocation="ErrorDetails.xsd" />
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="messageHeader">
+		<wsdl:part name="head" element="wshdr:messageHeader" />
+	</wsdl:message>
+	<wsdl:message name="faultMessage">
+		<wsdl:part name="body" element="err:errorDetailItem" />
+	</wsdl:message>
+	
+ 	<wsdl:message name="getAcctDetailsRequest">
+		<wsdl:part name="body" element="sub:getAcctDetailsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getAcctDetailsResponse">
+		<wsdl:part name="body" element="sub:getAcctDetailsResponse"/>
+	</wsdl:message>
+	
+	<wsdl:message name="getRemainingUnitDetailRequest">
+		<wsdl:part name="body" element="sub:getRemainingUnitDetailRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getRemainingUnitDetailResponse">
+		<wsdl:part name="body" element="sub:getRemainingUnitDetailResponse"/>
+	</wsdl:message>
+	
+	<wsdl:message name="getSubBillingDetailsRequest">
+		<wsdl:part name="body" element="sub:getSubBillingDetailsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getSubBillingDetailsResponse">
+		<wsdl:part name="body" element="sub:getSubBillingDetailsResponse"/>
+	</wsdl:message>
+	
+	<wsdl:message name="getDetailsbyActStateSellerCodeRequest">
+	  <wsdl:part name="body" element="sub:getDetailsbyActStateSellerCodeRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getDetailsbyActStateSellerCodeResponse">
+	  <wsdl:part name="body" element="sub:getDetailsbyActStateSellerCodeResponse"/>
+	</wsdl:message>
+	
+	<wsdl:message name="getActivePacksRequest">
+	<wsdl:part name="body" element="sub:getActivePacksRequest"/>
+	</wsdl:message>
+	
+	<wsdl:message name="getActivePacksResponse">
+	<wsdl:part name="body" element="sub:getActivePacksResponse"/>
+	</wsdl:message>
+	
+	
+		<wsdl:message name="getLoanDetailsByDateRequest">
+	<wsdl:part name="body" element="sub:getLoanDetailsByDateRequest"/>
+	</wsdl:message>
+	
+	<wsdl:message name="getLoanDetailsByDateResponse">
+	<wsdl:part name="body" element="sub:getLoanDetailsByDateResponse"/>
+	</wsdl:message>
+	
+ 	 
+	<wsdl:portType name="SubscriberManagementPortTypeV1">
+ 		
+ 		<!-- getLoanDetailsByDate -->
+		<wsdl:operation name="getLoanDetailsByDate">
+			<wsdl:input message="tns:getLoanDetailsByDateRequest" />
+			<wsdl:output message="tns:getLoanDetailsByDateResponse" />
+			<wsdl:fault name="fault" message="tns:faultMessage" />
+		</wsdl:operation>
+		<!-- end of getLoanDetailsByDate -->
+ 		
+ 		
+ 		<!-- getAccountDetails -->
+		<wsdl:operation name="getAccountDetails">
+			<wsdl:input message="tns:getAcctDetailsRequest" />
+			<wsdl:output message="tns:getAcctDetailsResponse" />
+			<wsdl:fault name="fault" message="tns:faultMessage" />
+		</wsdl:operation>
+		<!-- end of getAccountDetails -->
+		
+		<!-- getRemainingUnitDetail -->
+		<wsdl:operation name="getRemainingUnitDetail">
+			<wsdl:input message="tns:getRemainingUnitDetailRequest" />
+			<wsdl:output message="tns:getRemainingUnitDetailResponse" />
+			<wsdl:fault name="fault" message="tns:faultMessage" />
+		</wsdl:operation>
+		
+		<!-- end of getRemainingUnitDetail -->
+		
+		<!-- getSubBillingDetails -->
+		<wsdl:operation name="getSubBillingDetails">
+			<wsdl:input message="tns:getSubBillingDetailsRequest" />
+			<wsdl:output message="tns:getSubBillingDetailsResponse" />
+			<wsdl:fault name="fault" message="tns:faultMessage" />
+		</wsdl:operation>
+		
+		<!-- end of getSubBillingDetails -->
+		
+		
+		<!-- getDetailsbyActStateSellerCode -->
+		<wsdl:operation name="getDetailsbyActStateSellerCode">
+		 <wsdl:input message="tns:getDetailsbyActStateSellerCodeRequest"/>
+		 <wsdl:output message="tns:getDetailsbyActStateSellerCodeResponse"/>
+		 <wsdl:fault name="fault" message="tns:faultMessage"/>
+		</wsdl:operation>
+		<!-- end of getDetailsbyActStateSellerCode -->
+		
+		
+		<!-- getActivePacks -->
+		
+		<wsdl:operation name="getActivePacks">
+		 <wsdl:input message="tns:getActivePacksRequest"/>
+		 <wsdl:output message="tns:getActivePacksResponse"/>
+		 <wsdl:fault name="fault" message="tns:faultMessage"/>
+		</wsdl:operation>
+		
+		<!-- end of getActivePacks -->
+		
+	</wsdl:portType>
+	
+	
+	<wsdl:binding name="SubscriberManagementBindingV1" type="tns:SubscriberManagementPortTypeV1">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+			
+		
+		
+		<!-- getLoanDetailsByDate -->
+		<wsdl:operation name="getLoanDetailsByDate">
+			<soap:operation soapAction="getLoanDetailsByDate" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- end of getLoanDetailsByDate -->
+				
+ 		
+		<!-- getAccountDetails -->
+		<wsdl:operation name="getAccountDetails">
+			<soap:operation soapAction="getAccountDetails" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- end of getAccountDetails -->
+		
+		
+		<!-- getRemainingUnitDetail -->
+		<wsdl:operation name="getRemainingUnitDetail">
+			<soap:operation soapAction="getRemainingUnitDetail" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- end of getRemainingUnitDetail -->
+		
+		
+		
+			<!-- getSubBillingDetails -->
+		<wsdl:operation name="getSubBillingDetails">
+			<soap:operation soapAction="getSubBillingDetails" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- end of getSubBillingDetails -->
+		
+		<!-- getDetailsbyActStateSellerCode -->
+		<wsdl:operation name="getDetailsbyActStateSellerCode">
+		 <soap:operation soapAction="getDetailsbyActStateSellerCode"/>
+		   <wsdl:input>
+		   <soap:body use="literal"/>
+		   <soap:header use="literal" part="head" message="tns:messageHeader"></soap:header>
+		   </wsdl:input>
+		   <wsdl:output>
+		    <soap:body use="literal"/>
+		   </wsdl:output>
+		   <wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!--end of  getDetailsbyActStateSellerCode -->
+		
+		<!-- getActivePacks -->
+		
+			<wsdl:operation name="getActivePacks">
+		 <soap:operation soapAction="getActivePacks"/>
+		   <wsdl:input>
+		   <soap:body use="literal"/>
+		   <soap:header use="literal" part="head" message="tns:messageHeader"></soap:header>
+		   </wsdl:input>
+		   <wsdl:output>
+		    <soap:body use="literal"/>
+		   </wsdl:output>
+		   <wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<!--end of  getActivePacks -->
+			
+	</wsdl:binding>
+	
+	<wsdl:service name="SubscriberServiceV1">
+		<wsdl:port name="SubscriberManagementPortV1" binding="tns:SubscriberManagementBindingV1">
+			<soap:address
+				location="http://localhost:8080/infinet/services/v1/subscriberServices" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

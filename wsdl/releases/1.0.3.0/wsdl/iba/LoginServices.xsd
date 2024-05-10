@@ -1,0 +1,814 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns="http://billing.xius.com/LoginServices.xsd"	 
+	targetNamespace="http://billing.xius.com/LoginServices.xsd"
+	elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+
+
+<!-- getCreditProfileDtls -->
+	<xs:element name="getCreditProfileDtlsRequest" type="GetCreditProfileDtlsRequest" />
+	<xs:element name="getCreditProfileDtlsResponse" type="GetCreditProfileDtlsResponse" />
+	<!-- End of getCreditProfileDtls  -->
+
+     
+
+
+
+
+
+	<!-- Get Denominations -->
+	<xs:element name="getDenomsRequest" type="GetDenomsRequest" />
+	<xs:element name="getDenomsResponse" type="GetDenomsResponse" />
+	<!-- End of Get NoteTypes  -->
+
+
+	<!-- Get NoteTypes -->
+	<xs:element name="getNoteTypesRequest" type="GetNoteTypesRequest" />
+	<xs:element name="getNoteTypesResponse" type="GetNoteTypesResponse" />
+	<!-- End of Get NoteTypes  -->
+
+	<!-- Get Login Network Details  -->
+	<xs:element name="getLoginNetworkDetailsRequest" type="GetLoginNetworkDetailsRequest" />
+	<xs:element name="getLoginNetworkDetailsResponse" type="GetLoginNetworkDetailsResponse" />
+	<!-- End of Get Login Network Details  -->
+	
+	<!-- Get Login Roles  -->
+	<xs:element name="getLoginRolesRequest" type="GetLoginRolesRequest" />
+	<xs:element name="getLoginRolesResponse" type="GetLoginRolesResponse" />
+	<!-- End of Get Login Roles -->
+	
+	<!-- Get Login Network Roles -->
+	<xs:element name="getLoginNetworkRolesRequest" type="GetLoginNetworkRolesRequest" />
+	<xs:element name="getLoginNetworkRolesResponse" type="GetLoginNetworkRolesResponse" />
+	<!-- End of Get Login Network Roles -->
+	
+	<!-- Get Login Privileges -->
+	<xs:element name="getLoginPrivilegesRequest" type="GetLoginPrivilegesRequest" />
+	<xs:element name="getLoginPrivilegesResponse" type="GetLoginPrivilegesResponse" />
+	<!-- End Get Login Privileges -->
+	
+	<!-- Validate Admin Login -->
+	<xs:element name="validateAdminLoginRequest" type="ValidateAdminLoginRequest" />
+	<xs:element name="validateAdminLoginResponse" type="ValidateAdminLoginResponse" />
+	<!-- Validate Admin Login -->
+	
+	<!-- Insert Activity -->
+	<xs:element name="insertActivityRequest" type="InsertActivityRequest" />
+	<xs:element name="insertActivityResponse" type="InsertActivityResponse" />
+	<!-- End Insert Activity  -->
+	
+	<!-- Get Static Data  -->
+	<xs:element name="getStaticDataRequest" type="GetStaticDataRequest" />
+	<xs:element name="getStaticDataResponse" type="GetStaticDataResponse" />
+	<!-- End of Get Static Data  -->
+
+	<!-- Get Start Up Config Data  -->
+	<xs:element name="getNetworkConfigDataRequest" type="GetNetworkConfigDataRequest" />
+	<xs:element name="getNetworkConfigDataResponse" type="GetNetworkConfigDataResponse" />
+	<!-- End of Get Start Up Config Data  -->
+
+	<!-- authenticate  -->
+	<xs:element name="authenticateRequest" type="AuthenticateRequest" />
+	<xs:element name="authenticateResponse" type="AuthenticateResponse" />
+	<!-- End of authenticate  -->
+
+	<xs:element name="getBillCycleDatesRequest" type="GetBillCycleDatesRequest" />
+	<xs:element name="getBillCycleDatesResponse" type="GetBillCycleDatesResponse" />
+	
+	<xs:element name="getPasswordRulesRequest" type="GetPasswordRulesRequest" />
+	<xs:element name="getPasswordRulesResponse" type="GetPasswordRulesResponse" />
+	
+	<xs:element name="getIdTypesRequest" type="GetIdTypesRequest" />
+	<xs:element name="getIdTypesResponse" type="GetIdTypesResponse" />
+	
+	<xs:element name="getPinCodeDtlsRequest" type="GetPinCodeDtlsRequest" />
+	<xs:element name="getPinCodeDtlsResponse" type="GetPinCodeDtlsResponse" />
+	
+	<xs:element name="authenticateApiRequest" type="authenticateApiRequest" />
+	<xs:element name="authenticateApiResponse" type="authenticateApiResponse" />
+	
+	
+	<!--GetSubscriberCategory -->
+	<xs:element name="getSubscriberCategoryRequest" type="GetSubscriberCategoryRequest" />
+	<xs:element name="getSubscriberCategoryResponse" type="GetSubscriberCategoryResponse" />
+	
+	
+	<xs:element name="getTotAccntCountRequest" type="GetTotAccntCountRequest" />
+	<xs:element name="getTotAccntCountResponse" type="GetTotAccntCountResponse" />
+	
+	<xs:element name="getMsidnToImeiRequest" type="GetMsidnToImeiRequest" />
+	<xs:element name="getMsidnToImeiResponse" type="GetMsidnToImeiResponse" />
+	
+	
+	<xs:complexType name="GetMsidnToImeiRequest">
+		<xs:sequence>
+		   <xs:element name="MSISDN" type="MSISDNType" minOccurs="0"/>
+		   <xs:element name="IMEIID" type="xs:string" minOccurs="0"/>
+		   <xs:element name="flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="userDefined1" type="xs:string" minOccurs="0"/>
+			<xs:element name="userDefined2" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	
+	<xs:complexType name="GetMsidnToImeiResponse">
+		<xs:sequence>
+		<xs:element name="status" type="xs:string" minOccurs="0"/>
+		<xs:element name="imeiDetails" type="imeiDtylType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="userDefined1" type="xs:string" minOccurs="0"/>
+			<xs:element name="userDefined2" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="imeiDtylType">
+	<xs:sequence>
+	<xs:element name="MSISDN" type="xs:string" minOccurs="0"/>
+    <xs:element name="IMEIID" type="xs:string" minOccurs="0"/>
+	<xs:element name="simSerialNO" type="xs:string" minOccurs="0"/>	   
+	</xs:sequence>	   
+	</xs:complexType>
+	
+	<xs:complexType name="GetTotAccntCountRequest">
+		<xs:sequence>
+		   <xs:element name="IDNo" type="IDNoType" minOccurs="0"/>
+			<xs:element name="userDefined1" type="xs:string" minOccurs="0"/>
+			<xs:element name="userDefined2" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="GetTotAccntCountResponse">
+		<xs:sequence>
+		   <xs:element name="totAccntConfig" type="xs:string" minOccurs="0"/>
+			<xs:element name="prepaidAccntConfig" type="xs:string" minOccurs="0"/>
+			<xs:element name="postpaidAccntConfig" type="xs:string" minOccurs="0"/>
+			<xs:element name="prepaidAccntCnt" type="xs:string" minOccurs="0"/>
+			<xs:element name="postpaidAccntCnt" type="xs:string" minOccurs="0"/>
+			<xs:element name="userDefined1" type="xs:string" minOccurs="0"/>
+			<xs:element name="userDefined2" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	
+		<xs:complexType name="GetCreditProfileDtlsRequest">
+		<xs:sequence>
+			<xs:element name="userDefined1" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="GetCreditProfileDtlsResponse">
+		<xs:sequence>
+			<xs:element name="creditProfileDtls" type="creditProfileDtlsType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="creditProfileDtlsType">
+		<xs:sequence>
+			<xs:element name="creditProfileDtl" type="creditProfileDtlType" minOccurs="0"  maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="creditProfileDtlType">
+		<xs:sequence>
+		<xs:element name="CreditProfileId" type="xs:string"  minOccurs="0"/>
+		<xs:element name="CreditProfileName" type="xs:string" minOccurs="0" />
+		<xs:element name="CreditLimit" type="xs:string" minOccurs="0" />
+		<xs:element name="MaxCreditLimit" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	
+	
+	
+	
+	<xs:complexType name="GetSubscriberCategoryRequest">
+		<xs:sequence>
+			<xs:element name="networkId" type="xs:integer"/>
+		</xs:sequence>
+	</xs:complexType>
+ 	
+ 	<xs:complexType name="GetSubscriberCategoryResponse">
+		<xs:sequence>
+			<xs:element name="subsCategoryDtls" type="subsCategoryDtlsType" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="subsCategoryDtlsType">
+		<xs:sequence>
+			<xs:element name="subcategoryDtls" type="subcategoryDtlsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="subcategoryDtlsType">
+		<xs:sequence>
+		<xs:element name="CategoryId" type="xs:integer"  minOccurs="0"/>
+		<xs:element name="CategoryName" type="xs:string" minOccurs="0" />
+		<xs:element name="CategoryDesc" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- End of GetSubscriberCategory -->
+	
+	
+	<xs:complexType name="authenticateApiRequest">
+		<xs:sequence>
+			<xs:element name="privID"  type="xs:string"  minOccurs="0"/>
+			<xs:element name="userDefined1"  type="xs:string"  minOccurs="0"/>
+			<xs:element name="userDefined2"  type="xs:string"  minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+		<xs:complexType name="authenticateApiResponse">
+		<xs:sequence>
+			<xs:element name="message"  type="xs:string"  minOccurs="0"/>
+			<xs:element name="userDefined1"  type="xs:string"  minOccurs="0"/>
+			<xs:element name="userDefined2"  type="xs:string"  minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="GetPinCodeDtlsRequest">
+		<xs:sequence>
+			<xs:element name="postalCode"  type="xs:string"  />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="GetPinCodeDtlsResponse">
+		<xs:sequence>
+			<xs:element name="postalCodes"  type="postalCodeListType"  minOccurs="0"/>
+			<xs:element name="states"  type="statesListType"  minOccurs="0"/>
+			<xs:element name="cities"  type="citiesListType"  minOccurs="0"/>
+			<xs:element name="municipalities"  type="municipalitiesListType"  minOccurs="0"/>
+		    <xs:element name="colonies"  type="coloniesListType"  minOccurs="0"/> 
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="postalCodeListType">
+		<xs:sequence>
+			<xs:element name="postalcode"  type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="statesListType">
+		<xs:sequence>
+			<xs:element name="state"  type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="citiesListType">
+		<xs:sequence>
+			<xs:element name="city"  type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="municipalitiesListType">
+		<xs:sequence>
+			<xs:element name="municipality"  type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="coloniesListType">
+		<xs:sequence>
+			<xs:element name="colony"  type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="GetBillCycleDatesRequest">
+		<xs:sequence>
+			<xs:element name="networkName"  type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="GetBillCycleDatesResponse">
+		<xs:sequence>
+			<xs:element name="billCycleDatesData"  type="BillCycleDatesListType" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="BillCycleDatesListType">
+		<xs:sequence>
+			<xs:element name="billCycleDatesList" type="BillCycleDatesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="BillCycleDatesType">
+		<xs:sequence>
+			<xs:element name="networkID"  type="xs:long" minOccurs="0" />
+			<xs:element name="billCycleDay"  type="xs:long" minOccurs="0" />
+			<xs:element name="networkDesc"  type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="GetPasswordRulesRequest">
+		<xs:sequence>
+			<xs:element name="networkName"  type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="GetPasswordRulesResponse">
+		<xs:sequence>
+			<xs:element name="passwordRules"  type="PasswordRulesDataListType" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="PasswordRulesDataListType">
+		<xs:sequence>
+			<xs:element name="passwordRulesType"  type="PasswordRulesType" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="PasswordRulesType">
+		<xs:sequence>
+			<xs:element name="networkID"  type="xs:long" minOccurs="0" />
+			<xs:element name="networkDesc"  type="xs:string" minOccurs="0" />
+			<xs:element name="minLength"  type="xs:long" minOccurs="0" />
+			<xs:element name="maxLength"  type="xs:long" minOccurs="0" />
+			<xs:element name="reuseRestrictDays"  type="xs:long" minOccurs="0" />
+			<xs:element name="minUpperChars"  type="xs:long" minOccurs="0" />
+			<xs:element name="minLowerChars"  type="xs:long" minOccurs="0" />
+			<xs:element name="minSpecialChars"  type="xs:long" minOccurs="0" />
+			<xs:element name="minDigits"  type="xs:long" minOccurs="0" />
+			<xs:element name="userNameCanMatchPassword"  type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="GetIdTypesRequest">
+		<xs:sequence>
+			<xs:element name="networkName"  type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="GetIdTypesResponse">
+		<xs:sequence>
+			<xs:element name="idTypesList"  type="IdTypesDataListType" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="IdTypesDataListType">
+		<xs:sequence>
+			<xs:element name="idTypesData"  type="IdTypesData" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="IdTypesData">
+		<xs:sequence>
+			<xs:element name="networkId"  type="xs:long" minOccurs="0" />
+			<xs:element name="idCode"  type="xs:long" minOccurs="0" />
+			<xs:element name="idName"  type="xs:string" minOccurs="0" />
+			<xs:element name="portInYorN"  type="xs:string" minOccurs="0" />
+			<xs:element name="networkDesc"  type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- Get Denominations -->
+	<xs:complexType name="GetDenomsRequest">
+	</xs:complexType>
+	
+	<xs:complexType name="GetDenomsResponse">
+		<xs:sequence>
+			<xs:element name="denominations"  type="DenominationsListType" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- DenominationsListType -->
+	<xs:complexType name="DenominationsListType">
+		<xs:sequence>
+			<xs:element name="denomination" type="xs:decimal" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- Get Note Types -->
+	<xs:complexType name="GetNoteTypesRequest">
+	</xs:complexType>
+	
+	<xs:complexType name="GetNoteTypesResponse">
+		<xs:sequence>
+			<xs:element name="noteTypes"  type="NoteTypesListType" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- NoteTypesListType -->
+	<xs:complexType name="NoteTypesListType">
+		<xs:sequence>
+			<xs:element name="noteType" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- getNetworkConfigData -->
+	<xs:complexType name="GetStaticDataRequest">
+		<xs:sequence>
+			<xs:element name="MSISDNPrefixReqd" type="xs:boolean" />
+			<xs:element name="IdTypeReqd" type="xs:boolean" />
+			
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="GetStaticDataResponse">
+		<xs:sequence>
+			<xs:element name="MSISDNSPrefixList" type="MSISDNSPrefixListType" minOccurs="0"/>
+			<xs:element name="IDTypeList" type="IDTypeListType" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="MSISDNSPrefixListType">
+		<xs:sequence>
+			<xs:element name="MSISDNSPrefix" type="MSISDNType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="IDTypeListType">
+		<xs:sequence>
+			<xs:element name="IDType" type="IDType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- End of Get Static Data-->
+	
+	<!-- Insert Activity -->
+	<xs:complexType name="InsertActivityRequest">
+		<xs:sequence>
+			<xs:element name="loginID" type="LoginUserNameType" />
+			<xs:element name="sessionId" type="xs:integer" />
+			<xs:element name="activityId" type="xs:int" />
+			<xs:element name="inputParams" type="InputParamsType" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="InsertActivityResponse">
+		<xs:sequence>
+			<xs:element name="message" type="MessageType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- End of Insert Activity-->
+	
+	<!-- Validate Admin Login -->
+	<xs:complexType name="ValidateAdminLoginRequest">
+		<xs:sequence>
+			<xs:element name="loginID" type="LoginUserNameType" />
+			<xs:element name="password" type="LoginPasswordType" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ValidateAdminLoginResponse">
+		<xs:sequence>
+			<xs:element name="status" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- End of Validate Admin Login -->
+	
+	<!-- Get Login Privileges -->
+	<xs:complexType name="GetLoginPrivilegesRequest">
+	</xs:complexType>
+	
+	<xs:complexType name="GetLoginPrivilegesResponse">
+		<xs:sequence>
+			<xs:element name="modulesList" type="IDNameDescListType" minOccurs="0"/>
+			<xs:element name="privilegesList" type="IDNameDescListType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- End Get Login Privileges -->
+	
+	<!-- Get Login Network Roles   -->
+	<xs:complexType name="GetLoginNetworkRolesRequest">
+	</xs:complexType>
+	<xs:complexType name="GetLoginNetworkRolesResponse">
+		<xs:sequence>
+			<xs:element name="networkRolesList" type="NetworkRolesListType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="NetworkRolesListType">
+		<xs:sequence>
+			<xs:element name="networkRoles" type="NetworkRolesType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="NetworkRolesType">
+		<xs:sequence>
+			<xs:element name="networkID" type="NetworkIdType" minOccurs="0"/>
+			<xs:element name="roleID" type="xs:string" />
+			<xs:element name="moduleID" type="xs:string" />
+			<xs:element name="privilegeID" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<!-- End of Get Login Network Roles Request  -->
+	
+	<!-- Get Login Roles Request  -->
+	<xs:complexType name="GetLoginRolesRequest">
+		<xs:sequence>
+			<xs:element name="userName" type="LoginUserNameType" />
+			<xs:element name="password" type="LoginPasswordType" />
+			<xs:element name="networkName" type="NetworkNameType" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="GetLoginRolesResponse">
+		<xs:sequence>
+			<xs:element name="status" type="xs:string" minOccurs="0"/>
+			<xs:element name="managerID" type="xs:string" minOccurs="0"/>
+			<xs:element name="rolesList" type="IDListType" minOccurs="0"/>
+			<xs:element name="networkID" type="NetworkIdType" minOccurs="0"/>
+			<xs:element name="rolesCount" type="xs:int" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- end of Get Login Roles Request  -->
+	
+	<!-- Get Login Network Details  -->
+	<xs:complexType name="GetLoginNetworkDetailsRequest">
+		<xs:sequence>
+			<xs:element name="networkID" type="NetworkIdType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetLoginNetworkDetailsResponse">
+		<xs:sequence>
+			<xs:element name="networkDetailsList" type="NetworkDetailsListType" minOccurs="0"/>
+			<xs:element name="domainDetails" type="IPListType" minOccurs="0"/>
+			<xs:element name="imsiList" type="IMSIListType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="NetworkDetailsListType">
+		<xs:sequence>
+			<xs:element name="networkDetails" type="NetworkDetailsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="NetworkDetailsType">
+		<xs:sequence>
+			<xs:element name="networkDetailItem" type="NameValuesListType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Get Login Network Details  -->
+	
+	<!-- Get Start Up Config Data Request  -->
+	<xs:complexType name="GetNetworkConfigDataRequest">
+	</xs:complexType>
+	
+	<xs:complexType name="GetNetworkConfigDataResponse">
+   		<xs:sequence>
+			<xs:element name="networkConfigDataList" type="ConfigDataListType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ConfigDataListType">
+		<xs:sequence>
+			<xs:element name="configData" type="ConfigDataType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ConfigDataType">
+		<xs:sequence>
+			<xs:element name="networkID" type="NetworkIdType" minOccurs="0"/>
+			<xs:element name="servicesList" type="ServicesListType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- end of Get Start Up Config Data Response  -->
+	
+	<!-- authenticate   -->
+	<xs:complexType name="AuthenticateRequest">
+		<xs:sequence>
+			<xs:element name="userName" type="LoginUserNameType" />
+			<xs:element name="password" type="LoginPasswordType" />
+			<xs:element name="networkName" type="NetworkNameType" />
+			<xs:element name="userType" type="UserType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="AuthenticateResponse">
+		<xs:sequence>
+			<xs:element name="forceChangePassword" type="LoginPasswordType" minOccurs="0"/>
+			<xs:element name="managerId" type="xs:string" minOccurs="0"/>
+			<xs:element name="roleList" type="RoleListType" minOccurs="0"/>
+			<xs:element name="privList" type="PrivListType" minOccurs="0"/>
+			<xs:element name="modList" type="ModListType" minOccurs="0"/>
+			<xs:element name="networkID" type="NetworkIdType" minOccurs="0"/>
+			<xs:element name="voucherTopUpAllowed" type="xs:string" minOccurs="0"/>
+			<xs:element name="currency" type="xs:string" minOccurs="0"/>
+			<xs:element name="creditDebitMaxLmt" type="xs:string" minOccurs="0"/>
+			
+			<xs:element name="pwdExpWarningYN" type="xs:string" minOccurs="0"/>
+			<xs:element name="pwdExpWarningDays" type="xs:long" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- end of authenticate   -->
+	
+	<!--  Complex Types  -->
+	
+	<xs:complexType name="AccountType">
+		<xs:choice>
+			<xs:element name="accountId" type="AccountIdType" />
+			<xs:element name="MSISDN" type="MSISDNType" />
+	    </xs:choice>
+	 </xs:complexType>
+	 
+	 <xs:complexType name="IDNameDescListType">
+		<xs:sequence>
+			<xs:element name="networkRoles" type="IDNameDescType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="IDNameDescType">
+		<xs:sequence>
+			<xs:element name="id" type="xs:string" />
+			<xs:element name="name" type="xs:string" minOccurs="0"/>
+			<xs:element name="desc" type="xs:string" minOccurs="0"/>
+			<xs:element name="moduleID" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="IDListType">
+		<xs:sequence>
+			<xs:element name="id" type="IDType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="IPListType">
+		<xs:sequence>
+			<xs:element name="ip" type="xs:string" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="IMSIListType">
+		<xs:sequence>
+			<xs:element name="imsi" type="xs:string" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="NameValuesListType">
+		<xs:sequence>
+			<xs:element name="nameValues" type="NameValuesType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="NameValuesType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="value" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ServicesListType">
+		<xs:sequence>
+			<xs:element name="service" type="xs:string" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="RoleListType">
+		<xs:sequence>
+			<xs:element name="roleData" type="RoleDataType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="RoleDataType">
+		<xs:sequence>
+			<xs:element name="roleId" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="PrivListType">
+		<xs:sequence>
+			<xs:element name="privilegeData" type="PrivilegeDataType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="PrivilegeDataType">
+		<xs:sequence>
+			<xs:element name="privilegeId" type="xs:string" minOccurs="0"/>
+			<xs:element name="privilegeName" type="xs:string" minOccurs="0"/>
+			<xs:element name="privilegeDesc" type="xs:string" minOccurs="0"/>
+			<xs:element name="moduleId" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ModListType">
+		<xs:sequence>
+			<xs:element name="moduleData" type="ModuleDataType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ModuleDataType">
+		<xs:sequence>
+			<xs:element name="moduleId" type="xs:string" minOccurs="0"/>
+			<xs:element name="moduleName" type="xs:string" minOccurs="0"/>
+			<xs:element name="moduleDesc" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!--  End of Complex Types -->
+	
+	<!--  Simple Types -->
+	
+	<xs:simpleType name="AccountIdType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="InputParamsType">	
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="500"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="MessageType">	
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="MSISDNType">	
+		<xs:restriction base="xs:string">
+			<xs:minLength value="7"/>
+			<xs:maxLength value="20"/>
+			<xs:pattern value="[0-9]{7,20}" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="LoginPasswordType">	
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="60"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="LoginUserNameType">	
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="UserIdType">	
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="NetworkIdType">
+		<xs:restriction base="xs:integer"/>
+	</xs:simpleType>
+		
+	<xs:simpleType name="NetworkNameType">	
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="IDType">	
+		<xs:restriction base="xs:string">
+			<xs:minLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	
+	
+		<xs:simpleType name="IDNoType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="64" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	
+	
+	
+	<xs:simpleType name="UserType">
+		<xs:restriction base="xs:integer">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation>Value "1" represents SelfCareUI User.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation>Value "2" represents DealerCare User.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation>Value "3" represents CorporateUI User.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation>Value "4" represents TTCare(Customer Care) User.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!--  End of Simple Types -->
+</xs:schema>

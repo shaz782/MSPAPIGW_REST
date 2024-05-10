@@ -1,0 +1,975 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	xmlns="http://scare.xbus.xiusbcgi.com/RegistrationManagement.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://scare.xbus.xiusbcgi.com/RegistrationManagement.xsd"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	
+	<xs:element name="loginRequest" type="LoginRequest" />
+	<xs:element name="loginResponse" type="LoginResponse" />
+
+	<xs:element name="getPreferredMSISDNSRequest" type="GetPreferredMSISDNSRequest" />
+	<xs:element name="getPreferredMSISDNSResponse" type="GetPreferredMSISDNSResponse" />
+
+	<xs:element name="registerSubscriberRequest" type="RegisterSubscriberRequest" />
+	<xs:element name="registerSubscriberResponse" type="RegisterSubscriberResponse" />
+
+	<xs:element name="resetUserCredentialsRequest" type="ResetUserCredentialsRequest" />
+	<xs:element name="resetUserCredentialsResponse" type="ResetUserCredentialsResponse" />
+	
+	<xs:element name="getNetworkIdRequest" type="GetNetworkIdRequest" />
+	<xs:element name="getNetworkIdResponse" type="GetNetworkIdResponse" />
+
+	<xs:element name="createUserRequest" type="CreateUserRequest" />
+	<xs:element name="createUserResponse" type="CreateUserResponse" />
+	
+	<!-- 
+			REQ		     : REQ1208# TT: MNP functionality changes for corporate GUI & Schedule TopUp Report
+			Description  : For Upload port in MSISDNs,
+			Done By		 : Phani.Chavala
+			Date		 : Aug 22, 2012
+	-->
+	<xs:element name="initTransactionRequest" type="InitTransactionRequest" />
+	
+	
+	<xs:element name="updatePasswordRequest" type="updatePasswordRequest" />
+	<xs:element name="updatePasswordResponse" type="updatePasswordResponse" />
+	
+	<xs:element name="getSelfcareDtlsOnLoginRequest" type="GetSelfcareDtlsOnLoginRequest"/>
+ 	<xs:element name="getSelfcareDtlsOnLoginResponse" type="GetSelfcareDtlsOnLoginResponse"/>
+ 	
+ 	<xs:complexType name="GetSelfcareDtlsOnLoginRequest">
+		<xs:sequence>
+			<xs:element name="userID" type="UserIDType" />
+			<xs:element name="password" type="PasswordType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="GetSelfcareDtlsOnLoginResponse">
+		<xs:sequence>
+			<xs:element name="IDNo" type="IDNoType" />
+			<xs:element name="IDType" type="IDType" minOccurs="0"/>
+			<xs:element name="reqPwdChng" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="netWorkID" type="NetworkIDType" minOccurs="0"/>
+			<xs:element name="isAdmin" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="firstName" type="xs:string" minOccurs="0"/>
+			<xs:element name="lastLoginTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="bareBoneFlag" type="xs:boolean" minOccurs="0"/>	
+			<xs:element name="subscriberDetails" type="GetSubDetCursorType"  minOccurs="0" maxOccurs="unbounded"/>		
+		</xs:sequence>
+	</xs:complexType>
+ 	
+ 	<xs:complexType name="GetSubDetCursorType">
+		<xs:sequence>
+			<xs:element name="IDType" type="IDType"  minOccurs="0"/>
+			<xs:element name="IDNo" type="IDNoType" minOccurs="0"/>
+			<xs:element name="ICCNo" type="ICCNoType" minOccurs="0"/>
+			<xs:element name="firstName" type="FirstNameType"  minOccurs="0"/>
+			<xs:element name="lastName" type="LastNameType"  minOccurs="0"/>
+			<xs:element name="gender" type="GenderType"	minOccurs="0"/>
+			<xs:element name="dateOfBirth" type="DateOfBirthType" minOccurs="0"/>
+			<xs:element name="email" type="EmailType" minOccurs="0"/>
+			<xs:element name="homePhone" type="HomePhoneType" minOccurs="0"/>
+			<xs:element name="officePhone" type="OfficePhoneType" minOccurs="0"/>
+			<xs:element name="address1" type="Address1Type" minOccurs="0"/>
+			<xs:element name="address2" type="Address2Type" minOccurs="0"/>
+			<xs:element name="annualIncome" type="AnnualIncomeType" minOccurs="0"/>
+			<xs:element name="postalCode" type="PostalCodeType" minOccurs="0"/>
+			<xs:element name="city" type="CityType" minOccurs="0"/>
+			<xs:element name="state" type="StateType" minOccurs="0"/>
+			<xs:element name="country" type="CountryType" minOccurs="0"/>
+			<xs:element name="occupation" type="OccupationType" minOccurs="0"/>
+			<xs:element name="industry" type="IndustryType" minOccurs="0"/>
+			<xs:element name="sourceOfInfo" type="SourceOfInfoType" minOccurs="0"/>
+			<xs:element name="MSISDN" type="MSISDNType" minOccurs="0"/>
+			<xs:element name="userID" type="UserIDType" minOccurs="0"/>
+			<xs:element name="address3" type="Address2Type" minOccurs="0"/>
+			<xs:element name="orderBooking" type="OrderBookingType" minOccurs="0"/>
+			<xs:element name="oldIC" type="oldICType" minOccurs="0"/>
+			<xs:element name="gmpc" type="gmpcType" minOccurs="0"/>
+			<xs:element name="subscriberStatus" type="subscriberStatusType" minOccurs="0"/>
+			<xs:element name="orderDate" type="OrderDateType" minOccurs="0"/>
+			<xs:element name="orderExpiryDate" type="OrderExpiryDateType" minOccurs="0"/>
+			<xs:element name="orderStatus" type="OrderStatusType" minOccurs="0"/>
+			<xs:element name="ethnic" type="EthnicType" minOccurs="0"/>
+			<!-- Added for REQ881  -->
+			<xs:element name="password" type="xs:string" minOccurs="0"/>
+			<xs:element name="pleaseSpecify" type="xs:string" minOccurs="0"/>
+			<xs:element name="alternateContactNo" type="xs:string" minOccurs="0"/>
+			<!-- Added for REQ881 (As Per TSD Changes ) -->
+			<xs:element name="imageName" type="xs:string" minOccurs="0"/>
+			<xs:element name="stateCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="countryCode" type="xs:string" minOccurs="0"/>
+			
+			<xs:element name="SurName" type="xs:string"  minOccurs="0"/>
+			<xs:element name="ExternalNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="InternalNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="StreetLimits" type="xs:string" minOccurs="0"/>
+			<xs:element name="Municipality" type="xs:string" minOccurs="0"/>
+			<xs:element name="NIT" type="xs:string" minOccurs="0"/>
+			
+		</xs:sequence>
+	</xs:complexType>
+ 	
+	
+	<xs:complexType name="updatePasswordRequest">
+		<xs:sequence>
+		<xs:element name="UserId" type="xs:string"/>
+		<xs:element name="newPassword" type="xs:string"/>
+    	</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="updatePasswordResponse">
+		<xs:sequence>
+			<xs:element name="UserId" type="xs:string" minOccurs="0" />
+			<xs:element name="newPassword" type="PasswordType" minOccurs="0" />
+			<xs:element name="email" type="xs:string" minOccurs="0"/>
+			<xs:element name="idValue" type="xs:string" minOccurs="0"/>
+			
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="InitTransactionRequest">
+		<xs:sequence>
+			<xs:element name="txNumber" type="xs:string"/>
+			<xs:element name="initFor" type="InitTxFlagType"/>
+    	</xs:sequence>
+	</xs:complexType>
+	
+	<!-- Assign User -->
+	<xs:element name="assignUserRequest" type="AssignUserRequest" />
+	<xs:element name="assignUserResponse" type="AssignUserResponse" />
+	<!--  End of Assign User -->
+	
+	<!-- Assign User -->
+	<xs:complexType name="AssignUserRequest">
+		<xs:sequence>
+			<xs:element name="managerId" type="ManagerType" />
+			<xs:element name="officeCode" type="OfficeCodeType" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="OfficeCodeType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="6" />
+			<xs:pattern value="[0-9]{1,6}" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="AssignUserResponse">
+		<xs:sequence>
+			<xs:element name="messge" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- End of Assign User -->
+	
+	<xs:complexType name="GetNetworkIdRequest">
+		<xs:sequence>
+			<xs:element name="networkName" type="NetworkNameType"/>			
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="GetNetworkIdResponse">
+		<xs:sequence>
+			<xs:element name="networkId" type="xs:string" minOccurs="0"/>			
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ResetUserCredentialsRequest">
+		<xs:sequence>
+			<xs:element name="userID" type="UserIDType" minOccurs="0"/>
+			<xs:element name="userType" type="UserType" />
+			<xs:element name="operationType" type="OperationType" />
+			<xs:element name="networkName" type="NetworkNameType" minOccurs="0" />
+			<xs:element name="IDType" type="IDType"  minOccurs="0"/>
+			<xs:element name="IDNo"   type="IDNoType" minOccurs="0"/>
+			<xs:element name="MSISDN" type="MSISDNType" minOccurs="0"/>
+			<xs:element name="dateOfBirth" type="DateOfBirthType" minOccurs="0"/>
+			<xs:element name="email" type="EmailType" minOccurs="0"/>
+			<xs:element name="oldPassword" type="PasswordType" minOccurs="0"/>
+			<xs:element name="newPassword" type="PasswordType" minOccurs="0"/>
+			<xs:element name="lastName" type="LastNameType"  minOccurs="0"/>
+			<!--
+				Description: Added new parameter officName
+				Reason	   : new IN param (pi_office_name) is added in SDP to fix corp user password reset restriction
+				REQ 1046   : TT Corporate GUI
+				Done By    : Phani.Chavala
+				Date       : Jan 05, 2012  
+			 -->
+			 <xs:element name="officName" type="OfficeNameType"  minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ResetUserCredentialsResponse">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string"  minOccurs="0"/>
+			<xs:element name="newPassword" type="PasswordType" minOccurs="0"/>
+			<xs:element name="IMSI" type="IMSIType" minOccurs="0"/>
+			<xs:element name="email" type="EmailType" minOccurs="0"/>
+			<xs:element name="userID" type="UserIDType" minOccurs="0"/>
+			<xs:element name="existingPassword" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="LoginRequest">
+		<xs:sequence>
+			<xs:element name="userID" type="UserIDType" />
+			<xs:element name="password" type="PasswordType" />
+			<xs:element name="networkName" type="NetworkNameType" minOccurs="0" />
+			<xs:element name="userType" type="UserType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="LoginResponse">
+		<xs:sequence>
+			<xs:element name="IDNo" type="IDNoType" />
+			<xs:element name="IDType" type="IDType" minOccurs="0"/>
+			<xs:element name="reqPwdChng" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="netWorkID" type="NetworkIDType" minOccurs="0"/>
+			<xs:element name="isAdmin" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="firstName" type="xs:string" minOccurs="0"/>
+			<xs:element name="lastLoginTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="bareBoneFlag" type="xs:boolean" minOccurs="0"/>			
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="GetPreferredMSISDNSRequest">
+		<xs:sequence>
+			<xs:element name="blockedMSISDN" type="xs:string" />
+			<xs:element name="nonBlockedMSISDN" type="NonBlockedMSISDNType" minOccurs="0"/>
+			<xs:element name="IDNo" type="IDNoType" />
+			<xs:element name="preferFourDigits" type="PreferFourDigitsType" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetPreferredMSISDNSResponse">
+		<xs:sequence>
+			<xs:element name="networkID" type="NetworkIDType" />
+			<xs:element name="MSISDNList" type="MSISDNListType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MSISDNListType">
+		<xs:sequence>
+			<xs:element name="MSISDN" type="MSISDNType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RegisterSubscriberRequest">
+		<xs:sequence>
+			<xs:element name="MSISDN" type="MSISDNType" minOccurs="0"/>
+			<xs:element name="firstName" type="FirstNameType"  minOccurs="0"/>
+			<xs:element name="lastName" type="LastNameType"  minOccurs="0"/>
+			<xs:element name="SurName" type="xs:string"  minOccurs="0"/>
+			<xs:element name="IDType" type="IDType"  minOccurs="0"/>
+			<xs:element name="IDNo" type="IDNoType" minOccurs="0"/>
+			<xs:element name="gender" type="GenderType"	minOccurs="0"/>
+			<xs:element name="dateOfBirth" type="DateOfBirthType" minOccurs="0"/>
+			<xs:element name="address1" type="Address1Type" minOccurs="0"/>
+			<xs:element name="address2" type="Address2Type" minOccurs="0"/>
+			<xs:element name="homePhone" type="HomePhoneType" minOccurs="0"/>
+			<xs:element name="officePhone" type="OfficePhoneType" minOccurs="0"/>
+			<xs:element name="ExternalNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="InternalNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="postalCode" type="PostalCodeType" minOccurs="0"/>
+			<xs:element name="StreetLimits" type="xs:string" minOccurs="0"/>
+			<xs:element name="Municipality" type="xs:string" minOccurs="0"/>
+			<xs:element name="city" type="CityType" minOccurs="0"/>
+			<xs:element name="state" type="StateType" minOccurs="0"/>
+			<xs:element name="country" type="CountryType" minOccurs="0"/>
+			<xs:element name="email" type="EmailType" minOccurs="0"/>
+			<xs:element name="occupation" type="OccupationType" minOccurs="0"/>
+			<xs:element name="industry" type="IndustryType" minOccurs="0"/>
+			<xs:element name="annualIncome" type="AnnualIncomeType" minOccurs="0"/>
+			<xs:element name="sourceOfInfo" type="SourceOfInfoType" minOccurs="0"/>
+			<xs:element name="userId" type="UserIDType" minOccurs="0"/>
+			<xs:element name="subscriberStatus " type="subscriberStatusType" minOccurs="0"/>
+			<xs:element name="address3" type="Address2Type" minOccurs="0"/>
+			<xs:element name="orderBooking" type="OrderBookingType" minOccurs="0"/>
+			<xs:element name="oldIC" type="oldICType" minOccurs="0"/>
+			<xs:element name="gmpc" type="gmpcType" minOccurs="0"/>
+			<xs:element name="networkName" type="NetworkNameType" minOccurs="0"/>
+			<xs:element name="ethnic" type="EthnicType" minOccurs="0"/>
+			<xs:element name="pleaseSpecify" type="PleaseSpecifyType" minOccurs="0"/>
+			<!--Added by sumanth for helpy  -->
+			<xs:element name="transReffNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="password" type="xs:string" minOccurs="0"/>
+			<xs:element name="securityQuestion" type="xs:string" minOccurs="0"/>
+			<xs:element name="securityAnswer" type="xs:string" minOccurs="0"/>
+			<xs:element name="registerType" >
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="REG_BLOCK_MDN"/>
+					<xs:enumeration value="REG_SUB_ONLY"/>
+					<xs:enumeration value="REG_WITHOUT_MDN"/>
+					<xs:enumeration value="REG_NEW_MDN"/>
+					<xs:enumeration value="REG_BARE_BONE"/>
+				</xs:restriction>
+			</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="CreateUserRequest">
+		<xs:sequence>
+			<xs:element name="passwordHint" type="PasswordHintType" minOccurs="0"/>
+			<xs:element name="firstName" type="Len30StringType" />
+			<xs:element name="middleName" type="Len30StringType"  minOccurs="0"/>
+			<xs:element name="lastName" type="Len30StringType" />
+			<xs:element name="address" type="Len100StringType" minOccurs="0"/>
+			<xs:element name="city" type="CityType" />
+			<xs:element name="state" type="Len2StringType" minOccurs="0"/>
+			<xs:element name="country" type="Len2StringType" />
+			<xs:element name="manager" type="ManagerType" minOccurs="0"/>
+			<xs:element name="workgroupId" type="WorkgroupIdType" minOccurs="0"/>
+			<xs:element name="myKadId" type="MyKadIdType" minOccurs="0"/>
+			<xs:element name="email" type="EmailType" minOccurs="0"/>
+			<xs:element name="postalCode" type="PostlCodeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreateUserResponse">
+		<xs:sequence>
+			<xs:element name="message" type="MessageType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="PleaseSpecifyType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="60" />		 
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EthnicType">
+		<xs:restriction base="xs:string">	
+			<xs:maxLength value="300" />	 
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="oldICType">
+		<xs:restriction base="xs:string">		 
+		</xs:restriction>
+	</xs:simpleType>
+		<xs:simpleType name="gmpcType">
+		<xs:restriction base="xs:string">		 
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="NonBlockedMSISDNType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PA"/>
+			<xs:enumeration value="AA"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="OperationType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CHANGE_PWD"/>
+			<xs:enumeration value="FORGOT_PWD"/>
+			<xs:enumeration value="FORGOT_USER_ID"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="subscriberStatusType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Len30StringType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="30" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FirstNameType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="255" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MiddleNameType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="255" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LastNameType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="300" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IDType">
+		<xs:restriction base="xs:string">
+		<xs:maxLength value="20" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IDNoType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="64" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GenderType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DateOfBirthType">
+		<xs:restriction base="xs:date"></xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Address1Type">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="150" /><!-- changed from 60 to 150  -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Address2Type">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="150" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HomePhoneType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OfficePhoneType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PostalCodeType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CityType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="600" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Len2StringType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="2" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StateType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="600" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CountryType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="600" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EmailType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OccupationType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="200" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IndustryType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="200" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AnnualIncomeType">
+		<xs:restriction base="xs:string"></xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SourceOfInfoType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="UserIDType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="64" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OrderBookingType">
+		<xs:restriction base="xs:string">			 
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="RegisterSubscriberResponse">
+		<xs:sequence>
+			<xs:element name="ICCnumber" type="ICCnumberType" minOccurs="0"/>
+			<xs:element name="password" type="PasswordType" minOccurs="0"/>
+			<xs:element name="IMSI" type="IMSIType" minOccurs="0"/>
+			<xs:element name="transId" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ICCnumberType">
+		<xs:restriction base="xs:string">
+		<xs:maxLength value="30" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="PreferFourDigitsType">
+		<xs:restriction base="xs:string"></xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="NetworkIDType">
+		<xs:restriction base="xs:integer"></xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="NetworkNameType">
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="UserType">
+		<xs:restriction base="xs:integer">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation>Value "1" represents SelfCareUI User.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation>Value "2" represents DealerCare User.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation>Value "3" represents CorporateUI User.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation>Value "4" represents TTCare(Customer Care) User.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="PasswordType">
+		<xs:restriction base="xs:string">
+		<xs:maxLength value="60" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="MSISDNType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="7" />
+			<xs:maxLength value="20" />
+			<xs:pattern value="[0-9]{7,20}" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IMSIType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="7" />
+			<xs:maxLength value="15" />
+			<xs:pattern value="[0-9]{7,20}" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ReegistrationType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="REG_BLOCK_MDN"/>
+			<xs:enumeration value="REG_SUB_ONLY"/>
+			<xs:enumeration value="REG_WITHOUT_MDN"/>
+			<xs:enumeration value="REG_NEW_MDN"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!--
+	  Enumeration Values are
+	REG_BLOCK_MDN 	(If the user is registering first time with blocked MSISDN)add user(s), block msisdn(b)
+	REG_SUB_ONLY 	(If the user is registering his selfcare account with existing active MSISDN) only billing
+	REG_WITHOUT_MDN (If the user is registering with out blocking an MSISDN)only selfcare
+	REG_NEW_MDN 	(If the user is registering a new MDN to his existing selfcare account) new proc by selfcare then call billing
+	 -->
+
+<!-- pro_dummy_actual_replace  -->
+
+	<xs:element name="updateKadIdRequest" type="UpdateKadIdRequest" />
+	<xs:element name="updateKadIdResponse" type="UpdateKadIdResponse" />
+
+	<xs:complexType name="UpdateKadIdRequest">
+		<xs:sequence>
+			<xs:element name="sim" type="SimType" />
+			<xs:element name="dummyID" type="MyKadIdType" />
+			<xs:element name="IDType" type="IDType" minOccurs="0" />
+			<xs:element name="actualID" type="MyKadIdType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="SimType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="20" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="MyKadIdType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="64" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="UpdateKadIdResponse">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string" minOccurs="0" />
+			<xs:element name="msisdn" type="MSISDNType" minOccurs="0"/>
+			<xs:element name="msisdnType" type="xs:string" minOccurs="0" />
+			<!-- Added to send USSD notifications on 26-04-2011 -->
+			<xs:element name="imsiNo" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+<!-- dummy_id_update-->
+
+	<xs:element name="updateSIMStatusRequest" type="UpdateSIMStatusRequest" />
+	<xs:element name="updateSIMStatusResponse" type="UpdateSIMStatusResponse" />
+
+	<xs:complexType name="UpdateSIMStatusRequest">
+		<xs:sequence>
+			<xs:element name="sim" type="SimType" />
+			<xs:element name="IDType" type="KADIDNoType"/>
+			<xs:element name="dummyID" type="MyKadIdType" />
+			<xs:element name="actualID" type="MyKadIdType" />
+			<xs:element name="transStatus" type="TransStatusType" minOccurs="0"/>
+			<xs:element name="SIMStatus" type="SIMStatusType" />
+			<xs:element name="transNO" type="TrasNoType" />
+			<xs:element name="msisdn" type="MSISDNType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="UpdateSIMStatusResponse">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="SIMStatusType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="500" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="KADIDNoType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="2" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="TransStatusType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="500" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="TrasNoType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="30" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!-- ***REQ#822 getting ZipCode details*** -->
+	<xs:element name="getZipCodeDetailsRequest" type="GetZipCodeDetailsRequest" />
+	<xs:element name="getZipCodeDetailsResponse" type="GetZipCodeDetailsResponse" />
+	
+	<xs:complexType name="GetZipCodeDetailsRequest">
+	<xs:sequence>
+		<xs:element name="countryCode" type="CountryCodeType" minOccurs="0"/>
+		<xs:element name="stateId" type="ZipStateIdType" minOccurs="0"/>
+		<xs:element name="stateName" type="ZipStateNameType" minOccurs="0"/>
+		<xs:element name="zipCode" type="ZipCodeType" minOccurs="0"/>
+		<xs:element name="cityName" type="ZipCityType" minOccurs="0"/>
+	</xs:sequence>
+	</xs:complexType>	
+	
+	<xs:complexType name="GetZipCodeDetailsResponse">
+	<xs:sequence>
+		<xs:element name="zipCodeDetailsList" type="ZipCodeDetailsListType" minOccurs="0"/>
+	</xs:sequence>
+	</xs:complexType> 
+	
+	<xs:complexType name="ZipCodeDetailsListType">
+	<xs:sequence>
+		<xs:element name="zipCodeDetails" type="ZipCodeDetailsType" maxOccurs="unbounded"/>
+	</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ZipCodeDetailsType">
+	<xs:sequence>
+		<xs:element name="zipCode" type="xs:string" minOccurs="0"/>
+		<xs:element name="city" type="xs:string" minOccurs="0"/>
+		<xs:element name="stateId" type="xs:long" minOccurs="0"/>
+		<xs:element name="stateName" type="xs:string" minOccurs="0"/>
+		<xs:element name="countryCode" type="xs:string" minOccurs="0"/>
+	</xs:sequence>
+	</xs:complexType>
+
+	<!-- ***REQ#822 Add/upload,modify,delete ZipCode details*** -->
+	<xs:element name="manageZipCodeDetailsRequest" type="ManageZipCodeDetailsRequest" />
+	<xs:element name="manageZipCodeDetailsResponse" type="ManageZipCodeDetailsResponse" />
+	
+	<xs:complexType name="ManageZipCodeDetailsRequest">
+	<xs:sequence>
+		<xs:element name="countryCode" type="CountryCodeType" minOccurs="0" />
+		<xs:element name="stateId" type="ZipStateIdType" minOccurs="0" />
+		<xs:element name="stateName" type="ZipStateNameType" minOccurs="0" />
+		<xs:element name="zipCode" type="ZipCodeType" />
+		<xs:element name="city" type="ZipCityType" minOccurs="0" />
+		<xs:element name="actionFlag" type="ActionFlagType" minOccurs="0" />
+	</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ManageZipCodeDetailsResponse">
+	<xs:sequence>
+		<xs:element name="message" type="xs:string" />
+	</xs:sequence>
+	</xs:complexType>
+		
+	<!-- ***REQ#822 get State details*** -->
+	<xs:element name="getStateDetailsRequest" type="GetStateDetailsRequest" />
+	<xs:element name="getStateDetailsResponse" type="GetStateDetailsResponse" />
+	
+	<xs:complexType name="GetStateDetailsRequest">
+	<xs:sequence>
+		<xs:element name="countryCode" type="CountryCodeType" minOccurs="0"/>
+		<xs:element name="stateId" type="ZipStateIdType" minOccurs="0"/>
+		<xs:element name="stateName" type="ZipStateNameType" minOccurs="0" />
+	</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="GetStateDetailsResponse">
+	<xs:sequence>
+		<xs:element name="stateDetailsList" type="StateDetailsListType" minOccurs="0"/>
+	</xs:sequence>
+	</xs:complexType> 
+	
+	<xs:complexType name="StateDetailsListType">
+	<xs:sequence>
+		<xs:element name="stateDetails" type="StateDetailsType" maxOccurs="unbounded"/>
+	</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="StateDetailsType">
+	<xs:sequence>
+		<xs:element name="stateId" type="xs:long" minOccurs="0"/>
+		<xs:element name="stateName" type="xs:string" minOccurs="0"/>
+		<xs:element name="countryCode" type="xs:string" minOccurs="0"/>
+		<xs:element name="countryName" type="xs:string" minOccurs="0"/>
+	</xs:sequence>
+	</xs:complexType>
+
+	<!-- ***REQ#822 Add,modify,delete State details*** -->
+	<xs:element name="manageStateDetailsRequest" type="ManageStateDetailsRequest" />
+	<xs:element name="manageStateDetailsResponse" type="ManageStateDetailsResponse" />
+	
+	<xs:complexType name="ManageStateDetailsRequest">
+	<xs:sequence>
+		<xs:element name="countryCode" type="CountryCodeType" minOccurs="0"/>
+		<xs:element name="stateId" type="ZipStateIdType" minOccurs="0"/>
+		<xs:element name="stateName" type="ZipStateNameType" minOccurs="0" />
+		<xs:element name="actionFlag" type="ActionFlagType" />
+	</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ManageStateDetailsResponse">
+	<xs:sequence>
+		<xs:element name="message" type="xs:string" />
+		<xs:element name="stateId" type="xs:long" minOccurs="0"/>
+	</xs:sequence>
+	</xs:complexType>
+	
+		<!-- ***REQ#822 upload zipcode details*** -->
+	<xs:element name="uploadZipCodesRequest" type="UploadZipCodesRequest" />
+	<xs:element name="uploadZipCodesResponse" type="UploadZipCodesResponse" />
+	
+	<xs:complexType name="UploadZipCodesRequest">
+		<xs:sequence>
+			<xs:element name="zipCodesDetails" type="ZipCodesDetailsType"/>
+			<xs:element name="uploadFlag" type="UploadFlagType" />
+		</xs:sequence>                                   
+	</xs:complexType>
+	
+	<xs:complexType name="ZipCodesDetailsType">
+		<xs:sequence>
+			<xs:element name="CommaSeparatedZipCodesList" type="xs:string" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="UploadFlagType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ZIP_CODES_UPLOAD" /> 
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="UploadZipCodesResponse">
+	<xs:sequence>
+		<xs:element name="transactionNo" type="xs:string" minOccurs="0" />
+		<xs:element name="failureCount" type="xs:long" minOccurs="0" />
+		<xs:element name="failureZipCodesList" type="FailureZipCodesListType" minOccurs="0" />
+	</xs:sequence>
+	</xs:complexType>
+				
+	<xs:complexType name="FailureZipCodesListType">
+		<xs:sequence>
+			<xs:element name="failureZipCodeDtls" type="FailureZipCodeDtlsType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="FailureZipCodeDtlsType">
+		<xs:sequence>
+			<xs:element name="transactionNo" type="xs:string" minOccurs="0" />
+			<xs:element name="countryName" type="xs:string" minOccurs="0" />
+			<xs:element name="zipCode" type="xs:string" minOccurs="0" />
+			<xs:element name="stateName" type="xs:string" minOccurs="0" />
+			<xs:element name="cityName" type="xs:string" minOccurs="0" />
+			<xs:element name="remarks" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>	
+
+<!-- pro_actualid_update  -->
+
+	<xs:element name="updateActualIdRequest" type="UpdateActualIdRequest" />
+	<xs:element name="updateActualIdResponse" type="UpdateActualIdResponse" />
+
+	<xs:complexType name="UpdateActualIdRequest">
+		<xs:sequence>
+			<xs:element name="sim" type="SimType" />
+			<xs:element name="actualID" type="MyKadIdType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="UpdateActualIdResponse">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string" minOccurs="0" />
+			<xs:element name="msisdn" type="MSISDNType" minOccurs="0"/>
+			<xs:element name="msisdnType" type="xs:string" minOccurs="0" />
+			<xs:element name="imsiNo" type="xs:string" minOccurs="0" />
+			<xs:element name="oldID" type="xs:string" minOccurs="0"/>
+			<xs:element name="actualID" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+<!--end of pro_actualid_update -->
+
+		
+	<xs:simpleType name="ZipStateIdType">
+			<xs:restriction base="xs:string">
+				<xs:minLength value="1" />
+				<xs:maxLength value="18" />
+				<xs:pattern value="[0-9]{1,18}" />
+			</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="ZipCityType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="60" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ZipStateNameType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="50" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="CountryCodeType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="20" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="ZipCodeType">
+			<xs:restriction base="xs:string">
+				<xs:minLength value="4" />
+				<xs:maxLength value="6" />
+				<xs:pattern value="[0-9]{4,6}" />
+			</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="ActionFlagType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="A" /><!-- for Add -->
+			<xs:enumeration value="U" /><!-- for update/modify -->
+			<xs:enumeration value="D" /><!-- for delete -->
+ 		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PasswordHintType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="30" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ManagerType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="20" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="WorkgroupIdType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Len100StringType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="100" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Len25StringType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="25" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AddressType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="150" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MessageType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="150" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PostlCodeType">
+		<xs:restriction base="xs:string">
+		<xs:minLength value="1" />
+		<xs:maxLength value="6" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OfficeNameType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="InitTxFlagType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BULK_PORT_IN" />
+			<xs:enumeration value="BULK_TOP_UP" />
+ 		</xs:restriction>
+	</xs:simpleType>	
+	
+	<xs:simpleType name="ICCNoType">
+		<xs:restriction base="xs:string">
+		<xs:minLength value="1" />
+		<xs:maxLength value="60" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="OrderDateType">
+		<xs:restriction base="xs:dateTime"></xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="OrderExpiryDateType">
+		<xs:restriction base="xs:dateTime"></xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="OrderStatusType">
+		<xs:restriction base="xs:string"></xs:restriction>
+	</xs:simpleType>
+	
+</xs:schema>

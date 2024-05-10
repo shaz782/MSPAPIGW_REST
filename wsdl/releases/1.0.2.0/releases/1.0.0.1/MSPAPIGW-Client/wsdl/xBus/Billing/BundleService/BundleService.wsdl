@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xbus.xius.com/services/billing/bundle" xmlns:ns="http://xbus.xius.com/messages/common" xmlns:msgs="http://xbus.xius.com/messages/billing/bundle" targetNamespace="http://xbus.xius.com/services/billing/bundle">
+	<wsdl:types>
+		<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xbus.xius.com/services/billing/bundle" targetNamespace="http://xbus.xius.com/services/billing/bundle" elementFormDefault="qualified">
+			<xs:import namespace="http://xbus.xius.com/messages/billing/bundle" schemaLocation="BundleService.xsd"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="FaultName"/>
+	<wsdl:message name="manageBundleRequest">
+		<wsdl:part name="request" element="msgs:manageBundleRequest"/>
+	</wsdl:message>
+	<wsdl:message name="manageBundleResponse">
+		<wsdl:part name="response" element="msgs:manageBundleResponse"/>
+	</wsdl:message>
+	<wsdl:message name="getBundlesRequest">
+		<wsdl:part name="request" element="msgs:getBundlesRequest"/>
+	</wsdl:message>	
+	<wsdl:message name="getBundlesResponse">
+		<wsdl:part name="response" element="msgs:getBundlesResponse"/>
+	</wsdl:message>
+	<wsdl:message name="getBucketsRequest">
+		<wsdl:part name="request" element="msgs:getBucketsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getBucketsResponse">
+		<wsdl:part name="response" element="msgs:getBucketsResponse"/>
+	</wsdl:message>
+	<wsdl:message name="getBundleDtlRequest">
+		<wsdl:part name="request" element="msgs:getBundleDtlRequest"/>
+	</wsdl:message>	
+	<wsdl:message name="getBundleDtlResponse">
+		<wsdl:part name="response" element="msgs:getBundleDtlResponse"/>
+	</wsdl:message>
+	
+	<wsdl:message name="giftBundlesRequest">
+		<wsdl:part name="request" element="msgs:giftBundlesRequest"/>
+	</wsdl:message>	
+	<wsdl:message name="giftBundlesResponse">
+		<wsdl:part name="response" element="msgs:giftBundlesResponse"/>
+	</wsdl:message>
+	
+	<wsdl:portType name="BundlePortType">
+		<wsdl:operation name="manageBundle">
+			<wsdl:input message="tns:manageBundleRequest"/>
+			<wsdl:output message="tns:manageBundleResponse"/>
+			<wsdl:fault name="FaultName" message="tns:FaultName"/>
+		</wsdl:operation>
+		<wsdl:operation name="getBuckets">
+			<wsdl:input message="tns:getBucketsRequest"/>
+			<wsdl:output message="tns:getBucketsResponse"/>
+			<wsdl:fault name="FaultName" message="tns:FaultName"/>
+		</wsdl:operation>
+		<wsdl:operation name="getBundles">
+			<wsdl:input message="tns:getBundlesRequest"/>
+			<wsdl:output message="tns:getBundlesResponse"/>
+			<wsdl:fault name="FaultName" message="tns:FaultName"/>
+		</wsdl:operation>
+		<wsdl:operation name="getBundleDtl">
+			<wsdl:input message="tns:getBundleDtlRequest"/>
+			<wsdl:output message="tns:getBundleDtlResponse"/>
+			<wsdl:fault name="FaultName" message="tns:FaultName"/>
+		</wsdl:operation>
+		<wsdl:operation name="giftBundles">
+			<wsdl:input message="tns:giftBundlesRequest"/>
+			<wsdl:output message="tns:giftBundlesResponse"/>
+			<wsdl:fault name="FaultName" message="tns:FaultName"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="BundleBinding" type="tns:BundlePortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="manageBundle">
+			<soap:operation soapAction="manageBundle"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultName">
+				<soap:fault name="FaultName" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getBuckets">
+			<soap:operation soapAction="getBuckets"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultName">
+				<soap:fault name="FaultName" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getBundles">
+			<soap:operation soapAction="getBundles"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultName">
+				<soap:fault name="FaultName" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getBundleDtl">
+			<soap:operation soapAction="getBundleDtl"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultName">
+				<soap:fault name="FaultName" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="giftBundles">
+			<soap:operation soapAction="giftBundles"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultName">
+				<soap:fault name="FaultName" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+	</wsdl:binding>
+	
+	<wsdl:service name="BundleService">
+		<wsdl:port name="BillingBundlePort" binding="tns:BundleBinding">
+			<soap:address location="http://127.0.0.1:8192/"/>
+		</wsdl:port>
+		
+	</wsdl:service>
+</wsdl:definitions>

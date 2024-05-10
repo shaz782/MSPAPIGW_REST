@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	xmlns="http://scare.xbus.xiusbcgi.com/SubscriberManagementV1.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://scare.xbus.xiusbcgi.com/SubscriberManagementV1.xsd"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xs:element name="getdemographicdtlsRequest" type="GetdemographicdtlsRequest" />
+	<xs:element name="getdemographicdtlsResponse" type="GetdemographicdtlsResponse" />
+	
+	<xs:element name="updateDemographicDetailsRequest" type="UpdateDemographicDetailsRequest" />
+	<xs:element name="updateDemographicDetailsResponse" type="UpdateDemographicDetailsResponse" />
+ <xs:complexType name="GetdemographicdtlsRequest">
+		<xs:sequence>			 
+			<xs:element name="IDNo" type="IDNoType" minOccurs="0"/>
+		</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetdemographicdtlsResponse">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string" minOccurs="0" />
+			<xs:element name="subscriberDetails" type="GetSubDetType" minOccurs="0" />		
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetSubDetType">
+		<xs:sequence>
+			<xs:element name="IDType" type="IDType"  minOccurs="0"/>
+			<xs:element name="IDNo" type="IDNoType" minOccurs="0"/>			 
+			<xs:element name="firstName" type="FirstNameType"  minOccurs="0"/>
+			<xs:element name="surname" type="SurNameType"  minOccurs="0"/>
+			<xs:element name="lastname" type="LastNameType"  minOccurs="0"/>
+			<xs:element name="gender" type="GenderType"	minOccurs="0"/>
+			<xs:element name="dateOfBirth" type="DateOfBirthType" minOccurs="0"/>
+			<xs:element name="email" type="EmailType" minOccurs="0"/>
+			<xs:element name="homePhone" type="HomePhoneType" minOccurs="0"/>
+			<xs:element name="officePhone" type="OfficePhoneType" minOccurs="0"/>
+			<xs:element name="address1" type="Address1Type" minOccurs="0"/>
+			<xs:element name="address2" type="Address2Type" minOccurs="0"/>
+			<xs:element name="address3" type="Address3Type" minOccurs="0"/>
+			<xs:element name="annualIncome" type="AnnualIncomeType" minOccurs="0"/>
+			<xs:element name="city" type="CityType" minOccurs="0"/>
+			<xs:element name="state" type="StateType" minOccurs="0"/>
+			<xs:element name="country" type="CountryType" minOccurs="0"/>
+			<xs:element name="occupation" type="OccupationType" minOccurs="0"/>
+			<xs:element name="industry" type="IndustryType" minOccurs="0"/>
+			<xs:element name="ethnic" type="EthnicType" minOccurs="0"/>
+			<xs:element name="alternateContactNo" type="xs:string" minOccurs="0"/>
+			<xs:element name="ExternalNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="InternalNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="Nationality" type="xs:string" minOccurs="0"/>
+			<xs:element name="postalCode" type="PostalCodeType" minOccurs="0"/>
+			<xs:element name="Nit" type="xs:string" minOccurs="0"/>	 	
+			<xs:element name="sourceOfInfo" type="SourceOfInfoType" minOccurs="0"/> 
+			<xs:element name="oldIC" type="oldICType" minOccurs="0"/>
+			<xs:element name="gmpc" type="gmpcType" minOccurs="0"/>
+			<xs:element name="subscriberStatus" type="subscriberStatusType" minOccurs="0"/>
+			<xs:element name="orderDate" type="OrderDateType" minOccurs="0"/>
+			<xs:element name="orderExpiryDate" type="OrderExpiryDateType" minOccurs="0"/>
+			<xs:element name="orderStatus" type="OrderStatusType" minOccurs="0"/>
+			<xs:element name="password" type="xs:string" minOccurs="0"/>
+			<xs:element name="pleaseSpecify" type="xs:string" minOccurs="0"/>
+			<xs:element name="imageName" type="xs:string" minOccurs="0"/>
+			<xs:element name="stateCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="countryCode" type="xs:string" minOccurs="0"/>			 
+		    <xs:element name="StreetLimits" type="xs:string" minOccurs="0"/>
+			<xs:element name="Municipality" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UpdateDemographicDetailsRequest">
+		<xs:sequence>			 
+			<xs:element name="IDType" type="IDType" minOccurs="0"/>
+			<xs:element name="IDNo" type="IDNoType" minOccurs="0"/>
+			<xs:element name="address1" type="Address1Type" minOccurs="0"/>
+            <xs:element name="address2" type="Address2Type" minOccurs="0"/>
+		    <xs:element name="address3" type="Address3Type" minOccurs="0"/>
+		    <xs:element name="alternateContactNo" type="xs:string" minOccurs="0"/>
+		    <xs:element name="annualIncome" type="AnnualIncomeType" minOccurs="0"/>
+		    <xs:element name="city" type="CityType" minOccurs="0"/>
+		    <xs:element name="country" type="CountryType" minOccurs="0"/>
+		    <xs:element name="dateOfBirth" type="DateOfBirthType" minOccurs="0"/>
+		    <xs:element name="email" type="EmailType" minOccurs="0"/>
+		    <xs:element name="ethnic" type="EthnicType" minOccurs="0"/>
+		    <xs:element name="firstName" type="FirstNameType" minOccurs="0"/>
+		    <xs:element name="gender" type="GenderType" minOccurs="0"/>
+		    <xs:element name="homePhone" type="HomePhoneType" minOccurs="0"/>
+		    <xs:element name="industry" type="IndustryType" minOccurs="0"/>
+		    <xs:element name="last_name" type="LastNameType" minOccurs="0"/>
+		    <xs:element name="nationality" type="xs:string" minOccurs="0"/>
+		    <xs:element name="occupation" type="OccupationType" minOccurs="0"/>
+		    <xs:element name="officePhone" type="OfficePhoneType" minOccurs="0"/>
+		    <xs:element name="postalCode" type="PostalCodeType" minOccurs="0"/>
+		    <xs:element name="securityAnswer" type="xs:string" minOccurs="0"/>
+		    <xs:element name="securityQuestion" type="xs:string" minOccurs="0"/>
+		    <xs:element name="state" type="StateType" minOccurs="0"/>
+		    <xs:element name="surName" type="SurNameType" minOccurs="0"/>
+		    <xs:element name="Nit" type="xs:string" minOccurs="0"/>
+		    <xs:element name="transRefNo" type="xs:string" minOccurs="0"/>
+		   </xs:sequence>
+</xs:complexType>
+<xs:complexType name="UpdateDemographicDetailsResponse">
+		<xs:sequence>
+			<xs:element name="transID" type="TransactionIdType" minOccurs="0"/>
+			<xs:element name="transRefNo" type="xs:string"  minOccurs="0"/>	
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="OfficeCodeType">
+		<xs:restriction base="xs:integer">
+			<xs:maxInclusive value="999999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EthnicType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="300" />		 
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IMSIType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="7" />
+			<xs:maxLength value="20" />
+			<xs:pattern value="[0-9]{7,20}" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="oldICType">
+		<xs:restriction base="xs:string">		 
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OrderBookingType">
+		<xs:restriction base="xs:string">			 
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="subscriberStatusType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="UpdateSubDetailsResponse">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string" minOccurs="0" />
+			<!--ADDED FOR HELPY SUBSCRIBER MANAGEMENT API V4 -->
+			<xs:element name="transactionId" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="gmpcType">
+		<xs:restriction base="xs:string">		 
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StatusType">
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="100"/>
+			</xs:restriction>
+		</xs:simpleType>
+		<xs:simpleType name="CreatedByType">
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="30"/>
+			</xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="ICCNoType">
+		<xs:restriction base="xs:string">
+		<xs:minLength value="1" />
+		<xs:maxLength value="60" />
+		</xs:restriction>
+		</xs:simpleType>
+<xs:simpleType name="PreferFourDigitsType">
+		<xs:restriction base="xs:integer"></xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="NetworkIDType">
+		<xs:restriction base="xs:integer"></xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="MyKadIDType">
+		<xs:restriction base="xs:string"></xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="BlockedMSISDNType">
+		<xs:restriction base="xs:boolean"></xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="NonBlockedMSISDNType">
+		<xs:restriction base="xs:boolean"></xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="UserIDType">
+		<xs:restriction base="xs:string"></xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="PasswordType">
+		<xs:restriction base="xs:string">
+		<xs:maxLength value="60" />
+		</xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="MSISDNType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="7" />
+			<xs:maxLength value="20" />
+			<xs:pattern value="[0-9]{7,20}" />
+		</xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="FirstNameType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="255" />
+		</xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="LastNameType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="300" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SurNameType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="300" />
+		</xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="IDType">
+	<xs:restriction base="xs:string">
+		<xs:minLength value="1" />
+		<xs:maxLength value="20" />
+		</xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="IDNoType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="64" />
+		</xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="GenderType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="DateOfBirthType">
+		<xs:restriction base="xs:date"></xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OrderDateType">
+		<xs:restriction base="xs:dateTime"></xs:restriction>
+	</xs:simpleType>
+		<xs:simpleType name="OrderExpiryDateType">
+		<xs:restriction base="xs:dateTime"></xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Address1Type">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="150" /><!-- changed from 60 to 150  -->
+		</xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="Address2Type">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="60" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Address3Type">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="60" />
+		</xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="HomePhoneType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20" />
+		</xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="OfficePhoneType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20" />
+		</xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="PostalCodeType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="CityType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="600" />
+		</xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="StateType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="600" />
+		</xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="CountryType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="600" />
+		</xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="EmailType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100" />
+		</xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="OccupationType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="150" />
+		</xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="IndustryType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="60" />
+		</xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="AnnualIncomeType">
+		<xs:restriction base="xs:string"></xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AnnualIncomType">
+		<xs:restriction base="xs:string"></xs:restriction>
+	</xs:simpleType>
+<xs:simpleType name="SourceOfInfoType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="200" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="UserType">
+		<xs:restriction base="xs:integer">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ICCStatusType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BK"/>
+			<xs:enumeration value="CN"/>
+			<xs:enumeration value="FL"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OrderStatusType">
+		<xs:restriction base="xs:string"></xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LastFourDigitsType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NetWorkNameType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TransactionIdType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="30" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TransactionStatusType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="255" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DateType">
+		<xs:restriction base="xs:string">
+			<!-- MM/DD/YYYY format -->
+			<xs:pattern value="([0][1-9]|[1-2][0-9]|[3][0-1])/([0][1-9]|[1][0-2])/([1-9][0-9][0-9][0-9])"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LanguageType">
+	<xs:restriction base="xs:string">
+		<xs:minLength value="1" />
+		<xs:maxLength value="50" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+</xs:schema>

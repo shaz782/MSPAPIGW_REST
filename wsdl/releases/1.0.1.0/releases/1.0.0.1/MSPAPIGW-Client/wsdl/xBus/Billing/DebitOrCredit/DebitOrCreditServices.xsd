@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://xbus.xius.com/messages/billing/debitorcredit" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:comm="http://xbus.xius.com/messages/common" targetNamespace="http://xbus.xius.com/messages/billing/debitorcredit" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://xbus.xius.com/messages/common" schemaLocation="../../common/CommonData.xsd"/>
+	<!--Get Prepaid Account Balance-->
+	<xs:element name="getPrepaidAccBalanceRequest">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSRequest">
+					<xs:sequence>
+						<xs:element ref="comm:msisdn"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getPrepaidAccBalanceResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSResponse">
+					<xs:sequence>
+						<xs:element name="accountId" type="xs:string" minOccurs="0"/>
+						<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+						<xs:element name="currentBalance" type="xs:decimal" minOccurs="0"/>
+						<xs:element name="accountStatus" type="xs:string" minOccurs="0"/>
+						<xs:element name="currentValidityDate" type="xs:dateTime" minOccurs="0"/>
+						<xs:element name="currentGracePeriodOneEndDate" type="xs:dateTime" minOccurs="0"/>
+						<xs:element name="currentExpiryDate" type="xs:dateTime" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<!-- End of Get Prepaid Account Balance-->
+	<!-- TopUpSpecial -->
+	<xs:element name="specialTopUpRequest">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSRequest">
+					<xs:sequence>
+						<xs:element name="msisdn" type="xs:string"/>
+						<xs:element name="amountToCredit" type="xs:double" nillable="false" minOccurs="1"/>
+						<xs:element name="newValidityDate" type="xs:string" nillable="false" minOccurs="1"/>
+						<xs:element name="newGracePeriodEndDate" type="xs:string" nillable="false"/>
+						<xs:element name="newExpiryDate" type="xs:string" nillable="false"/>
+						<xs:element name="reason" type="xs:string" nillable="true" minOccurs="0"/>
+						<xs:element name="transactionId" minOccurs="0"	type="xs:string" />
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="specialTopUpResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSResponse">
+					<xs:sequence>
+						<xs:element name="message" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<!-- End TopUpSpecial -->
+	<!--Voucher TopUp-->
+	<xs:element name="voucherTopUpRequest">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSRequest">
+					<xs:sequence>
+						<xs:element name="accountType" type="comm:AccountType"/>
+						<xs:element name="voucherPIN" type="xs:string" nillable="false"/>
+						<xs:element name="IVR" minOccurs="0">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:length value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="idNo" type="comm:IdValueType" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="voucherTopUpResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSResponse">
+					<xs:sequence>
+						<xs:element name="accountId" type="xs:string" minOccurs="0"/>
+						<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+						<xs:element name="currentBalance" type="xs:double" minOccurs="0"/>
+						<xs:element name="status" type="xs:string" minOccurs="0"/>
+						<xs:element name="voucherNo" type="xs:string" minOccurs="0"/>
+						<xs:element name="adminFee" type="xs:double" minOccurs="0"/>
+						<xs:element name="creditedAmount" type="xs:double" minOccurs="0"/>
+						<xs:element name="denomination" type="xs:double" minOccurs="0"/>
+						<xs:element name="dataBalance" type="xs:double" minOccurs="0"/>
+						<xs:element name="validityDate" type="xs:string" minOccurs="0"/>
+						<xs:element name="gracePeriodOneEndDate" type="xs:string" minOccurs="0"/>
+						<xs:element name="expiryDate" type="xs:string" minOccurs="0"/>
+						<xs:element name="promoValidityDate" type="xs:string" minOccurs="0"/>
+						<xs:element name="dataValidityDate" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<!-- End of Voucher TopUp-->
+	<!--Get Tariff And Balance-->
+	<xs:element name="getTariffAndBalanceRequest">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSRequest">
+					<xs:sequence>
+						<xs:element ref="comm:msisdn"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getTariffAndBalanceResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSResponse">
+					<xs:sequence>
+						<xs:element name="accountId" type="xs:string" minOccurs="0"/>
+						<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+						<xs:element name="tariffPlan" type="xs:string" minOccurs="0"/>
+						<xs:element name="currentBalance" type="xs:double" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<!--End of Get Tariff And Balance-->
+	<!--DebitSpecial-->
+	<xs:element name="debitSpecialRequest">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSRequest">
+					<xs:sequence>
+						<xs:element name="msisdn" type="xs:string"/>						
+						<xs:element name="amountToDebit" type="xs:double" nillable="false"/>
+						<xs:element name="newValidityDate" type="xs:string" nillable="false"/>
+						<xs:element name="newGracePeriodIEndDate" type="xs:string" nillable="false"/>
+						<xs:element name="newExpiryDate" type="xs:string" nillable="false"/>
+						<xs:element name="reason" type="xs:string" nillable="true" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="debitSpecialResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSResponse">
+					<xs:sequence>
+						<xs:element name="accountId" type="xs:string" minOccurs="0"/>
+						<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+						<xs:element name="currentBalance" type="xs:double" minOccurs="0"/>
+						<xs:element name="accountStatus" type="xs:string" minOccurs="0"/>
+						<xs:element name="debitedAmount" type="xs:double" minOccurs="0"/>
+						<xs:element name="currentValidityDate" type="xs:string" minOccurs="0"/>
+						<xs:element name="currentGracePeriodOneEndDate" type="xs:string" minOccurs="0"/>
+						<xs:element name="currentExpiryDate" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<!--End of DebitSpecial-->
+	<!--GetCreditLimitInfo-->
+	<xs:element name="getCreditLimitInfoRequest">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSRequest">
+					<xs:sequence>
+						<xs:element name="accountId" type="xs:string" nillable="true"/>
+						<xs:element name="msisdn" type="comm:MsisdnType" nillable="true"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getCreditLimitInfoResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSResponse">
+					<xs:sequence>
+						<xs:element name="accountId" type="xs:string" minOccurs="0"/>
+						<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+						<xs:element name="status" type="xs:string" minOccurs="0"/>
+						<xs:element name="creditLimit" type="xs:double" minOccurs="0"/>
+						<xs:element name="availableCredit" type="xs:double" minOccurs="0"/>
+						<xs:element name="billingType" type="xs:string" minOccurs="0"/>
+						<xs:element name="billingFrequency" type="xs:dateTime" minOccurs="0"/>
+						<xs:element name="nextBillingDate" type="xs:dateTime" minOccurs="0"/>
+						<xs:element name="lastModifiedDate" type="xs:dateTime" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<!--End of GetCreditLimitInfo-->
+	<!--UpdateCreditLimit-->
+	<xs:element name="updateCreditLimitRequest">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSRequest">
+					<xs:sequence>
+						<xs:element name="operationType" type="comm:UpdateResetType" nillable="false"/>
+						<xs:element name="accountId" type="comm:AccountIdType" nillable="true" minOccurs="0"/>
+						<xs:element name="msisdn" type="comm:MsisdnType" nillable="true" minOccurs="0"/>
+						<xs:element name="creditLimit" type="xs:double" nillable="true" minOccurs="0"/>
+						<xs:element name="billingType" nillable="false">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:minLength value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="billingFrequency" type="xs:dateTime" nillable="true" minOccurs="0"/>
+						<xs:element name="loginId" type="xs:string" nillable="true" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="updateCreditLimitResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSResponse">
+					<xs:sequence>
+						<xs:element name="message" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<!--UpdateCreditLimit-->
+	<!--DeleteCreditLimit-->
+	<xs:element name="deleteCreditLimitRequest">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSRequest">
+					<xs:sequence>
+						<xs:element name="accountId" type="xs:string" nillable="true" minOccurs="0"/>
+						<xs:element name="msisdn" type="comm:MsisdnType" nillable="true" minOccurs="0"/>
+						<xs:element name="billingType" type="xs:string" nillable="false"/>
+						<xs:element name="loginId" type="xs:string" nillable="true" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="deleteCreditLimitResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSResponse">
+					<xs:sequence>
+						<xs:element name="message" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<!--End of DeleteCreditLimit-->
+	<xs:simpleType name="DebitOrCreditType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DEBIT"/>
+			<xs:enumeration value="CREDIT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="adjustBalanceRequest">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSRequest">
+					<xs:sequence>
+						<xs:element name="msisdn" type="xs:string" nillable="false" minOccurs="1"/>
+						<xs:element name="accountId" type="xs:string" nillable="true" minOccurs="0"/>						
+						<xs:element name="adjustmentType" type="tns:DebitOrCreditType" nillable="false" minOccurs="1"/>
+						<xs:element name="operator" type="xs:string" nillable="true" minOccurs="0"/>
+						<xs:element name="amount" type="comm:AmountDetails" nillable="false"/>
+						<xs:element name="reason" type="xs:string" nillable="true" minOccurs="0"/>
+						<xs:element name="detailedBill" type="xs:string" nillable="true" minOccurs="0"/>
+						<xs:element name="transactionId" type="xs:string" nillable="true" minOccurs="0"/>
+						<xs:element name="transactionMode" type="xs:int" nillable="true" minOccurs="0"/>
+						<xs:element name="creditLevel" type="xs:string" nillable="true" minOccurs="0"/>
+						<xs:element name="promo" type="xs:double" nillable="true" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="adjustBalanceResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSResponse">
+					<xs:sequence>
+						<xs:element name="accountId" type="xs:string" minOccurs="0"/>
+						<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+						<xs:element name="currentBalance" type="xs:double" minOccurs="0"/>
+						<xs:element name="promoBalance" type="xs:double" minOccurs="0"/>
+						<xs:element name="promoTime" type="xs:int" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<!--End of AdjustBalance-->
+
+	<!--Addded for Phase-2 CCUI RetrieveVoucher-->
+	
+	<xs:element name="retrieveVoucherRequest">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSRequest">
+					<xs:choice>
+						<xs:element name="vchrNumber" type="xs:string" />
+						<xs:element name="vchrPin" type="xs:string" />	
+					</xs:choice>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="retrieveVoucherResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSResponse">
+					<xs:sequence>
+						<xs:element name="voucherNumber" type="xs:string" minOccurs="0"/>
+						<xs:element name="status" type="xs:string" minOccurs="0"/>
+						<xs:element name="mrp" type="xs:decimal" minOccurs="0"/>				
+						<xs:element name="talkTime" type="xs:decimal" minOccurs="0"/>
+						<xs:element name="expiryDate" type="xs:string" minOccurs="0"/>
+						<xs:element name="brandPartner" type="xs:string" minOccurs="0"/>
+						<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+						<xs:element name="profileName" type="xs:string" minOccurs="0"/>
+						<xs:element name="officeName" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<!--End of RetrieveVoucher-->
+	<!-- 
+		Title: topUpBulk
+		By: Swamy Naidu
+		When: 2012 Aug 23
+	 -->	
+	<xs:element name="bulkTopUpRequest">
+		<xs:complexType>
+			<xs:complexContent>	
+			<xs:extension base="comm:WSRequest">
+				<xs:sequence>
+					<!-- userType have already been defined in WSRequest -->
+					<xs:element name="officeCode" type="xs:long" nillable="false" />
+					<xs:element name="rcCode" type="xs:string" nillable="false"  minOccurs="0" />
+					<xs:element name="rcCategory" type="xs:string" nillable="false" minOccurs="0"/>
+				     <xs:element name="rcAmount" type="xs:decimal" nillable="false" minOccurs="0"/>
+					<xs:element name="bulkTopUpsData" type="xs:string" maxOccurs="unbounded" nillable="false"/>
+				</xs:sequence>
+			</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="bulkTopUpResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSResponse">
+					<xs:sequence>
+						<xs:element name="trxId" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>	
+	<!-- End: topUpBulk -->
+
+
+    <!-- MSISND
+	Amt
+	Operation Type (C-Credit, D-Debit)
+     ActivityID (50-Debit)
+	Reason
+	BucketID () -->
+	<xs:element name="updateBalanceRequest">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSRequest">
+					<xs:sequence>
+						<xs:element name="accountType" type="comm:AccountType"/>
+						<xs:element name="amount" type="comm:AmountType"/>
+						<xs:element name="OperationType" type="xs:string"/>
+						<xs:element name="reason" type="comm:ReasonType" minOccurs="0"/>
+						<xs:element name="bucketId" type="xs:string" minOccurs="0"/>
+						<xs:element name="activityId"  type="xs:int"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="updateBalanceResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSResponse">
+					<xs:sequence>
+						<xs:element name="currentBalance" type="comm:AmountType" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="activateRcProductRequest">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSRequest">
+					<xs:sequence>
+						<xs:element name="accountType" type="comm:AccountType"/>
+						<xs:element name="voucher" type="comm:voucherDetailsType" minOccurs="0" />
+						<xs:element name="eTopUp" type="comm:eTopUpDetailsType" minOccurs="0" />
+						<xs:element name="mrp" type="xs:string" minOccurs="0" />
+						<xs:element name="transId" type="xs:string" minOccurs="0"/>
+						<xs:element name="channel" type="xs:string" />
+						<xs:element name="reason" type="xs:string" minOccurs="0" />
+						<xs:element name="authorizationID" type="xs:string" minOccurs="0" />
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="activateRcProductResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSResponse">
+					<xs:sequence>
+						<xs:element name="transId" type="xs:string" minOccurs="0" />
+						<xs:element name="transRefNum" type="xs:string" minOccurs="0"/>
+						<xs:element name="balance" type="comm:mainBalanceType" minOccurs="0" />
+						<xs:element name="wallets" type="comm:walletListType" minOccurs="0" />
+						<xs:element name="attachedATPs" type="comm:atpsType" minOccurs="0" maxOccurs="unbounded"/>
+			  		</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="purchaseRcProductRequest">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSRequest">
+					<xs:sequence>
+						<xs:element name="accountType" type="comm:AccountType"/>
+						<xs:element name="voucher" type="comm:voucherDetailsType" minOccurs="0" />
+						<xs:element name="eTopUp" type="comm:eTopUpDetailsType" minOccurs="0" />
+						<xs:element name="mrp" type="xs:string" minOccurs="0" />
+						<xs:element name="transId" type="xs:string" minOccurs="0"/>
+						<xs:element name="channel" type="xs:string" />
+						<xs:element name="reason" type="xs:string" minOccurs="0" />
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="purchaseRcProductResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSResponse">
+					<xs:sequence>
+						<xs:element name="transId" type="xs:string" minOccurs="0" />
+						<xs:element name="transRefNum" type="xs:string" minOccurs="0"/>
+						<xs:element name="balance" type="comm:mainBalanceType" minOccurs="0" />
+						<xs:element name="wallets" type="comm:walletListType" minOccurs="0" />
+						<xs:element name="attachedATPs" type="comm:atpsType" minOccurs="0" maxOccurs="unbounded"/>
+			  		</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	<xs:element name="rechargeWithCcRequest">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSRequest">
+					<xs:sequence>
+						<xs:element name="accountType" type="comm:AccountType"/>
+						<xs:element name="rcCode" type="xs:string"/>
+						<xs:element name="transId" type="xs:string" minOccurs="0"/>
+						<xs:element name="channel" type="xs:string" />
+						<xs:element name="reason" type="xs:string" minOccurs="0" />
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="rechargeWithCcResponse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comm:WSResponse">
+					<xs:sequence>
+						<xs:element name="transId" type="xs:string" minOccurs="0" />
+						<xs:element name="transRefNum" type="xs:string" minOccurs="0"/>
+						<xs:element name="balance" type="comm:mainBalanceType" minOccurs="0" />
+						<xs:element name="wallets" type="comm:walletListType" minOccurs="0" />
+						<xs:element name="attachedATPs" type="comm:atpsType" minOccurs="0" maxOccurs="unbounded"/>
+			  		</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	
+</xs:schema>   

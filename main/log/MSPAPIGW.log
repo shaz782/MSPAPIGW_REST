@@ -1,0 +1,125 @@
+2024-05-06T12:41:33.021+0530 http-nio-10.10.19.142-9680-exec-1 INFO 200
+2024-05-06T12:41:33.164+0530 http-nio-10.10.19.142-9680-exec-1 INFO Response Payload:: {"responseStatus":"SUCCESS","responseCode":"0","responseMessage":"SUCCESS","operatorName":"olimpo","operatorId":"19","subscriberState":"AC","accountType":"PREPAID","msisdn":"1320223006","transID":"204719901"}
+2024-05-06T12:42:10.522+0530 http-nio-10.10.19.142-9680-exec-2 INFO MSP-API-doRechargeCheck called
+2024-05-06T12:42:10.522+0530 http-nio-10.10.19.142-9680-exec-2 INFO BillingServices-doRechargeCheck called
+2024-05-06T12:42:10.522+0530 http-nio-10.10.19.142-9680-exec-2 INFO BalanceManagementAgentInvoker - doRechargeCheck called
+2024-05-06T12:42:10.523+0530 http-nio-10.10.19.142-9680-exec-2 INFO iba.BalanceManagement-URL ::http://192.168.149.199:8380/infinetbilling/services/BalanceManagementPort?wsdl
+2024-05-06T12:42:10.603+0530 http-nio-10.10.19.142-9680-exec-2 INFO DoRechargeCheckImpl-doRecharge Category is RC_ACT
+2024-05-06T12:42:10.604+0530 http-nio-10.10.19.142-9680-exec-2 INFO  MvneActivateRcProductImpl --->Invoking - XBusDebitOrCreditInvoker
+2024-05-06T12:42:10.605+0530 http-nio-10.10.19.142-9680-exec-2 INFO  ActivateRcProductImpl ---> setxBusRequest()
+2024-05-06T12:42:10.607+0530 http-nio-10.10.19.142-9680-exec-2 INFO  ActivateRcProductImpl --->Invoking - XBusDebitOrCreditInvoker
+2024-05-06T12:42:10.607+0530 http-nio-10.10.19.142-9680-exec-2 INFO xBusDebitOrCreditInvoker - ActivateRcProduct called
+2024-05-06T12:42:10.657+0530 http-nio-10.10.19.142-9680-exec-2 INFO xBus.DebitOrCreditServices-URL ::http://192.168.149.125:8198/xius/xbus/Billing/DebitOrCredit/v1
+2024-05-06T12:42:13.407+0530 http-nio-10.10.19.142-9680-exec-2 INFO XBusDebitOrCreditInvoker.ActivateRcProduct request Success...2802ms
+2024-05-06T12:42:13.407+0530 http-nio-10.10.19.142-9680-exec-2 INFO MvneActivateRcProductImpl -- doRecharge IBA status Updating...
+2024-05-06T12:42:13.407+0530 http-nio-10.10.19.142-9680-exec-2 INFO BalanceManagementAgentInvoker - doRechargeCheck called
+2024-05-06T12:42:13.407+0530 http-nio-10.10.19.142-9680-exec-2 INFO iba.BalanceManagement-URL ::http://192.168.149.199:8380/infinetbilling/services/BalanceManagementPort?wsdl
+2024-05-06T12:42:13.469+0530 http-nio-10.10.19.142-9680-exec-2 INFO MSP-API-doRechargeCheck Success Time >>> 2 in Sec
+2024-05-06T12:42:13.470+0530 http-nio-10.10.19.142-9680-exec-2 INFO POST
+2024-05-06T12:42:13.471+0530 http-nio-10.10.19.142-9680-exec-2 INFO /MSP/API/doRecharge
+2024-05-06T12:42:13.471+0530 http-nio-10.10.19.142-9680-exec-2 INFO 10.10.19.115
+2024-05-06T12:42:13.471+0530 http-nio-10.10.19.142-9680-exec-2 INFO Request Payload:: {  "MSISDN": "1320223006",  "carrierID": "0",  "remarks": "recharge",  "transID": "204719901",  "userName": "chief",  "userPassword": "MTIzNDU2Nzg="}
+2024-05-06T12:42:13.471+0530 http-nio-10.10.19.142-9680-exec-2 INFO 200
+2024-05-06T12:42:13.471+0530 http-nio-10.10.19.142-9680-exec-2 INFO Response Payload:: {"responseStatus":"SUCCESS","responseCode":"0","responseMessage":"SUCCESS","transStatus":"SUCCESS","transactionID":"10106052420475801305"}
+2024-05-06T12:44:58.707+0530 http-nio-10.10.19.142-9680-exec-4 INFO MSP-API-doRechargeCheck called
+2024-05-06T12:44:58.708+0530 http-nio-10.10.19.142-9680-exec-4 INFO BillingServices-doRechargeCheck called
+2024-05-06T12:44:58.708+0530 http-nio-10.10.19.142-9680-exec-4 INFO BalanceManagementAgentInvoker - doRechargeCheck called
+2024-05-06T12:44:58.708+0530 http-nio-10.10.19.142-9680-exec-4 INFO iba.BalanceManagement-URL ::http://192.168.149.199:8380/infinetbilling/services/BalanceManagementPort?wsdl
+2024-05-06T12:44:58.825+0530 http-nio-10.10.19.142-9680-exec-4 ERROR BalanceManagementAgentInvoker - doRechargeCheck-ErrorDetailsType
+2024-05-06T12:44:58.826+0530 http-nio-10.10.19.142-9680-exec-4 INFO ErrorCode >>>1802 checking from ErrorDetails.Props
+2024-05-06T12:44:58.826+0530 http-nio-10.10.19.142-9680-exec-4 INFO errorMessage >>>Given Transaction Is Expired 
+2024-05-06T12:44:58.862+0530 http-nio-10.10.19.142-9680-exec-4 ERROR MSP-APIController - doRecharge() - MSPAPIGWExceptions is com.xius.rmsp.exceptions.MSPAPIGWExceptions
+2024-05-06T12:44:58.862+0530 http-nio-10.10.19.142-9680-exec-4 INFO doRecharge MSPAPIGWExceptions Time >>> 0 in Sec
+2024-05-06T12:44:58.864+0530 http-nio-10.10.19.142-9680-exec-4 INFO POST
+2024-05-06T12:44:58.864+0530 http-nio-10.10.19.142-9680-exec-4 INFO /MSP/API/doRecharge
+2024-05-06T12:44:58.864+0530 http-nio-10.10.19.142-9680-exec-4 INFO 10.10.19.115
+2024-05-06T12:44:58.864+0530 http-nio-10.10.19.142-9680-exec-4 INFO Request Payload:: {  "MSISDN": "1320223006",  "carrierID": "0",  "remarks": "recharge",  "transID": "2043120310",  "userName": "chief",  "userPassword": "MTIzNDU2Nzg="}
+2024-05-06T12:44:58.864+0530 http-nio-10.10.19.142-9680-exec-4 INFO 200
+2024-05-06T12:44:58.864+0530 http-nio-10.10.19.142-9680-exec-4 INFO Response Payload:: {"responseStatus":"FAILURE","responseCode":"1802","responseMessage":"Given Transaction Is Expired ","transStatus":"FAILURE"}
+2024-05-06T12:46:42.634+0530 http-nio-10.10.19.142-9680-exec-6 INFO MSP-API-getSubsDetails called
+2024-05-06T12:46:42.634+0530 http-nio-10.10.19.142-9680-exec-6 INFO BillingServices-getMsisdnDetails called
+2024-05-06T12:46:42.634+0530 http-nio-10.10.19.142-9680-exec-6 INFO BalanceManagementAgentInvoker - GetSubsDetails called
+2024-05-06T12:46:42.634+0530 http-nio-10.10.19.142-9680-exec-6 INFO iba.BalanceManagement-URL ::http://192.168.149.199:8380/infinetbilling/services/BalanceManagementPort?wsdl
+2024-05-06T12:46:42.706+0530 http-nio-10.10.19.142-9680-exec-6 INFO MSP-API-getSubsDetails Success Time >>> 0 in Sec
+2024-05-06T12:46:42.708+0530 http-nio-10.10.19.142-9680-exec-6 INFO POST
+2024-05-06T12:46:42.708+0530 http-nio-10.10.19.142-9680-exec-6 INFO /MSP/API/getSubsDetails
+2024-05-06T12:46:42.708+0530 http-nio-10.10.19.142-9680-exec-6 INFO 10.10.19.115
+2024-05-06T12:46:42.708+0530 http-nio-10.10.19.142-9680-exec-6 INFO Request Payload:: {  "MSISDN": "1320223006",  "carrierID": "0",  "price": 500,  "userName": "chief",  "userPassword": "MTIzNDU2Nzg="}
+2024-05-06T12:46:42.709+0530 http-nio-10.10.19.142-9680-exec-6 INFO 200
+2024-05-06T12:46:42.709+0530 http-nio-10.10.19.142-9680-exec-6 INFO Response Payload:: {"responseStatus":"SUCCESS","responseCode":"0","responseMessage":"SUCCESS","operatorName":"olimpo","operatorId":"19","subscriberState":"AC","accountType":"PREPAID","msisdn":"1320223006","transID":"205229552"}
+2024-05-06T12:47:16.555+0530 http-nio-10.10.19.142-9680-exec-7 INFO MSP-API-doRechargeCheck called
+2024-05-06T12:47:16.556+0530 http-nio-10.10.19.142-9680-exec-7 INFO BillingServices-doRechargeCheck called
+2024-05-06T12:47:16.556+0530 http-nio-10.10.19.142-9680-exec-7 INFO BalanceManagementAgentInvoker - doRechargeCheck called
+2024-05-06T12:47:16.556+0530 http-nio-10.10.19.142-9680-exec-7 INFO iba.BalanceManagement-URL ::http://192.168.149.199:8380/infinetbilling/services/BalanceManagementPort?wsdl
+2024-05-06T12:47:16.604+0530 http-nio-10.10.19.142-9680-exec-7 ERROR BalanceManagementAgentInvoker - doRechargeCheck-ErrorDetailsType
+2024-05-06T12:47:16.607+0530 http-nio-10.10.19.142-9680-exec-7 INFO ErrorCode >>>1702 checking from ErrorDetails.Props
+2024-05-06T12:47:16.607+0530 http-nio-10.10.19.142-9680-exec-7 INFO errorMessage >>>MSISDN Not In AC State
+2024-05-06T12:47:16.745+0530 http-nio-10.10.19.142-9680-exec-7 ERROR MSP-APIController - doRecharge() - MSPAPIGWExceptions is com.xius.rmsp.exceptions.MSPAPIGWExceptions
+2024-05-06T12:47:16.745+0530 http-nio-10.10.19.142-9680-exec-7 INFO doRecharge MSPAPIGWExceptions Time >>> 0 in Sec
+2024-05-06T12:47:16.746+0530 http-nio-10.10.19.142-9680-exec-7 INFO POST
+2024-05-06T12:47:16.746+0530 http-nio-10.10.19.142-9680-exec-7 INFO /MSP/API/doRecharge
+2024-05-06T12:47:16.746+0530 http-nio-10.10.19.142-9680-exec-7 INFO 10.10.19.115
+2024-05-06T12:47:16.746+0530 http-nio-10.10.19.142-9680-exec-7 INFO Request Payload:: {  "MSISDN": "1320223006",  "carrierID": "0",  "remarks": "recharge",  "transID": "205229552",  "userName": "chief",  "userPassword": "MTIzNDU2Nzg="}
+2024-05-06T12:47:16.746+0530 http-nio-10.10.19.142-9680-exec-7 INFO 200
+2024-05-06T12:47:16.746+0530 http-nio-10.10.19.142-9680-exec-7 INFO Response Payload:: {"responseStatus":"FAILURE","responseCode":"1702","responseMessage":"MSISDN Not In AC State","transStatus":"FAILURE"}
+2024-05-06T12:48:22.426+0530 http-nio-10.10.19.142-9680-exec-9 INFO MSP-API-doRechargeCheck called
+2024-05-06T12:48:22.428+0530 http-nio-10.10.19.142-9680-exec-9 INFO BillingServices-doRechargeCheck called
+2024-05-06T12:48:22.429+0530 http-nio-10.10.19.142-9680-exec-9 INFO BalanceManagementAgentInvoker - doRechargeCheck called
+2024-05-06T12:48:22.429+0530 http-nio-10.10.19.142-9680-exec-9 INFO iba.BalanceManagement-URL ::http://192.168.149.199:8380/infinetbilling/services/BalanceManagementPort?wsdl
+2024-05-06T12:48:22.656+0530 http-nio-10.10.19.142-9680-exec-9 ERROR BalanceManagementAgentInvoker - doRechargeCheck-ErrorDetailsType
+2024-05-06T12:48:22.657+0530 http-nio-10.10.19.142-9680-exec-9 INFO ErrorCode >>>1702 checking from ErrorDetails.Props
+2024-05-06T12:48:22.657+0530 http-nio-10.10.19.142-9680-exec-9 INFO errorMessage >>>MSISDN Not In AC State
+2024-05-06T12:48:22.761+0530 http-nio-10.10.19.142-9680-exec-9 ERROR MSP-APIController - doRecharge() - MSPAPIGWExceptions is com.xius.rmsp.exceptions.MSPAPIGWExceptions
+2024-05-06T12:48:22.761+0530 http-nio-10.10.19.142-9680-exec-9 INFO doRecharge MSPAPIGWExceptions Time >>> 0 in Sec
+2024-05-06T12:48:22.762+0530 http-nio-10.10.19.142-9680-exec-9 INFO POST
+2024-05-06T12:48:22.763+0530 http-nio-10.10.19.142-9680-exec-9 INFO /MSP/API/doRecharge
+2024-05-06T12:48:22.763+0530 http-nio-10.10.19.142-9680-exec-9 INFO 10.10.19.115
+2024-05-06T12:48:22.763+0530 http-nio-10.10.19.142-9680-exec-9 INFO Request Payload:: {  "MSISDN": "1320223006",  "carrierID": "0",  "remarks": "recharge",  "transID": "205229552",  "userName": "chief",  "userPassword": "MTIzNDU2Nzg="}
+2024-05-06T12:48:22.763+0530 http-nio-10.10.19.142-9680-exec-9 INFO 200
+2024-05-06T12:48:22.763+0530 http-nio-10.10.19.142-9680-exec-9 INFO Response Payload:: {"responseStatus":"FAILURE","responseCode":"1702","responseMessage":"MSISDN Not In AC State","transStatus":"FAILURE"}
+2024-05-06T12:48:40.379+0530 http-nio-10.10.19.142-9680-exec-10 INFO MSP-API-doRechargeCheck called
+2024-05-06T12:48:40.379+0530 http-nio-10.10.19.142-9680-exec-10 INFO BillingServices-doRechargeCheck called
+2024-05-06T12:48:40.380+0530 http-nio-10.10.19.142-9680-exec-10 INFO BalanceManagementAgentInvoker - doRechargeCheck called
+2024-05-06T12:48:40.380+0530 http-nio-10.10.19.142-9680-exec-10 INFO iba.BalanceManagement-URL ::http://192.168.149.199:8380/infinetbilling/services/BalanceManagementPort?wsdl
+2024-05-06T12:48:40.424+0530 http-nio-10.10.19.142-9680-exec-10 ERROR BalanceManagementAgentInvoker - doRechargeCheck-ErrorDetailsType
+2024-05-06T12:48:40.425+0530 http-nio-10.10.19.142-9680-exec-10 INFO ErrorCode >>>1702 checking from ErrorDetails.Props
+2024-05-06T12:48:40.425+0530 http-nio-10.10.19.142-9680-exec-10 INFO errorMessage >>>MSISDN Not In AC State
+2024-05-06T12:48:40.427+0530 http-nio-10.10.19.142-9680-exec-10 ERROR MSP-APIController - doRecharge() - MSPAPIGWExceptions is com.xius.rmsp.exceptions.MSPAPIGWExceptions
+2024-05-06T12:48:40.427+0530 http-nio-10.10.19.142-9680-exec-10 INFO doRecharge MSPAPIGWExceptions Time >>> 0 in Sec
+2024-05-06T12:48:40.428+0530 http-nio-10.10.19.142-9680-exec-10 INFO POST
+2024-05-06T12:48:40.428+0530 http-nio-10.10.19.142-9680-exec-10 INFO /MSP/API/doRecharge
+2024-05-06T12:48:40.428+0530 http-nio-10.10.19.142-9680-exec-10 INFO 10.10.19.115
+2024-05-06T12:48:40.428+0530 http-nio-10.10.19.142-9680-exec-10 INFO Request Payload:: {  "MSISDN": "1320223006",  "carrierID": "0",  "remarks": "recharge",  "transID": "205229552",  "userName": "chief",  "userPassword": "MTIzNDU2Nzg="}
+2024-05-06T12:48:40.429+0530 http-nio-10.10.19.142-9680-exec-10 INFO 200
+2024-05-06T12:48:40.429+0530 http-nio-10.10.19.142-9680-exec-10 INFO Response Payload:: {"responseStatus":"FAILURE","responseCode":"1702","responseMessage":"MSISDN Not In AC State","transStatus":"FAILURE"}
+2024-05-06T12:50:03.676+0530 http-nio-10.10.19.142-9680-exec-2 INFO MSP-API-doRechargeCheck called
+2024-05-06T12:50:03.677+0530 http-nio-10.10.19.142-9680-exec-2 INFO BillingServices-doRechargeCheck called
+2024-05-06T12:50:03.677+0530 http-nio-10.10.19.142-9680-exec-2 INFO BalanceManagementAgentInvoker - doRechargeCheck called
+2024-05-06T12:50:03.677+0530 http-nio-10.10.19.142-9680-exec-2 INFO iba.BalanceManagement-URL ::http://192.168.149.199:8380/infinetbilling/services/BalanceManagementPort?wsdl
+2024-05-06T12:50:03.776+0530 http-nio-10.10.19.142-9680-exec-2 ERROR BalanceManagementAgentInvoker - doRechargeCheck-ErrorDetailsType
+2024-05-06T12:50:03.777+0530 http-nio-10.10.19.142-9680-exec-2 INFO ErrorCode >>>1700 checking from ErrorDetails.Props
+2024-05-06T12:50:03.777+0530 http-nio-10.10.19.142-9680-exec-2 INFO errorMessage >>>Data Not Found For  Given MSISDN
+2024-05-06T12:50:03.814+0530 http-nio-10.10.19.142-9680-exec-2 ERROR MSP-APIController - doRecharge() - MSPAPIGWExceptions is com.xius.rmsp.exceptions.MSPAPIGWExceptions
+2024-05-06T12:50:03.814+0530 http-nio-10.10.19.142-9680-exec-2 INFO doRecharge MSPAPIGWExceptions Time >>> 0 in Sec
+2024-05-06T12:50:03.815+0530 http-nio-10.10.19.142-9680-exec-2 INFO POST
+2024-05-06T12:50:03.815+0530 http-nio-10.10.19.142-9680-exec-2 INFO /MSP/API/doRecharge
+2024-05-06T12:50:03.815+0530 http-nio-10.10.19.142-9680-exec-2 INFO 10.10.19.115
+2024-05-06T12:50:03.815+0530 http-nio-10.10.19.142-9680-exec-2 INFO Request Payload:: {  "MSISDN": "1320223006",  "carrierID": "0",  "remarks": "recharge",  "transID": "205229552",  "userName": "chief",  "userPassword": "MTIzNDU2Nzg="}
+2024-05-06T12:50:03.815+0530 http-nio-10.10.19.142-9680-exec-2 INFO 200
+2024-05-06T12:50:03.815+0530 http-nio-10.10.19.142-9680-exec-2 INFO Response Payload:: {"responseStatus":"FAILURE","responseCode":"1700","responseMessage":"Data Not Found For  Given MSISDN","transStatus":"FAILURE"}
+2024-05-06T13:01:27.603+0530 http-nio-10.10.19.142-9680-exec-4 DEBUG ValidationMessages not found.
+2024-05-06T13:01:27.603+0530 http-nio-10.10.19.142-9680-exec-4 DEBUG ContributorValidationMessages not found.
+2024-05-06T13:01:27.603+0530 http-nio-10.10.19.142-9680-exec-4 DEBUG org.hibernate.validator.ValidationMessages found.
+2024-05-06T13:01:27.615+0530 http-nio-10.10.19.142-9680-exec-4 INFO POST
+2024-05-06T13:01:27.615+0530 http-nio-10.10.19.142-9680-exec-4 INFO /MSP/API/doRecharge
+2024-05-06T13:01:27.615+0530 http-nio-10.10.19.142-9680-exec-4 INFO 10.10.19.115
+2024-05-06T13:01:27.615+0530 http-nio-10.10.19.142-9680-exec-4 INFO Request Payload:: {  "MSISDN": "13202230",  "carrierID": "0",  "remarks": "recharge",  "transID": "205229552",  "userName": "chief",  "userPassword": "MTIzNDU2Nzg="}
+2024-05-06T13:01:27.616+0530 http-nio-10.10.19.142-9680-exec-4 INFO 400
+2024-05-06T13:01:27.616+0530 http-nio-10.10.19.142-9680-exec-4 INFO Response Payload:: 
+2024-05-06T13:01:50.196+0530 http-nio-10.10.19.142-9680-exec-5 INFO MSP-API-doRechargeCheck called
+2024-05-06T13:01:50.198+0530 http-nio-10.10.19.142-9680-exec-5 INFO POST
+2024-05-06T13:01:50.198+0530 http-nio-10.10.19.142-9680-exec-5 INFO /MSP/API/doRecharge
+2024-05-06T13:01:50.198+0530 http-nio-10.10.19.142-9680-exec-5 INFO 10.10.19.115
+2024-05-06T13:01:50.199+0530 http-nio-10.10.19.142-9680-exec-5 INFO Request Payload:: {  "MSISDN": "1320223006",  "carrierID": "110",  "remarks": "recharge",  "transID": "205229552",  "userName": "chief",  "userPassword": "MTIzNDU2Nzg="}
+2024-05-06T13:01:50.199+0530 http-nio-10.10.19.142-9680-exec-5 INFO 200
+2024-05-06T13:01:50.199+0530 http-nio-10.10.19.142-9680-exec-5 INFO Response Payload:: {"responseStatus":"FAILURE","responseCode":"1","responseMessage":"In Valid NetworkName,Provide Base64 Value","transStatus":"FAILURE"}

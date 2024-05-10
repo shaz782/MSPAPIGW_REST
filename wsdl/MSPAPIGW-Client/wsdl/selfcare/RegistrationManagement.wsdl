@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://scare.xbus.xiusbcgi.com/RegistrationManagement.wsdl" xmlns:envelope="http://scare.xbus.xiusbcgi.com/RegistrationManagement.xsd" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wshdr="http://scare.xbus.xiusbcgi.com/common/header/HeaderDetails.xsd" xmlns:err="http://scare.xbus.xiusbcgi.com/common/error/ErrorDetails.xsd" targetNamespace="http://scare.xbus.xiusbcgi.com/RegistrationManagement.wsdl">
+	<wsdl:types>
+		<xs:schema xmlns:tns="http://scare.xbus.xiusbcgi.com/RegistrationManagement.wsdl" targetNamespace="http://scare.xbus.xiusbcgi.com/RegistrationManagement.wsdl">
+			<xs:import namespace="http://scare.xbus.xiusbcgi.com/RegistrationManagement.xsd" schemaLocation="RegistrationManagement.xsd"/>
+			<xs:import namespace="http://scare.xbus.xiusbcgi.com/common/header/HeaderDetails.xsd" schemaLocation="HeaderDetails.xsd"/>
+			<xs:import namespace="http://scare.xbus.xiusbcgi.com/common/error/ErrorDetails.xsd" schemaLocation="ErrorDetails.xsd"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="loginRequest">
+		<wsdl:part name="body" element="envelope:loginRequest"/>
+	</wsdl:message>
+	<wsdl:message name="loginResponse">
+		<wsdl:part name="body" element="envelope:loginResponse"/>
+	</wsdl:message>
+	<wsdl:message name="getPreferredMSISDNSRequest">
+		<wsdl:part name="body" element="envelope:getPreferredMSISDNSRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getPreferredMSISDNSResponse">
+		<wsdl:part name="body" element="envelope:getPreferredMSISDNSResponse"/>
+	</wsdl:message>
+	<wsdl:message name="registerSubscriberRequest">
+		<wsdl:part name="body" element="envelope:registerSubscriberRequest"/>
+	</wsdl:message>
+	<wsdl:message name="registerSubscriberResponse">
+		<wsdl:part name="body" element="envelope:registerSubscriberResponse"/>
+	</wsdl:message>
+	<wsdl:message name="resetUserCredentialsRequest">
+		<wsdl:part name="body" element="envelope:resetUserCredentialsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="resetUserCredentialsResponse">
+		<wsdl:part name="body" element="envelope:resetUserCredentialsResponse"/>
+	</wsdl:message>
+	<wsdl:message name="getNetworkIdRequest">
+		<wsdl:part name="body" element="envelope:getNetworkIdRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getNetworkIdResponse">
+		<wsdl:part name="body" element="envelope:getNetworkIdResponse"/>
+	</wsdl:message>
+	
+	<wsdl:message name="updateKadIdRequest">
+		<wsdl:part name="body" element="envelope:updateKadIdRequest"/>
+	</wsdl:message>
+	<wsdl:message name="updateKadIdResponse">
+		<wsdl:part name="body" element="envelope:updateKadIdResponse"/>
+	</wsdl:message>
+	
+	<wsdl:message name="updateSIMStatusRequest">
+		<wsdl:part name="body" element="envelope:updateSIMStatusRequest"/>
+	</wsdl:message>
+	<wsdl:message name="updateSIMStatusResponse">
+		<wsdl:part name="body" element="envelope:updateSIMStatusResponse"/>
+	</wsdl:message>
+	
+	<!-- Added for REQ#822 -->
+	<wsdl:message name="getZipCodeDetailsRequest">
+		<wsdl:part name="body" element="envelope:getZipCodeDetailsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getZipCodeDetailsResponse">
+		<wsdl:part name="body" element="envelope:getZipCodeDetailsResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="manageZipCodeDetailsRequest">
+		<wsdl:part name="body" element="envelope:manageZipCodeDetailsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="manageZipCodeDetailsResponse">
+		<wsdl:part name="body" element="envelope:manageZipCodeDetailsResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="getStateDetailsRequest">
+		<wsdl:part name="body" element="envelope:getStateDetailsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getStateDetailsResponse">
+		<wsdl:part name="body" element="envelope:getStateDetailsResponse"/>
+	</wsdl:message>
+	
+	<wsdl:message name="manageStateDetailsRequest">
+		<wsdl:part name="body" element="envelope:manageStateDetailsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="manageStateDetailsResponse">
+		<wsdl:part name="body" element="envelope:manageStateDetailsResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="uploadZipCodesRequest">
+		<wsdl:part name="body" element="envelope:uploadZipCodesRequest"/>
+	</wsdl:message>
+	<wsdl:message name="uploadZipCodesResponse">
+		<wsdl:part name="body" element="envelope:uploadZipCodesResponse"/>
+	</wsdl:message>
+
+	<!-- End for REQ#822 -->
+
+	<wsdl:message name="createUserRequest">
+		<wsdl:part name="body" element="envelope:createUserRequest"/>
+	</wsdl:message>
+	<wsdl:message name="createUserResponse">
+		<wsdl:part name="body" element="envelope:createUserResponse"/>
+	</wsdl:message>
+	
+	<wsdl:message name="assignUserRequest">
+		<wsdl:part name="body" element="envelope:assignUserRequest"/>
+	</wsdl:message>
+	<wsdl:message name="assignUserResponse">
+		<wsdl:part name="body" element="envelope:assignUserResponse"/>
+	</wsdl:message>
+	<!-- added for 1029 Phase III -->
+	<wsdl:message name="updateActualIdRequest">
+		<wsdl:part name="body" element="envelope:updateActualIdRequest"/>
+	</wsdl:message>
+	<wsdl:message name="updateActualIdResponse">
+		<wsdl:part name="body" element="envelope:updateActualIdResponse"/>
+	</wsdl:message>
+	
+	<!-- 
+		REQ		     : REQ1208# TT: MNP functionality changes for corporate GUI & Schedule TopUp Report
+		Description  : This API is used to initiate transaction. no response required 
+		Done By		 : Phani.Chavala
+		Date		 : 01/08/2012
+	 -->
+	<wsdl:message name="initTransactionRequest">
+		<wsdl:part name="body" element="envelope:initTransactionRequest"/>
+	</wsdl:message>
+
+
+	<wsdl:message name="updatePasswordRequest">
+		<wsdl:part name="body" element="envelope:updatePasswordRequest"/>
+	</wsdl:message>
+	<wsdl:message name="updatePasswordResponse">
+		<wsdl:part name="body" element="envelope:updatePasswordResponse"/>
+	</wsdl:message>
+	
+	 <wsdl:message name="getSelfcareDtlsOnLoginRequest">
+		<wsdl:part name="body" element="envelope:getSelfcareDtlsOnLoginRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getSelfcareDtlsOnLoginResponse">
+		<wsdl:part name="body" element="envelope:getSelfcareDtlsOnLoginResponse"/>
+	</wsdl:message>
+	 	
+	<wsdl:message name="WsMessageHeader">
+		<wsdl:part name="head" element="wshdr:messageHeader"/>
+	</wsdl:message>
+	<wsdl:message name="faultmessage">
+		<wsdl:part name="body" element="err:errorDetailItem"/>
+	</wsdl:message>
+	<wsdl:portType name="RegistrationManagementPortType">
+		<wsdl:operation name="login">
+			<wsdl:input message="tns:loginRequest"/>
+			<wsdl:output message="tns:loginResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="getPreferredMSISDNS">
+			<wsdl:input message="tns:getPreferredMSISDNSRequest"/>
+			<wsdl:output message="tns:getPreferredMSISDNSResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="registerSubscriber">
+			<wsdl:input message="tns:registerSubscriberRequest"/>
+			<wsdl:output message="tns:registerSubscriberResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="resetUserCredentials">
+			<wsdl:input message="tns:resetUserCredentialsRequest"/>
+			<wsdl:output message="tns:resetUserCredentialsResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="getNetworkId">
+			<wsdl:input message="tns:getNetworkIdRequest"/>
+			<wsdl:output message="tns:getNetworkIdResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="updateKadId">
+			<wsdl:input message="tns:updateKadIdRequest"/>
+			<wsdl:output message="tns:updateKadIdResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+
+		<wsdl:operation name="updateSIMStatus">
+			<wsdl:input message="tns:updateSIMStatusRequest"/>
+			<wsdl:output message="tns:updateSIMStatusResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+		
+		<!-- Added for REQ#822 -->
+		<wsdl:operation name="getZipCodeDetails">
+			<wsdl:input message="tns:getZipCodeDetailsRequest"/>
+			<wsdl:output message="tns:getZipCodeDetailsResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+		
+		<wsdl:operation name="manageZipCode">
+			<wsdl:input message="tns:manageZipCodeDetailsRequest"/>
+			<wsdl:output message="tns:manageZipCodeDetailsResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+		
+		<wsdl:operation name="getStateDetails">
+			<wsdl:input message="tns:getStateDetailsRequest"/>
+			<wsdl:output message="tns:getStateDetailsResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+		
+		<wsdl:operation name="manageStateDetails">
+			<wsdl:input message="tns:manageStateDetailsRequest"/>
+			<wsdl:output message="tns:manageStateDetailsResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+
+		<wsdl:operation name="uploadZipCodes">
+			<wsdl:input message="tns:uploadZipCodesRequest"/>
+			<wsdl:output message="tns:uploadZipCodesResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>		
+		<!-- End for REQ#822 -->
+		<wsdl:operation name="createUser">
+			<wsdl:input message="tns:createUserRequest"/>
+			<wsdl:output message="tns:createUserResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="assignUser">
+			<wsdl:input message="tns:assignUserRequest"/>
+			<wsdl:output message="tns:assignUserResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="updateActualId">
+			<wsdl:input message="tns:updateActualIdRequest"/>
+			<wsdl:output message="tns:updateActualIdResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+
+		<!-- 
+			REQ		     : REQ1208# TT: MNP functionality changes for corporate GUI & Schedule TopUp Report
+			Description  : This API is used to initiate transaction. no response required
+			Done By		 : Phani.Chavala
+			Date		 : 01/08/2012
+		-->
+		<wsdl:operation name="initTransaction">
+			<wsdl:input message="tns:initTransactionRequest"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+		
+		
+		<wsdl:operation name="updatePassword">
+			<wsdl:input message="tns:updatePasswordRequest"/>
+			<wsdl:output message="tns:updatePasswordResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+		
+		<wsdl:operation name="getSelfcareDtlsOnLogin">
+			<wsdl:input message="tns:getSelfcareDtlsOnLoginRequest"/>
+			<wsdl:output message="tns:getSelfcareDtlsOnLoginResponse"/>
+			<wsdl:fault name="fault" message="tns:faultmessage"/>
+		</wsdl:operation>
+		
+	</wsdl:portType>
+	<wsdl:binding name="RegistrationManagementServicesBinding" type="tns:RegistrationManagementPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="login">
+			<soap:operation soapAction="login"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getPreferredMSISDNS">
+			<soap:operation soapAction="getPreferredMSISDNS"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="registerSubscriber">
+			<soap:operation soapAction="registerSubscriber"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="resetUserCredentials">
+			<soap:operation soapAction="resetUserCredentials"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getNetworkId">
+			<soap:operation soapAction="getNetworkId"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateKadId">
+			<soap:operation soapAction="updateKadId"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>	
+		<wsdl:operation name="updateSIMStatus">
+			<soap:operation soapAction="updateSIMStatus"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>	
+		<!-- Added for REQ#822 -->
+		<wsdl:operation name="getZipCodeDetails">
+			<soap:operation soapAction="getZipCodeDetails"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>	
+			
+		<wsdl:operation name="manageZipCode">
+			<soap:operation soapAction="manageZipCode"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>	
+		
+		<wsdl:operation name="getStateDetails">
+			<soap:operation soapAction="getStateDetails"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>	
+		
+		<wsdl:operation name="manageStateDetails">
+			<soap:operation soapAction="manageStateDetails"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>	
+		
+		<wsdl:operation name="uploadZipCodes">
+			<soap:operation soapAction="uploadZipCodes"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>		
+		<!-- End for REQ#822 -->
+		<wsdl:operation name="createUser">
+			<soap:operation soapAction="createUser"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>	
+		<wsdl:operation name="assignUser">
+			<soap:operation soapAction="assignUser"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>	
+		<wsdl:operation name="updateActualId">
+			<soap:operation soapAction="updateActualId"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>	
+		
+		<!-- 
+			REQ		     : REQ1208# TT: MNP functionality changes for corporate GUI & Schedule TopUp Report
+			Description  : This API is used to initiate transaction. no response required
+			Done By		 : Phani.Chavala
+			Date		 : 01/08/2012
+		-->
+		<wsdl:operation name="initTransaction">
+			<soap:operation soapAction="initTransaction"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="updatePassword">
+			<soap:operation soapAction="updatePassword"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>	
+		
+		<wsdl:operation name="getSelfcareDtlsOnLogin">
+			<soap:operation soapAction="getSelfcareDtlsOnLogin"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+				<soap:header message="tns:WsMessageHeader" part="head" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>	
+		
+	</wsdl:binding>
+	<wsdl:service name="RegistrationManagementServices">
+		<wsdl:port name="RegistrationManagementServicesPort" binding="tns:RegistrationManagementServicesBinding">
+			<soap:address location="http://localhost:8080/axis/RegistrationManagementServices/v1"/>
+		</wsdl:port> 
+	</wsdl:service>
+</wsdl:definitions>

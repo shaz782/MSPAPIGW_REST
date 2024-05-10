@@ -1,0 +1,963 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:tns="http://billing.xius.com/ReportManagement.wsdl"
+	xmlns:report="http://billing.xius.com/ReportManagement.xsd"
+	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:wshdr="http://billing.xius.com/common/header/HeaderDetails.xsd"
+	xmlns:err="http://billing.xius.com/common/error/ErrorDetails.xsd"
+	targetNamespace="http://billing.xius.com/ReportManagement.wsdl">
+	<wsdl:types>
+		<xs:schema
+			xmlns:tns="http://billing.xius.com/ReportManagement.wsdl"
+			targetNamespace="http://billing.xius.com/ReportManagement.wsdl">
+			<xs:import namespace="http://billing.xius.com/ReportManagement.xsd"
+				schemaLocation="ReportManagement.xsd" />
+			<xs:import namespace="http://billing.xius.com/common/header/HeaderDetails.xsd"
+				schemaLocation="HeaderDetails.xsd" />
+			<xs:import namespace="http://billing.xius.com/common/error/ErrorDetails.xsd"
+				schemaLocation="ErrorDetails.xsd" />	
+		</xs:schema>
+	</wsdl:types>
+	
+	<!-- creditReport -->
+	<wsdl:message name="creditReportRequest">
+		<wsdl:part name="body" element="report:creditReportRequest" />
+	</wsdl:message>
+	<wsdl:message name="creditReportResponse">
+		<wsdl:part name="body" element="report:creditReportResponse" />
+	</wsdl:message>
+	<!-- End of creditReport -->
+	
+	<!-- activated MSISDNs Report -->
+	<wsdl:message name="actvdMSISDNsReportRequest">
+		<wsdl:part name="body" element="report:actvdMSISDNsReportRequest" />
+	</wsdl:message>
+	<wsdl:message name="actvdMSISDNsReportResponse">
+		<wsdl:part name="body" element="report:actvdMSISDNsReportResponse" />
+	</wsdl:message>
+	<!-- End of activated dMSISDNs Report -->
+	
+	<!-- specialTopUpReport -->
+	<wsdl:message name="specialTopUpReportRequest">
+		<wsdl:part name="body" element="report:specialTopUpReportRequest" />
+	</wsdl:message>
+	<wsdl:message name="specialTopUpReportResponse">
+		<wsdl:part name="body" element="report:specialTopUpReportResponse" />
+	</wsdl:message>
+	<!-- End of specialTopUpReport -->
+	
+	
+	<!-- vchrPINStatusReport -->
+	<wsdl:message name="vchrPINStatusReportRequest">
+		<wsdl:part name="body" element="report:vchrPINStatusReportRequest" />
+	</wsdl:message>
+	<wsdl:message name="vchrPINStatusReportResponse">
+		<wsdl:part name="body" element="report:vchrPINStatusReportResponse" />
+	</wsdl:message>
+	<!-- End of vchrPINStatusReport -->
+	
+	
+	<!-- excessUsageReport -->
+	<wsdl:message name="excessUsageReportRequest">
+		<wsdl:part name="body" element="report:excessUsageReportRequest" />
+	</wsdl:message>
+	<wsdl:message name="excessUsageReportResponse">
+		<wsdl:part name="body" element="report:excessUsageReportResponse" />
+	</wsdl:message>
+	<!-- End of excessUsageReport -->
+	
+	
+	<!-- VoucherDeactReport -->
+	<wsdl:message name="voucherDeactReportRequest">
+		<wsdl:part name="body" element="report:voucherDeactReportRequest" />
+	</wsdl:message>
+	<wsdl:message name="voucherDeactReportResponse">
+		<wsdl:part name="body" element="report:voucherDeactReportResponse" />
+	</wsdl:message>
+	<!-- End of voucherDeactReport -->
+	
+	<!-- GetSMSHistory -->
+	<wsdl:message name="getSMSHistoryRequest">
+		<wsdl:part name="body" element="report:getSMSHistoryRequest" />
+	</wsdl:message>
+	<wsdl:message name="getSMSHistoryResponse">
+		<wsdl:part name="body" element="report:getSMSHistoryResponse" />
+	</wsdl:message>
+	<!-- End of GetSMSHistory -->
+	
+	<!-- Tariff Plan Charge History -->
+	<wsdl:message name="tariffPlanHistoryRequest">
+		<wsdl:part name="body" element="report:tariffPlanHistoryRequest" />
+	</wsdl:message>
+	<wsdl:message name="tariffPlanHistoryResponse">
+		<wsdl:part name="body" element="report:tariffPlanHistoryResponse" />
+	</wsdl:message>
+	<!-- End of Tariff Plan Charge History -->
+	
+	<!-- View Account Usage Report -->
+	<wsdl:message name="getActUsageReportRequest">
+		<wsdl:part name="body" element="report:getActUsageReportRequest" />
+	</wsdl:message>
+	<wsdl:message name="getActUsageReportResponse">
+		<wsdl:part name="body" element="report:getActUsageReportResponse" />
+	</wsdl:message>
+	<!-- End of View Account Usage Report -->
+	
+	<!-- GetCallHistory message -->
+	<wsdl:message name="getCallHistoryRequest">
+		<wsdl:part name="body" element="report:getCallHistoryRequest" />
+	</wsdl:message>
+
+	<wsdl:message name="getCallHistoryResponse">
+		<wsdl:part name="body" element="report:getCallHistoryResponse" />
+	</wsdl:message>
+	<!-- GetCallHistory message -->
+	
+		<!-- Re Charge History -->
+	<wsdl:message name="rechargeHistoryRequest">
+		<wsdl:part name="body" element="report:rechargeHistoryRequest" />
+	</wsdl:message>
+	<wsdl:message name="rechargeHistoryResponse">
+		<wsdl:part name="body" element="report:rechargeHistoryResponse" />
+	</wsdl:message>
+	<!-- End of Re Charge History -->
+	
+	<!-- changeIMSIReport -->
+	<wsdl:message name="changeIMSIReportRequest">
+		<wsdl:part name="body" element="report:changeIMSIReportRequest" />
+	</wsdl:message>
+	<wsdl:message name="changeIMSIReportResponse">
+		<wsdl:part name="body" element="report:changeIMSIReportResponse" />
+	</wsdl:message>
+	<!-- End of changeIMSIReport -->
+	
+	<!-- ChangeMSISDNReport -->
+	<wsdl:message name="changeMSISDNReportRequest">
+		<wsdl:part name="body" element="report:changeMSISDNReportRequest" />
+	</wsdl:message>
+	<wsdl:message name="changeMSISDNReportResponse">
+		<wsdl:part name="body" element="report:changeMSISDNReportResponse" />
+	</wsdl:message>
+	<!-- End of ChangeMSISDNReport -->
+	
+	<!-- SimSwapReport -->
+	<wsdl:message name="simSwapReportRequest">
+		<wsdl:part name="body" element="report:simSwapReportRequest" />
+	</wsdl:message>
+	<wsdl:message name="simSwapReportResponse">
+		<wsdl:part name="body" element="report:simSwapReportResponse" />
+	</wsdl:message>
+	<!-- End of SimSwapReport -->
+	
+	<!-- specialDebitReport -->
+	<wsdl:message name="specialDebitReportRequest">
+		<wsdl:part name="body" element="report:specialDebitReportRequest" />
+	</wsdl:message>
+	<wsdl:message name="specialDebitReportResponse">
+		<wsdl:part name="body" element="report:specialDebitReportResponse" />
+	</wsdl:message>
+	<!-- End of specialDebitReport -->
+	
+	<!-- DebitReport -->
+	<wsdl:message name="debitReportRequest">
+		<wsdl:part name="body" element="report:debitReportRequest" />
+	</wsdl:message>
+	<wsdl:message name="debitReportResponse">
+		<wsdl:part name="body" element="report:debitReportResponse" />
+	</wsdl:message>
+	<!-- End of DebitReport -->
+	<!-- Chnages merging from OCS,ADR and Service Management -->
+	<!--  getCAReports -->
+	<wsdl:message name="getCAReportsRequest">
+		<wsdl:part name="body" element="report:getCAReportsRequest" />
+	</wsdl:message>
+
+	<wsdl:message name="getCAReportsResponse">
+		<wsdl:part name="body" element="report:getCAReportsResponse" />
+	</wsdl:message>	
+	<!--  End of getCAReports -->
+	
+        <!-- Transaction Report -->
+	<wsdl:message name="accountReportRequest">
+		<wsdl:part name="body" element="report:accountReportRequest" />
+	</wsdl:message>
+	<wsdl:message name="accountReportResponse">
+		<wsdl:part name="body" element="report:accountReportResponse" />
+	</wsdl:message>
+	<!-- End of Transaction Report -->
+        
+        <!-- CreditInfoInvoice Report -->
+	<wsdl:message name="creditInfoInvoiceRequest">
+		<wsdl:part name="body" element="report:creditInfoInvoiceRequest" />
+	</wsdl:message>
+	<wsdl:message name="creditInfoInvoiceResponse">
+		<wsdl:part name="body" element="report:creditInfoInvoiceResponse" />
+	</wsdl:message>
+	<!-- End of CreditInfoInvoice Report -->
+	<!-- End of Merging -->
+	<!-- attachDettachBndlReport -->
+	<wsdl:message name="attachDettachBndlReportRequest">
+		<wsdl:part name="body" element="report:attachDettachBndlReportRequest" />
+	</wsdl:message>
+	<wsdl:message name="attachDettachBndlReportResponse">
+		<wsdl:part name="body" element="report:attachDettachBndlReportResponse" />
+	</wsdl:message>
+	<!-- End of attachDettachBndlReport -->
+	
+	
+	<!--PaymentReport-->
+	<wsdl:message name="paymentReportRequest">
+		<wsdl:part name="body" element="report:paymentReportRequest" />
+	</wsdl:message>
+	<wsdl:message name="paymentReportResponse">
+		<wsdl:part name="body" element="report:paymentReportResponse" />
+	</wsdl:message>
+	<!--End of PaymentReport-->
+	
+	<!--CrossPromoTransReport-->
+	<wsdl:message name="crossPromoTransReportRequest">
+		<wsdl:part name="body" element="report:crossPromoTransReportRequest" />
+	</wsdl:message>
+	<wsdl:message name="crossPromoTransReportResponse">
+		<wsdl:part name="body" element="report:crossPromoTransReportResponse" />
+	</wsdl:message>
+	<!--End of CrossPromoTransReport-->
+	
+	<!--usageReport-->
+	<wsdl:message name="usageReportRequest">
+		<wsdl:part name="body" element="report:usageReportRequest" />
+	</wsdl:message>
+	<wsdl:message name="usageReportResponse">
+		<wsdl:part name="body" element="report:usageReportResponse" />
+	</wsdl:message>
+	<!--End of usageReport-->
+	
+	<!--getDeactiveReasons-->
+	<wsdl:message name="getDeactiveReasonsRequest">
+		<wsdl:part name="body" element="report:getDeactiveReasonsRequest" />
+	</wsdl:message>
+	<wsdl:message name="getDeactiveReasonsResponse">
+		<wsdl:part name="body" element="report:getDeactiveReasonsResponse" />
+	</wsdl:message>
+	<!--End of getDeactiveReasons-->
+	
+	<wsdl:message name="rcTransactionReportRequest">
+		<wsdl:part name="body" element="report:rcTransactionReportRequest" />
+	</wsdl:message>
+	<wsdl:message name="rcTransactionReportResponse">
+		<wsdl:part name="body" element="report:rcTransactionReportResponse" />
+	</wsdl:message>
+	
+	<!--  added by jhansi-->
+	<wsdl:message name="getCorpSimStatusReportRequest">
+		<wsdl:part name="body" element="report:getCorpSimStatusReportRequest" />
+	</wsdl:message>
+	<wsdl:message name="getCorpSimStatusReportResponse">
+		<wsdl:part name="body" element="report:getCorpSimStatusReportResponse" />
+	</wsdl:message>
+	
+	<wsdl:message name="getCorpSimVoucherActRequest">
+		<wsdl:part name="body" element="report:getCorpSimVoucherActRequest" />
+	</wsdl:message>
+	<wsdl:message name="getCorpSimVoucherActResponse">
+		<wsdl:part name="body" element="report:getCorpSimVoucherActResponse" />
+	</wsdl:message>
+	
+			<!-- getOCMPCalls -->
+	<wsdl:message name="getOCMPCallsRequest">
+		<wsdl:part name="body" element="report:getOCMPCallsRequest" />
+	</wsdl:message>
+	<wsdl:message name="getOCMPCallsResponse">
+		<wsdl:part name="body" element="report:getOCMPCallsResponse" />
+	</wsdl:message>
+	<!-- End of getOCMPCalls -->
+	
+	
+	
+	<wsdl:message name="messageHeader">
+		<wsdl:part name="head" element="wshdr:messageHeader" />
+	</wsdl:message>
+	<wsdl:message name="faultMessage">
+		<wsdl:part name="body" element="err:errorDetailItem" />
+	</wsdl:message>
+	
+ <wsdl:portType name="ReportManagementPortType">
+	
+	
+	<!-- creditReport -->
+	<wsdl:operation name="creditReport">
+		<wsdl:input message="tns:creditReportRequest" />
+		<wsdl:output message="tns:creditReportResponse" />
+		<wsdl:fault name="fault" message="tns:faultMessage" />
+	</wsdl:operation>
+	<!--  end of creditReport -->
+	
+	<!-- actvdMSISDNsReport operation -->
+	<wsdl:operation name="actvdMSISDNsReport">
+		<wsdl:input message="tns:actvdMSISDNsReportRequest" />
+		<wsdl:output message="tns:actvdMSISDNsReportResponse" />
+		<wsdl:fault name="fault" message="tns:faultMessage" />
+	</wsdl:operation>
+	<!--  end of actvdMSISDNsReport operation -->
+	
+	<!-- specialTopUpReport -->
+	<wsdl:operation name="specialTopUpReport">
+		<wsdl:input message="tns:specialTopUpReportRequest" />
+		<wsdl:output message="tns:specialTopUpReportResponse" />
+		<wsdl:fault name="fault" message="tns:faultMessage" />
+	</wsdl:operation>
+	<!--  end of specialTopUpReport operation -->
+	
+	
+	<!-- vchrPINStatusReport operation -->
+	<wsdl:operation name="vchrPINStatusReport">
+		<wsdl:input message="tns:vchrPINStatusReportRequest" />
+		<wsdl:output message="tns:vchrPINStatusReportResponse" />
+		<wsdl:fault name="fault" message="tns:faultMessage" />
+	</wsdl:operation>
+	<!--  end of vchrPINStatusReport operation -->
+	
+	
+	<!-- excessUsageReport operation -->
+	<wsdl:operation name="excessUsageReport">
+		<wsdl:input message="tns:excessUsageReportRequest" />
+		<wsdl:output message="tns:excessUsageReportResponse" />
+		<wsdl:fault name="fault" message="tns:faultMessage" />
+	</wsdl:operation>
+	<!--  end of excessUsageReport operation -->
+	
+	
+	<!-- voucherDeactReport operation -->
+	<wsdl:operation name="voucherDeactReport">
+		<wsdl:input message="tns:voucherDeactReportRequest" />
+		<wsdl:output message="tns:voucherDeactReportResponse" />
+		<wsdl:fault name="fault" message="tns:faultMessage" />
+	</wsdl:operation>
+	<!--  end of voucherDeactReport operation -->
+	
+	<!-- getSMSHistory operation -->
+	<wsdl:operation name="getSMSHistory">
+		<wsdl:input message="tns:getSMSHistoryRequest" />
+		<wsdl:output message="tns:getSMSHistoryResponse" />
+		<wsdl:fault name="fault" message="tns:faultMessage" />
+	</wsdl:operation>
+	<!--  end of getSMSHistory operation -->
+		
+	<!-- getCallHistory operation -->
+		<wsdl:operation name="getCallHistory">
+			<wsdl:input message="tns:getCallHistoryRequest" />
+			<wsdl:output message="tns:getCallHistoryResponse" />
+			<wsdl:fault name="fault" message="tns:faultMessage" />
+		</wsdl:operation>
+		<!--  end of getCallHistory operation -->
+		
+	<wsdl:operation name="rechargeHistory">
+			<wsdl:input message="tns:rechargeHistoryRequest" />
+			<wsdl:output message="tns:rechargeHistoryResponse" />
+			<wsdl:fault name="fault" message="tns:faultMessage" />
+		</wsdl:operation>
+	
+	<wsdl:operation name="getActUsageReport">
+			<wsdl:input message="tns:getActUsageReportRequest" />
+			<wsdl:output message="tns:getActUsageReportResponse" />
+			<wsdl:fault name="fault" message="tns:faultMessage" />
+		</wsdl:operation>
+	
+	<wsdl:operation name="tariffPlanHistory">
+ 			<wsdl:input message="tns:tariffPlanHistoryRequest" />
+ 			<wsdl:output message="tns:tariffPlanHistoryResponse" />
+   			<wsdl:fault name="fault" message="tns:faultMessage" />
+   		</wsdl:operation>
+   		
+   		<!-- ChangeIMSIReport -->
+   		<wsdl:operation name="changeIMSIReport">
+ 			<wsdl:input message="tns:changeIMSIReportRequest" />
+ 			<wsdl:output message="tns:changeIMSIReportResponse" />
+   			<wsdl:fault name="fault" message="tns:faultMessage" />
+   		</wsdl:operation>
+   		<!-- End of ChangeIMSIReport -->
+		
+		<!-- ChangeMSISDNReport -->
+   		<wsdl:operation name="changeMSISDNReport">
+ 			<wsdl:input message="tns:changeMSISDNReportRequest" />
+ 			<wsdl:output message="tns:changeMSISDNReportResponse" />
+   			<wsdl:fault name="fault" message="tns:faultMessage" />
+   		</wsdl:operation>
+   		<!-- End of ChangeMSISDNReport -->
+   		
+   		<!-- SimSwapReport -->
+   		<wsdl:operation name="simSwapReport">
+ 			<wsdl:input message="tns:simSwapReportRequest" />
+ 			<wsdl:output message="tns:simSwapReportResponse" />
+   			<wsdl:fault name="fault" message="tns:faultMessage" />
+   		</wsdl:operation>
+   		<!-- End of SimSwapReport -->
+   		
+   		<!-- DebitReport -->
+   		<wsdl:operation name="debitReport">
+ 			<wsdl:input message="tns:debitReportRequest" />
+ 			<wsdl:output message="tns:debitReportResponse" />
+   			<wsdl:fault name="fault" message="tns:faultMessage" />
+   		</wsdl:operation>
+   		<!-- End of DebitReport -->
+   		
+   		<!-- specialDebitReport -->
+   		<wsdl:operation name="specialDebitReport">
+ 			<wsdl:input message="tns:specialDebitReportRequest" />
+ 			<wsdl:output message="tns:specialDebitReportResponse" />
+   			<wsdl:fault name="fault" message="tns:faultMessage" />
+   		</wsdl:operation>
+   		<!-- End of specialDebitReport -->
+   		<!-- Chnages merging from OCS,ADR and Service Management -->
+   		<!--  getCAReports -->
+		<wsdl:operation name="getCAReports">
+			<wsdl:input message="tns:getCAReportsRequest" />
+			<wsdl:output message="tns:getCAReportsResponse" />
+			<wsdl:fault name="fault" message="tns:faultMessage" />
+		</wsdl:operation>
+		<!--  end of getCAReports -->
+                <!-- TransactionReport -->
+   		<wsdl:operation name="accountReport">
+ 			<wsdl:input message="tns:accountReportRequest" />
+ 			<wsdl:output message="tns:accountReportResponse" />
+   			<wsdl:fault name="fault" message="tns:faultMessage" />
+   		</wsdl:operation>
+   		<!-- End of TransactionReport -->
+                <!-- creditInfoInvoice -->
+   		<wsdl:operation name="creditInfoInvoice">
+ 			<wsdl:input message="tns:creditInfoInvoiceRequest" />
+ 			<wsdl:output message="tns:creditInfoInvoiceResponse" />
+   			<wsdl:fault name="fault" message="tns:faultMessage" />
+   		</wsdl:operation>
+   		<!-- End of creditInfoInvoice -->
+		<!-- End of Merging -->
+			<!-- attachDettachBndlReport -->
+		<wsdl:operation name="attachDettachBndlReport">
+			<wsdl:input message="tns:attachDettachBndlReportRequest" />
+			<wsdl:output message="tns:attachDettachBndlReportResponse" />
+			<wsdl:fault name="fault" message="tns:faultMessage" />
+		</wsdl:operation>
+		<!--  end of attachDettachBndlReport -->
+		<!--PaymentReport-->
+		<wsdl:operation name="paymentReport">
+			<wsdl:input message="tns:paymentReportRequest" />
+			<wsdl:output message="tns:paymentReportResponse" />
+			<wsdl:fault name="fault" message="tns:faultMessage" />
+		</wsdl:operation>
+		<!--CrossPromoTransReport-->
+		<wsdl:operation name="crossPromoTransReport">
+			<wsdl:input message="tns:crossPromoTransReportRequest" />
+			<wsdl:output message="tns:crossPromoTransReportResponse" />
+			<wsdl:fault name="fault" message="tns:faultMessage" />
+		</wsdl:operation>
+		
+		<!--usageReport-->
+		<wsdl:operation name="usageReport">
+			<wsdl:input message="tns:usageReportRequest" />
+			<wsdl:output message="tns:usageReportResponse" />
+			<wsdl:fault name="fault" message="tns:faultMessage" />
+		</wsdl:operation>
+		<!--End of usageReport-->
+		
+		<!--getDeactiveReasons-->
+		<wsdl:operation name="getDeactiveReasons">
+			<wsdl:input message="tns:getDeactiveReasonsRequest" />
+			<wsdl:output message="tns:getDeactiveReasonsResponse" />
+			<wsdl:fault name="fault" message="tns:faultMessage" />
+		</wsdl:operation>
+		<!--End of getDeactiveReasons-->
+		
+		
+		<wsdl:operation name="rcTransactionReport">
+			<wsdl:input message="tns:rcTransactionReportRequest" />
+			<wsdl:output message="tns:rcTransactionReportResponse" />
+			<wsdl:fault name="fault" message="tns:faultMessage" />
+		</wsdl:operation>
+		
+		
+		<wsdl:operation name="corpSimStatusReport">
+			<wsdl:input message="tns:getCorpSimStatusReportRequest" />
+			<wsdl:output message="tns:getCorpSimStatusReportResponse" />
+			<wsdl:fault name="fault" message="tns:faultMessage" />
+		</wsdl:operation>
+		
+		<wsdl:operation name="getCorpSimVoucherAct">
+			<wsdl:input message="tns:getCorpSimVoucherActRequest" />
+			<wsdl:output message="tns:getCorpSimVoucherActResponse" />
+			<wsdl:fault name="fault" message="tns:faultMessage" />
+		</wsdl:operation>
+		
+     <!--getOCMPCalls-->
+		<wsdl:operation name="getOCMPCalls">
+			<wsdl:input message="tns:getOCMPCallsRequest" />
+			<wsdl:output message="tns:getOCMPCallsResponse" />
+			<wsdl:fault name="fault" message="tns:faultMessage" />
+		</wsdl:operation>
+	<!-- end of getOCMPCalls-->	
+		
+
+   	</wsdl:portType>
+	<wsdl:binding name="ReportManagementBinding"
+		type="tns:ReportManagementPortType">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+			
+		<!-- activated MSISDNs Report binding -->
+		<wsdl:operation name="actvdMSISDNsReport">
+			<soap:operation soapAction="actvdMSISDNsReport" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head"
+					use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- end of activated MSISDNs Report binding -->
+			
+			
+		<!-- specialTopUpReport binding -->
+		<wsdl:operation name="specialTopUpReport">
+			<soap:operation soapAction="specialTopUpReport" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />				
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- end of topUp Report binding -->
+			
+			
+		<!-- Voucher PIN Status Report binding -->
+		<wsdl:operation name="vchrPINStatusReport">
+			<soap:operation soapAction="vchrPINStatusReport" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />				
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- end of voucher PIN Status Report binding -->
+			
+			
+		<!-- excessUsageReport binding -->
+		<wsdl:operation name="excessUsageReport">
+			<soap:operation soapAction="excessUsageReport" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />				
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- end of excessUsageReport binding -->
+		
+			
+		<!-- voucherDeactReport binding -->
+		<wsdl:operation name="voucherDeactReport">
+			<soap:operation soapAction="voucherDeactReport" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />				
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- end of voucherDeactReport binding -->
+			
+		<!-- GetSMSHistory binding -->
+		<wsdl:operation name="getSMSHistory">
+			<soap:operation soapAction="getSMSHistory" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- end of GetSMSHistory binding -->
+			
+		<!-- GetCallHistory binding -->
+		<wsdl:operation name="getCallHistory">
+			<soap:operation soapAction="getCallHistory" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- end of GetCallHistory binding -->
+		
+		<wsdl:operation name="rechargeHistory">
+			<soap:operation soapAction="rechargeHistory" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>	
+		
+		<wsdl:operation name="tariffPlanHistory">
+			<soap:operation soapAction="tariffPlanHistory" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="getActUsageReport">
+			<soap:operation soapAction="getActUsageReport" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>	
+		
+		<!-- ChangeIMSIReport -->		
+		<wsdl:operation name="changeIMSIReport">
+			<soap:operation soapAction="changeIMSIReport" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of ChangeIMSIReport -->
+		
+		<!-- ChangeMSISDNReport -->		
+		<wsdl:operation name="changeMSISDNReport">
+			<soap:operation soapAction="changeMSISDNReport" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of ChangeMSISDNReport -->
+		
+		<!-- SimSwapReport -->		
+		<wsdl:operation name="simSwapReport">
+			<soap:operation soapAction="simSwapReport" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of SimSwapReport -->
+		
+		<!-- debitReport -->		
+		<wsdl:operation name="debitReport">
+			<soap:operation soapAction="debitReport" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of DebitReport -->
+		
+		<!-- specialDebitReport -->		
+		<wsdl:operation name="specialDebitReport">
+			<soap:operation soapAction="specialDebitReport" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of specialDebitReport -->
+		
+		<!-- creditReport -->		
+		<wsdl:operation name="creditReport">
+			<soap:operation soapAction="creditReport" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of creditReport -->
+		
+		<!-- Chnages merging from OCS,ADR and Service Management -->
+		
+		<!--  getCAReports -->
+		<wsdl:operation name="getCAReports">
+			<soap:operation soapAction="getCAReports" />
+				<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of getCAReports -->
+		<!-- Transaction Report -->		
+		<wsdl:operation name="accountReport">
+			<soap:operation soapAction="accountReport" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of Transaction Report -->
+                <!-- creditReport -->		
+		<wsdl:operation name="creditInfoInvoice">
+			<soap:operation soapAction="creditInfoInvoice" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of creditReport -->
+		<!-- End of Merging -->
+		<!-- attachDettachBndlReport -->		
+		<wsdl:operation name="attachDettachBndlReport">
+			<soap:operation soapAction="attachDettachBndlReport" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- End of attachDettachBndlReport -->
+		
+		<!--paymentReport-->
+		<wsdl:operation name="paymentReport">
+			<soap:operation soapAction="paymentReport" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!--End of paymentReport-->
+		
+		<!--crossPromoTransReport-->
+		<wsdl:operation name="crossPromoTransReport">
+			<soap:operation soapAction="crossPromoTransReport" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!--End of crossPromoTransReport-->
+		
+		<!--usageReport-->
+		<wsdl:operation name="usageReport">
+			<soap:operation soapAction="usageReport" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!--End of usageReport-->
+		
+		<!--getDeactiveReasons-->
+		<wsdl:operation name="getDeactiveReasons">
+			<soap:operation soapAction="getDeactiveReasons" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!--End of getDeactiveReasons-->
+		
+		<wsdl:operation name="rcTransactionReport">
+			<soap:operation soapAction="rcTransactionReport" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		
+		<wsdl:operation name="corpSimStatusReport">
+			<soap:operation soapAction="corpSimStatusReport" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="getCorpSimVoucherAct">
+			<soap:operation soapAction="getCorpSimVoucherAct" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="getOCMPCalls">
+			<soap:operation soapAction="getOCMPCalls" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:messageHeader" part="head" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	
+	<wsdl:service name="ReportService">
+		<wsdl:port name="ReportManagementPort" binding="tns:ReportManagementBinding">
+			<soap:address location="http://localhost:8080/infinet/services/v1/ReportServices" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

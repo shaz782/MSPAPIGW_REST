@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns="http://billing.xius.com/SubscriberManagementV1.xsd"	 
+	targetNamespace="http://billing.xius.com/SubscriberManagementV1.xsd"
+	elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+	
+	
+	<xs:element name="getAcctDetailsRequest"  type="GetAcctDetailsRequest" />
+ 	<xs:element name="getAcctDetailsResponse" type="GetAcctDetailsResponse" />
+ 	
+ 	<xs:element name="getRemainingUnitDetailRequest" type="GetRemainingUnitDetailRequest"/>
+ 	<xs:element name="getRemainingUnitDetailResponse" type="GetRemainingUnitDetailResponse"/>
+ 	
+ 	<xs:element name="getSubBillingDetailsRequest" type="GetSubBillingDetailsRequest"/>
+ 	<xs:element name="getSubBillingDetailsResponse" type="GetSubBillingDetailsResponse"/>
+ 	
+ 	<xs:element name="getDetailsbyActStateSellerCodeRequest" type="GetDetailsbyActStateSellerCodeRequest"/>
+ 	<xs:element name="getDetailsbyActStateSellerCodeResponse" type="GetDetailsbyActStateSellerCodeResponse"></xs:element>
+	 	
+	<xs:element name="getActivePacksRequest" type="GetActivePacksRequest"/>
+ 	<xs:element name="getActivePacksResponse" type="GetActivePacksResponse"/>
+ 	        
+ 	 <xs:element name="getLoanDetailsByDateRequest" type="GetLoanDetailsByDateRequest"/>
+ 	 <xs:element name="getLoanDetailsByDateResponse" type="GetLoanDetailsByDateResponse"/>
+ 	    
+ 	  <xs:complexType name="GetLoanDetailsByDateRequest">
+		<xs:sequence>
+			<xs:element name="MSISDN" type="MSISDNType" minOccurs="0"/>
+		    <xs:element name="startDate" type="DateTypeMMDDYYYY" minOccurs="0"/>
+		    <xs:element name="endDate" type="DateTypeMMDDYYYY" minOccurs="0"/>
+		    <xs:element name="userDefined1" type="xs:string" minOccurs="0"/>
+		    <xs:element name="userDefined2" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+ 	 
+ 	 
+ 	<xs:complexType name="GetLoanDetailsByDateResponse">
+		<xs:sequence>
+			<xs:element name="loanAcctDetails" type="loanAcctDetailsType" minOccurs="0" maxOccurs="unbounded"/>
+		    <xs:element name="userDefined1" type="xs:string" minOccurs="0"/>
+		    <xs:element name="userDefined2" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType> 
+ 	 
+ 	 
+     <xs:complexType name="loanAcctDetailsType">
+		<xs:sequence>
+		    <xs:element name="MSISDN" type="MSISDNType" minOccurs="0"/>
+			<xs:element name="acctID" type="AccountIdType" minOccurs="0"/>
+			<xs:element name="loanAmount" type="xs:string" minOccurs="0"/>
+		    <xs:element name="loanCommission" type="xs:string" minOccurs="0"/>
+		    <xs:element name="transactionDate" type="xs:string" minOccurs="0"/>		    
+		</xs:sequence>
+	</xs:complexType> 
+        	 
+ 	 
+ 	 
+ 	 
+ 	    
+	  
+	 <xs:complexType name="GetAcctDetailsRequest">
+		<xs:sequence>
+			<xs:element name="SIMNo" type="SIMType" minOccurs="0"/>
+			<xs:element name="MSISDN" type="MSISDNType" minOccurs="0"/>
+			<xs:element name="acctID" type="AccountIdType" minOccurs="0"/>	
+			<xs:element name="IMSINo" type="IMSIType" minOccurs="0"/>
+			<xs:element name="status" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetAcctDetailsResponse">
+		  <xs:sequence>
+		    <xs:element name="SIMNo" type="SIMType" minOccurs="0"/>
+		    <xs:element name="MSISDN" type="MSISDNType" minOccurs="0"/>
+		    <xs:element name="acctID" type="AccountIdType" minOccurs="0"/>
+		    <xs:element name="IMSINo" type="IMSIType" minOccurs="0"/>			 
+			<xs:element name="idValue" type="xs:string" minOccurs="0"/>
+			<xs:element name="accountBalance" type="BalanceType" minOccurs="0"/>
+			<xs:element name="accountStatus" type="xs:string" minOccurs="0"/>
+			<xs:element name="accountType" type="xs:string" minOccurs="0"/>
+			<xs:element name="accountValidity" type="xs:string" minOccurs="0"/>
+			<xs:element name="activationDate" type="DateType"	minOccurs="0"/>
+			<xs:element name="tariffPackName" type="xs:string" minOccurs="0"/>
+			<xs:element name="tariffPackValidity" type="xs:string" minOccurs="0"/>
+			<xs:element name="sellerCode" type="xs:string" minOccurs="0"/>		
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetRemainingUnitDetailRequest">
+	<xs:sequence>
+	  <xs:element name="MSISDN" type="MSISDNType" minOccurs="0"/>
+	  <xs:element name="acctID" type="AccountIdType" minOccurs="0"/>
+	  <xs:element name="publicityId" type="PublicityIdType" minOccurs="0"/>
+	</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetRemainingUnitDetailResponse">
+	 <xs:sequence>
+	  <xs:element name="MSISDN" type="MSISDNType" minOccurs="0"/>
+	  <xs:element name="acctID" type="AccountIdType" minOccurs="0"/>
+	  <!-- <xs:element name="publicityId" type="PublicityIdType" minOccurs="0"/> -->
+	  <xs:element name="BenefitDtls" type="BenefitDtlsType" minOccurs="0" maxOccurs="unbounded"/>
+	  <xs:element name="packValidity" type="xs:string" minOccurs="0"/> 
+	 </xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="BenefitDtlsType">
+	<xs:sequence>
+	<xs:element name="publicityId" type="PublicityIdType" minOccurs="0"/>
+	<xs:element name="voiceDetailsList" type="VoiceDetailsListType"  minOccurs="0" />
+	<xs:element name="smsDetailsList" type="SmsDetailsListType"  minOccurs="0" />
+	<xs:element name="dataDetailsList" type="DataDetailsListType"  minOccurs="0" />
+	<xs:element name="globalDetailsList" type="GlobalDetailsListType"  minOccurs="0" />
+	</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="VoiceDetailsListType">
+	<xs:sequence>
+	<xs:element name="voiceDetails" type="VoiceDetailsInfoType" maxOccurs="unbounded"/>
+	</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="VoiceDetailsInfoType">
+	<xs:sequence>
+	  <xs:element name="bucketName" type="BucketNameType" minOccurs="0"/>
+	  <xs:element name="unitsAllocated" type="xs:long" minOccurs="0"/>
+	  <xs:element name="remainingUnits" type="xs:long" minOccurs="0"/>
+	  <xs:element name="unitsType" type="xs:string" minOccurs="0" />
+	</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="SmsDetailsListType">
+	 <xs:sequence>
+	 <xs:element name="smsDetails" type="smsDetailsInfoType" maxOccurs="unbounded"/>
+	 </xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="smsDetailsInfoType">
+	 <xs:sequence>
+	  <xs:element name="bucketName" type="BucketNameType" minOccurs="0"/>
+	  <xs:element name="unitsAllocated" type="xs:long" minOccurs="0"/>
+	   <xs:element name="remainingUnits" type="xs:long" minOccurs="0"/>
+	  <xs:element name="unitsType" type="xs:string" minOccurs="0"/>
+	 </xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="DataDetailsListType">
+	  <xs:sequence>
+	  <xs:element name="dataDetails" type="dataDetailsInfoType" maxOccurs="unbounded"/>
+	  </xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="dataDetailsInfoType">
+	  <xs:sequence>
+	   <xs:element name="bucketName" type="BucketNameType" minOccurs="0"/>
+	   <xs:element name="unitsAllocated" type="xs:long" minOccurs="0"/>
+	    <xs:element name="remainingUnits" type="xs:long" minOccurs="0"/>
+	   <xs:element name="unitsType" type="xs:string" minOccurs="0"/>
+	   <xs:element name="ratingGroup" type="xs:string" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="GlobalDetailsListType">
+	 <xs:sequence>
+	  <xs:element name="globalDetails" type="globalDetailsInfoType" maxOccurs="unbounded"/>
+	 </xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="globalDetailsInfoType">
+	 <xs:sequence>
+	  <xs:element name="bucketName" type="BucketNameType" minOccurs="0"/>
+	  <xs:element name="unitsAllocated" type="xs:long" minOccurs="0"/>
+	   <xs:element name="remainingUnits" type="xs:long" minOccurs="0"/>
+	  <xs:element name="unitsType" type="xs:string" minOccurs="0"/>
+	 </xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="GetSubBillingDetailsRequest">
+	 <xs:sequence>
+	   <xs:element name="MSISDN" type="MSISDNType" minOccurs="0"/>
+	   <xs:element name="acctID" type="AccountIdType" minOccurs="0"/>
+	   <xs:element name="sellerCode" type="xs:string" minOccurs="0"/>
+	 </xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="GetSubBillingDetailsResponse">
+	  <xs:sequence>
+	    <xs:element name="MSISDN" type="MSISDNType" minOccurs="0"/>
+	    <xs:element name="acctID" type="AccountIdType" minOccurs="0"/>
+	    <xs:element name="ICCID" type="xs:string" minOccurs="0"/>
+	    <xs:element name="idValue" type="xs:string" minOccurs="0"/>
+	    <xs:element name="accountBalance" type="BalanceType" minOccurs="0"/>
+	    <xs:element name="accountStatus" type="xs:string" minOccurs="0"/>
+	    <xs:element name="accountExpDate" type="DateType" minOccurs="0"/>
+	    <xs:element name="accountValidity" type="xs:string" minOccurs="0"/>
+	    <xs:element name="tariffPackName" type="xs:string" minOccurs="0"/> 
+	    <xs:element name="tariffPackValidity" type="xs:string" minOccurs="0"/> 
+	  </xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="GetDetailsbyActStateSellerCodeRequest">
+	 <xs:sequence>
+	   <xs:element name="expEndDate" type="DateType" minOccurs="0"/>
+	   <xs:element name="expStartDate" type="DateType" minOccurs="0"/>
+	   <xs:element name="sellerCode" type="xs:string" minOccurs="0"/>
+	   <xs:element name="subStatus" type="xs:string" minOccurs="0"/>
+	 </xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="GetDetailsbyActStateSellerCodeResponse">
+	   <xs:sequence>
+	     <xs:element name="MSISDNSNo" type="msisdnListType" minOccurs="0"/>
+	   </xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="msisdnListType">
+	 <xs:sequence>
+	    <xs:element name="MSISDN" type="MSISDNType" maxOccurs="unbounded"/>
+	 </xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="GetActivePacksRequest">
+	 <xs:sequence>
+	   <xs:element name="MSISDN" type="MSISDNType" minOccurs="0"/>
+	   <xs:element name="acctID" type="AccountIdType" minOccurs="0"/>
+	    </xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="GetActivePacksResponse">
+	 <xs:sequence>
+	   <xs:element name="packDetailslist" type="packDetailsListType" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="packDetailsListType">
+	 <xs:sequence>
+	 <xs:element name="packDetails" type="packDetailsType" maxOccurs="unbounded"/>
+	 
+	  </xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="packDetailsType">
+	<xs:sequence>
+	 <xs:element name="packExpDate" type="DateType" minOccurs="0"/>
+	   <xs:element name="packName" type="xs:string" minOccurs="0"/>
+	   <xs:element name="packType" type="xs:string" minOccurs="0"/>
+	   <xs:element name="publicityId" type="PublicityIdType" minOccurs="0"/>
+	</xs:sequence>
+	</xs:complexType>
+	 
+	
+	<xs:simpleType name="MSISDNType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="7"/>
+			<xs:maxLength value="20"/>
+			<xs:pattern value="[0-9]{7,20}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SIMType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="20" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="AccountIdType">
+		<xs:restriction base="xs:long">
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="IMSIType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="10"/>
+			<xs:maxLength value="20"/>
+			<xs:pattern value="[0-9]{10,20}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="BalanceType">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="4"/>
+			<xs:totalDigits value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="DateType">
+		<xs:restriction base="xs:string">
+			<!-- DD/MM/YYYY format -->
+			<xs:pattern value="([0][1-9]|[1-2][0-9]|[3][0-1])/([0][1-9]|[1][0-2])/([1-9][0-9][0-9][0-9])"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	
+	<xs:simpleType name="DateTypeMMDDYYYY">
+		<xs:restriction base="xs:string">
+			<!-- MM/DD/YYYY format -->
+			<xs:pattern value="([0][1-9]|[1][0-2])/([0][1-9]|[1-2][0-9]|[3][0-1])/([1-9][0-9][0-9][0-9])"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	
+	
+	<xs:simpleType name="BucketNameType">
+			<xs:restriction base="xs:string">
+				<xs:minLength value="1"/>
+  				<xs:maxLength value="50"/>
+			</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="PublicityIdType">
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+	
+</xs:schema>
